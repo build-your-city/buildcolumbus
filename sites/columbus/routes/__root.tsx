@@ -30,7 +30,6 @@ const footerColumns: FooterColumn[] = [
 	{
 		heading: "Connect",
 		links: [
-			{ label: "Meetup", href: city.links.meetup },
 			{ label: "Discord", href: city.links.discord },
 			{ label: "Instagram", href: city.links.instagram },
 			{ label: "LinkedIn", href: city.links.linkedin },

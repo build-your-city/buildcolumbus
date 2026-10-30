@@ -19,7 +19,7 @@ export const hackSteps = [
 	{
 		marker: "1",
 		title: "Hear the need",
-		body: "Six guest speakers shared what they see every day in their work, from homelessness to digital accessibility.",
+		body: "Seven guest speakers shared what they see every day in their work, from homelessness to digital accessibility.",
 	},
 	{
 		marker: "2",

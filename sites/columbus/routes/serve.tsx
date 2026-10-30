@@ -28,7 +28,7 @@ const steps = [
 	{
 		marker: "3",
 		title: "See where you fit",
-		body: "You'll notice what they're missing. Tell us, and we'll help turn it into a project.",
+		body: "You'll notice what they're missing. Tell us, and we'll see if it can become a project.",
 	},
 ];
 
@@ -70,8 +70,9 @@ function ServePage() {
 					</SectionHeading>
 					<p className="mt-8 font-sans text-[17px] font-medium leading-[1.55] text-ink">
 						Nobody knows what a nonprofit needs better than the people who work
-						there, and nobody learns it faster than someone standing next to
-						them. Projects come after, once you've seen the need yourself.
+						there, and nobody learns it faster than someone volunteering
+						alongside them. Projects come after, once you've seen the need
+						yourself.
 					</p>
 				</SplitBlock>
 			</Section>
@@ -90,8 +91,10 @@ function ServePage() {
 					Need builders?
 				</SectionHeading>
 				<p className="mt-8 max-w-[46rem] font-sans text-[22px] font-medium leading-[1.4] text-paper">
-					If you run a Columbus nonprofit and could use a group of volunteers,
-					or help with something a skill could solve, tell us about it.
+					We're developers, designers, content creators, and more who want to
+					help where we can. If you run a Columbus nonprofit and have a need,
+					whether it's extra hands at an event or a problem a skill could solve,
+					tell us about it.
 				</p>
 				<CtaLink href={`mailto:${city.email}`} className="mt-10">
 					Get in touch

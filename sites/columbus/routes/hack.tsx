@@ -61,9 +61,9 @@ function HackPage() {
 						{city.hackEventName}
 					</SectionHeading>
 					<p className={`mt-8 ${bodyText}`}>
-						Saturday, October 24 at Leading EDJE in Dublin. Six guest speakers,
-						five challenge areas, and a full room from 8 AM to 8 PM. Crowd
-						favorite went to Jasmine Harris, Victoria Robertson, and Bryan
+						Saturday, October 24 at Leading EDJE in Dublin. Seven guest
+						speakers, five challenge areas, and a full room from 8 AM to 8 PM.
+						Crowd favorite went to Jasmine Harris, Victoria Robertson, and Bryan
 						Fernandez. Runner-up: Pedro and Nick.
 					</p>
 				</SplitBlock>
