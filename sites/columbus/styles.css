@@ -1,0 +1,6 @@
+/* Shared tokens and base styles from the library. */
+@import "../../src/styles.css";
+
+/* Tailwind scans these for class names (the Vite root is this folder). */
+@source "../../src/components";
+@source ".";

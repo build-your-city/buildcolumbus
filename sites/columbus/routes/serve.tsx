@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CtaLink from "../components/CtaLink";
-import PhotoPlaceholder from "../components/PhotoPlaceholder";
-import Section from "../components/Section";
-import SectionHeading from "../components/SectionHeading";
-import SplitBlock from "../components/SplitBlock";
-import ThreeUp from "../components/ThreeUp";
+import CtaLink from "@/components/CtaLink";
+import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import SplitBlock from "@/components/SplitBlock";
+import ThreeUp from "@/components/ThreeUp";
 import { city } from "../config/city";
 
 export const Route = createFileRoute("/serve")({

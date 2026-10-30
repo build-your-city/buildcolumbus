@@ -1,58 +1,37 @@
 import { Link } from "@tanstack/react-router";
-import { city } from "../config/city";
 import Container from "./Container";
 import Wordmark from "./Wordmark";
 
-type FooterLink = { label: string; to?: string; href?: string };
+export type FooterLink = { label: string; to?: string; href?: string };
+export type FooterColumn = { heading: string; links: FooterLink[] };
 
-const columns: { heading: string; links: FooterLink[] }[] = [
-	{
-		heading: "Community",
-		links: [
-			{ label: "Meetup", to: "/meetup" },
-			{ label: "Serve", to: "/serve" },
-			{ label: "Hack", to: "/hack" },
-			{ label: "Donate", href: city.links.donate },
-		],
-	},
-	{
-		heading: "Connect",
-		links: [
-			{ label: "Meetup", href: city.links.meetup },
-			{ label: "Discord", href: city.links.discord },
-			{ label: "Instagram", href: city.links.instagram },
-			{ label: "LinkedIn", href: city.links.linkedin },
-			{ label: "Facebook", href: city.links.facebook },
-		],
-	},
-	{
-		heading: "Contact",
-		links: [
-			{ label: city.email, href: `mailto:${city.email}` },
-			{
-				label: city.links.parent.replace(/^https?:\/\//, ""),
-				href: city.links.parent,
-			},
-		],
-	},
-];
+type FooterProps = {
+	wordmark: { top: string; bottom: string };
+	tagline: string;
+	/** Three link columns shown after the wordmark column. */
+	columns: FooterColumn[];
+};
 
 const linkClass =
 	"font-sans text-base font-medium text-slate no-underline transition-colors hover:text-paper";
 
-export default function Footer() {
+/**
+ * Site footer: Ink background, wordmark and tagline, then link columns.
+ * Links with `to` use the router; links with `href` are external.
+ */
+export default function Footer({ wordmark, tagline, columns }: FooterProps) {
 	return (
 		<footer className="bg-ink text-paper">
 			<Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
 				<div>
 					<Wordmark
-						top="Build"
-						bottom={city.name}
+						top={wordmark.top}
+						bottom={wordmark.bottom}
 						tone="paper"
 						className="text-[26px]"
 					/>
 					<p className="mt-5 max-w-xs font-sans text-base font-medium leading-[1.55] text-slate">
-						Part of Build Your City. Use your skills. Serve your city.
+						{tagline}
 					</p>
 				</div>
 
@@ -71,8 +50,14 @@ export default function Footer() {
 									) : (
 										<a
 											href={link.href}
-											target="_blank"
-											rel="noopener noreferrer"
+											target={
+												link.href?.startsWith("http") ? "_blank" : undefined
+											}
+											rel={
+												link.href?.startsWith("http")
+													? "noopener noreferrer"
+													: undefined
+											}
 											className={linkClass}
 										>
 											{link.label}

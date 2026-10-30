@@ -1,4 +1,3 @@
-import { city } from "../config/city";
 import {
 	dayOfMonth,
 	type MeetupEvent,
@@ -9,6 +8,10 @@ import CtaLink from "./CtaLink";
 
 type EventCardProps = {
 	event: MeetupEvent;
+	/** Standard meetup hours, e.g. "1 to 4 PM". */
+	hours: string;
+	/** Venue name and address, e.g. "Improving, 330 Rush Alley, Suite 150". */
+	where: string;
 	/** "full" adds the food and first-timers line (home page). */
 	detail?: "full" | "short";
 };
@@ -17,7 +20,12 @@ type EventCardProps = {
  * One upcoming meetup: big date on the left, title, where and when, and an
  * RSVP button. Title and date come from the synced Meetup data.
  */
-export default function EventCard({ event, detail = "short" }: EventCardProps) {
+export default function EventCard({
+	event,
+	hours,
+	where,
+	detail = "short",
+}: EventCardProps) {
 	return (
 		<article className="flex flex-col gap-8 border border-line bg-white p-8 md:flex-row md:gap-12 md:p-12">
 			<div className="flex shrink-0 flex-row items-baseline gap-3 md:w-44 md:flex-col md:items-center md:gap-0 md:text-center">
@@ -34,7 +42,7 @@ export default function EventCard({ event, detail = "short" }: EventCardProps) {
 					{event.title}
 				</h3>
 				<p className="mt-3 font-sans text-[17px] font-medium leading-[1.55] text-ink">
-					{city.meetupHours} at {city.venue.name}, {city.venue.address}.
+					{hours} at {where}.
 					{detail === "full" &&
 						" Food and beverages provided. First-timers always welcome."}
 				</p>

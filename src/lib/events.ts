@@ -21,9 +21,10 @@ export function meetupNumber(name: string): number | null {
 	return match ? Number(match[1]) : null;
 }
 
-export function meetupTitle(name: string): string {
+/** "Build Columbus Meetup #48" from a site name and the synced title. */
+export function meetupTitle(name: string, siteName: string): string {
 	const n = meetupNumber(name);
-	return n === null ? "Build Columbus Meetup" : `Build Columbus Meetup #${n}`;
+	return n === null ? `${siteName} Meetup` : `${siteName} Meetup #${n}`;
 }
 
 /**
@@ -31,20 +32,26 @@ export function meetupTitle(name: string): string {
  * sync workflow), soonest first. Keeps an event visible for three hours
  * after it starts so the card stays up while the meetup is in progress.
  */
-export function upcomingEvents(now = Date.now()): MeetupEvent[] {
+export function upcomingEvents(
+	siteName: string,
+	now = Date.now(),
+): MeetupEvent[] {
 	return eventsData.events
 		.map((e) => ({
 			...e,
 			date: new Date(e.dateTime),
 			number: meetupNumber(e.name),
-			title: meetupTitle(e.name),
+			title: meetupTitle(e.name, siteName),
 		}))
 		.filter((e) => e.date.getTime() > now - THREE_HOURS)
 		.sort((a, b) => a.date.getTime() - b.date.getTime());
 }
 
-export function nextEvent(now = Date.now()): MeetupEvent | undefined {
-	return upcomingEvents(now)[0];
+export function nextEvent(
+	siteName: string,
+	now = Date.now(),
+): MeetupEvent | undefined {
+	return upcomingEvents(siteName, now)[0];
 }
 
 const ET = "America/New_York";

@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CtaLink from "../components/CtaLink";
-import EventCard from "../components/EventCard";
-import PhotoPlaceholder from "../components/PhotoPlaceholder";
-import Section from "../components/Section";
-import SectionHeading from "../components/SectionHeading";
-import SponsorCarousel from "../components/SponsorCarousel";
-import ThreeUp from "../components/ThreeUp";
+import CtaLink from "@/components/CtaLink";
+import EventCard from "@/components/EventCard";
+import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import SponsorCarousel from "@/components/SponsorCarousel";
+import ThreeUp from "@/components/ThreeUp";
+import { upcomingEvents } from "@/lib/events";
 import { city, sponsorsFor } from "../config/city";
-import { upcomingEvents } from "../lib/events";
 
 export const Route = createFileRoute("/meetup")({
 	component: MeetupPage,
@@ -35,7 +35,7 @@ const steps = [
 ];
 
 function MeetupPage() {
-	const upcoming = upcomingEvents();
+	const upcoming = upcomingEvents(city.siteName);
 	const next = upcoming[0];
 
 	return (
@@ -82,7 +82,11 @@ function MeetupPage() {
 					<ul className="mt-10 flex flex-col gap-6">
 						{upcoming.map((event) => (
 							<li key={event.id}>
-								<EventCard event={event} />
+								<EventCard
+									event={event}
+									hours={city.meetupHours}
+									where={`${city.venue.name}, ${city.venue.address}`}
+								/>
 							</li>
 						))}
 					</ul>

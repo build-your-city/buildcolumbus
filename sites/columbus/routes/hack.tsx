@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import CtaLink from "../components/CtaLink";
-import PhotoPlaceholder from "../components/PhotoPlaceholder";
-import Section from "../components/Section";
-import SectionHeading from "../components/SectionHeading";
-import SplitBlock from "../components/SplitBlock";
-import SponsorCarousel from "../components/SponsorCarousel";
-import ThreeUp from "../components/ThreeUp";
+import CtaLink from "@/components/CtaLink";
+import PhotoPlaceholder from "@/components/PhotoPlaceholder";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import SplitBlock from "@/components/SplitBlock";
+import SponsorCarousel from "@/components/SponsorCarousel";
+import ThreeUp from "@/components/ThreeUp";
 import { city, sponsorsFor } from "../config/city";
 import { challengeAreas, hackSteps, speakers } from "../data/hack2026";
 import winnersPhoto from "../images/photos/h-winners.jpg";

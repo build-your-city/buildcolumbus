@@ -17,6 +17,7 @@ export const parent = {
 export const cities = [
 	{
 		id: "columbus",
+		siteName: "Build Columbus",
 		wordmark: { top: "Build", bottom: "Columbus" },
 		place: "Columbus, Ohio.",
 		body: "Where it started. Monthly meetups at Improving, volunteering with local nonprofits, and a yearly Hack with global partner Indigitous.",

@@ -11,12 +11,8 @@
 			"**/src/**/*",
 			"**/sites/**/*",
 			"**/.vscode/**/*",
-			"**/index.html",
-			"**/vite.config.js",
-			"**/vite.byc.config.ts",
-			"!**/src/routeTree.gen.ts",
-			"!**/src/styles.css",
-			"!**/sites/**/*.css"
+			"!**/routeTree.gen.ts",
+			"!**/*.css"
 		]
 	},
 	"formatter": {

@@ -1,0 +1,12 @@
+# Netlify config for the build-your-city.org project.
+#
+# In that project's settings, set "Base directory" to sites/build-your-city
+# so Netlify reads this file. Dependencies live at the repo root, so the
+# command installs and builds from there; publish is relative to this folder.
+
+[build]
+  command = "cd ../.. && npm ci && npm run build:byc"
+  publish = "../../dist/build-your-city"
+
+[build.environment]
+  NODE_VERSION = "22"

@@ -1,8 +1,10 @@
 # Design direction
 
-The Build Columbus brand, as built from the mockups in October 2026. The
-parent site (build-your-city.org) and any future city share it. Amend this
-deliberately rather than drifting from it.
+The Build Your City brand, as built for Build Columbus from the mockups in
+October 2026. Every site under `sites/` shares it through the components and
+tokens in `src/`; a new city is a copy of `sites/columbus/` with its own
+config and photos, not a new design. Amend this deliberately rather than
+drifting from it.
 
 ## Palette
 
@@ -70,7 +72,8 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
 
 Real community photos only, each used once. Where no photo exists yet, a
 gray box labeled "PHOTO PLACEHOLDER" with a caption stands in
-(`PhotoPlaceholder`), rendered with `aria-hidden`.
+(`PhotoPlaceholder`), rendered with `aria-hidden`. Photos belong to the
+site that uses them, under `sites/<city>/images/`.
 
 ## Quality floor
 

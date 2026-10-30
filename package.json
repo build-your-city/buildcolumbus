@@ -3,16 +3,19 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "vite --port 3000",
-		"build": "tsc --noEmit && vite build",
-		"serve": "vite preview",
+		"dev": "npm run dev:columbus",
+		"dev:columbus": "vite --config sites/columbus/vite.config.ts --port 3000",
+		"dev:byc": "vite --config sites/build-your-city/vite.config.ts --port 3001",
+		"build": "tsc --noEmit && npm run build:columbus && npm run build:byc",
+		"build:columbus": "vite build --config sites/columbus/vite.config.ts",
+		"build:byc": "vite build --config sites/build-your-city/vite.config.ts",
+		"serve": "vite preview --config sites/columbus/vite.config.ts",
+		"serve:byc": "vite preview --config sites/build-your-city/vite.config.ts",
 		"test": "vitest run --passWithNoTests",
 		"format": "biome format --write",
 		"lint": "biome lint",
 		"check": "biome check",
-		"sync-events": "node scripts/sync-events.mjs",
-		"dev:byc": "vite --config vite.byc.config.ts --port 3001",
-		"build:byc": "tsc --noEmit && vite build --config vite.byc.config.ts"
+		"sync-events": "node scripts/sync-events.mjs"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.0.6",

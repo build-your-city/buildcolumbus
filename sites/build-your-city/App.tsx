@@ -21,7 +21,7 @@ const ET = "America/New_York";
 
 /** "Saturday, November 14" from the synced Columbus meetup data. */
 function nextColumbusMeetup(): string | null {
-	const next = nextEvent();
+	const next = nextEvent(cities[0].siteName);
 	if (!next) return null;
 	return next.date.toLocaleDateString("en-US", {
 		weekday: "long",

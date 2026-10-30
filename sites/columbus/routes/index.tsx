@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import CtaLink from "../components/CtaLink";
-import EventCard from "../components/EventCard";
-import Eyebrow from "../components/Eyebrow";
-import Section from "../components/Section";
+import CtaLink from "@/components/CtaLink";
+import EventCard from "@/components/EventCard";
+import Eyebrow from "@/components/Eyebrow";
+import Section from "@/components/Section";
+import { nextEvent } from "@/lib/events";
 import { city } from "../config/city";
 import heroPhoto from "../images/photos/hero-cbus.jpg";
 import hackPhoto from "../images/photos/p-hack.jpg";
 import meetupPhoto from "../images/photos/p-meetup.jpg";
 import servePhoto from "../images/photos/p-serve.jpg";
-import { nextEvent } from "../lib/events";
 
 export const Route = createFileRoute("/")({
 	component: HomePage,
@@ -45,7 +45,7 @@ const programs = [
 ];
 
 function HomePage() {
-	const next = nextEvent();
+	const next = nextEvent(city.siteName);
 
 	return (
 		<>
@@ -84,7 +84,12 @@ function HomePage() {
 			{next && (
 				<Section>
 					<h2 className="sr-only">Next meetup</h2>
-					<EventCard event={next} detail="full" />
+					<EventCard
+						event={next}
+						hours={city.meetupHours}
+						where={`${city.venue.name}, ${city.venue.address}`}
+						detail="full"
+					/>
 				</Section>
 			)}
 
