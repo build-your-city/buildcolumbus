@@ -1,0 +1,12 @@
+# Netlify config for the existing project, which deploys buildcolumbus.org.
+#
+# The Build Your City project is a second Netlify site on this same repo. It
+# must set its base directory to sites/build-your-city so Netlify picks up
+# the netlify.toml in that folder instead of this one. See README.md.
+
+[build]
+  command = "npm run build:columbus"
+  publish = "dist/columbus"
+
+[build.environment]
+  NODE_VERSION = "22"

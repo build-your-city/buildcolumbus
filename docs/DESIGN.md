@@ -1,73 +1,81 @@
 # Design direction
 
-A spec for the design milestone (issue #11). The goal is FaithTech-level
-polish with a CIT-specific identity — borrow their confidence, not their look.
-This is a proposal: amend it deliberately rather than drifting from it.
-
-## Foundation (keep)
-
-The stark black/white identity already matches the CIT logo and reads
-distinctly "us." Don't soften it into grays and gradients. Polish comes from
-typography, spacing, and real photography — not more color.
+The Build Your City brand, as built for Build Columbus from the mockups in
+October 2026. Every site under `sites/` shares it through the components and
+tokens in `src/`; a new city is a copy of `sites/columbus/` with its own
+config and photos, not a new design. Amend this deliberately rather than
+drifting from it.
 
 ## Palette
 
 | Token | Hex | Use |
 |---|---|---|
-| `ink` | `#0A0A0A` | Headers, footer, hero overlays, primary text |
-| `paper` | `#FFFFFF` | Page background |
-| `stone` | `#F4F4F4` | Alternating section background |
-| `mist` | `#6B6B6B` | Secondary text, eyebrows, captions |
-| `signal` | `#C8102E` | Accent — used in exactly one place per page |
+| `ink` | `#141A2A` | Text, dark bands, footer, header button |
+| `paper` | `#F4F1EA` | Page background |
+| `blue` | `#3D8BFF` | Build Blue, the only accent: wordmark second line, eyebrows, link underlines, step numbers, date tags, focus rings |
+| `blue-deep` | `#0063F7` | Build Blue darkened for contrast: primary button fills and hover text |
+| `slate` | `#8E95A6` | Secondary text on ink |
+| `line` | `#D9D4C7` | Borders and section dividers |
+| `white` | `#FFFFFF` | Cards |
 
-Signal red is the single point of energy. It passes WCAG AA on white
-(5.9:1), so it can carry real interaction weight — not just decoration.
-Signal red appears only in interaction states site-wide (link hovers,
-active-nav underline, focus rings) and at most one accent element on
-subpages; the homepage hero deliberately carries no red. (Candidates
-considered: crimson #D7263D, deep scarlet #A4161A, coral #E63946 — signal
-red balanced energy against AA compliance best.)
+Build Blue is the single point of energy. At `#3D8BFF` it reads 3.3:1 on
+white and 2.9:1 on Paper, so it stays on the wordmark, eyebrows at 14px and
+up, and decorative elements. Wherever blue is a button background or running
+text, use `blue-deep`, which passes WCAG AA (5.1:1 under white text, 4.5:1 as
+text on Paper). Tokens live in `src/styles.css`.
 
 ## Typography
 
-- **Display:** Montserrat (Google Fonts, 700–800 for uppercase headlines,
-  with `letter-spacing: 0.02em` on uppercase settings). It keeps the current
-  bold-uppercase voice but with real character at large sizes.
-- **Body:** Inter (already in use). 18px/1.7 for long-form paragraphs.
-- **Eyebrow/labels:** Inter, 12–13px, uppercase, `tracking-[0.25em]`, `mist`.
+Google Fonts, one link tag: Inter Tight (700, 800) and Inter (500, 600).
+Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 
-Type scale (desktop / mobile): hero 72/40, page h1 56/36, section h2 36/28,
-card h3 24/20, body 18/16, label 13/12.
+| Role | Size | Font |
+|---|---|---|
+| Hero headline (home, parent) | 84px | Inter Tight 800 |
+| Page title | 72px | Inter Tight 800 |
+| Section heading | 56px | Inter Tight 800 |
+| Card / step heading | 28px | Inter Tight 700 |
+| Name / small heading | 22px | Inter Tight 700 |
+| Wordmark | 26px in the header | Inter Tight 800, uppercase, two lines; the second line is scaled so its width matches "BUILD" |
+| Eyebrow / label | 14px | Inter 600, uppercase, 0.12em tracking, Build Blue |
+| Lead paragraph (hero, dark bands) | 22px | Inter 500 |
+| Body | 17px | Inter 500, line-height 1.55 |
+| Nav / button | 16px | Inter 600 |
 
-## Signature element
+Mobile drops the hero to 52px, page titles to 48px, and section headings to
+40px.
 
-Signature: in the CHRISTIANS IN TECH lockup, the word IN renders in light
-weight (300) against the extrabold surrounding words — matching the CIT
-wordmark.
+## Layout
 
-## Section rhythm
-
-One idea per section, one CTA per section. Sections alternate `paper` /
-`stone`; hero and footer are `ink`. Vertical padding: `py-24` desktop,
-`py-16` mobile. Every section: eyebrow label → heading → body → single CTA.
-Heroes: community pages (Home, Events) left-align; event/initiative pages
-(/hack, /serve) center them as posters.
+- Content is 1200px wide at most, with 48px side padding on desktop and 16px
+  on mobile (`Container`).
+- Sections have 88px vertical padding and a 1px Line border on top
+  (`Section`). Each page has at most one dark Ink band.
+- Hero: two equal columns, text left, photo right, 56px gap. Photos keep
+  their natural aspect ratio and are never cropped. Two-column blocks
+  alternate sides down the page (`SplitBlock`).
+- Three-step and challenge-area sections are one white box with 1px Line
+  border and 1px dividers between cells, no gaps (`ThreeUp`). Program cards
+  on the home page and speaker cards are separate boxes with gaps.
+- Cards are white with a 1px Line border, no shadow, no radius.
+- Buttons: primary is `blue-deep` with white text; secondary is transparent
+  with a 2px Ink border. 18px/28px padding, no radius (`CtaLink`).
+- Sponsors and partners are a horizontal carousel, four logos visible, with
+  48px square arrow buttons (2px Ink border) that disable at either end.
+  Logos sit on Paper with no box (`SponsorCarousel`).
+- Footer: Ink background, four columns (wordmark and tagline, Community,
+  Connect, Contact).
+- Mobile: single column, hero photo under the text, three-column boxes
+  stack.
 
 ## Photography
 
-Real CIT photos only — meetups, serving sessions, whiteboards, coffee. Warm,
-candid, uncropped-feeling. Retire stock imagery entirely (issue #2). Photos
-at slight scale within sections beat full-bleed backgrounds everywhere;
-reserve full-bleed + dark overlay for the homepage hero alone.
-
-## Motion
-
-One orchestrated moment: a staggered fade-up on hero text at page load
-(respecting `prefers-reduced-motion`). Hover states elsewhere are
-color/underline transitions already in place. No scroll-jacking, no parallax.
+Real community photos only, each used once. Where no photo exists yet, a
+gray box labeled "PHOTO PLACEHOLDER" with a caption stands in
+(`PhotoPlaceholder`), rendered with `aria-hidden`. Photos belong to the
+site that uses them, under `sites/<city>/images/`.
 
 ## Quality floor
 
-Responsive to 360px, visible keyboard focus on all interactive elements,
-one `h1` per page, WCAG AA contrast (signal red passes AA on white at
-body sizes; on black use it only for large type and 2px+ graphic elements).
+Works at 390px, visible keyboard focus on every interactive element, one
+`h1` per page, Lighthouse accessibility 95 or better on every page.

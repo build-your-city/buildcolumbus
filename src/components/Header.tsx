@@ -1,16 +1,29 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import logo from "../images/cit-logo.svg";
 import Container from "./Container";
+import CtaLink from "./CtaLink";
+import Wordmark from "./Wordmark";
 
-const navItems = [
-	{ to: "/events", label: "Events" },
-	{ to: "/serve", label: "Serve" },
-	{ to: "/hack", label: "#HACK" },
-];
+export type NavItem = { to: string; label: string };
 
-export default function Header() {
+type HeaderProps = {
+	/** Two-line wordmark, e.g. { top: "Build", bottom: "Columbus" }. */
+	wordmark: { top: string; bottom: string };
+	/** Router links shown in the nav, in order. */
+	nav: NavItem[];
+	/** The Ink button at the end of the nav. */
+	cta: { label: string; href: string };
+};
+
+const navLink =
+	"font-sans text-base font-semibold text-ink no-underline decoration-blue decoration-2 underline-offset-8 transition-colors hover:text-blue-deep [&.active]:underline";
+
+/**
+ * Site header for a city site: wordmark, router nav, and one button. On
+ * mobile the nav collapses behind a menu button.
+ */
+export default function Header({ wordmark, nav, cta }: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	// Close the mobile menu on Escape.
@@ -24,100 +37,64 @@ export default function Header() {
 	}, [isOpen]);
 
 	return (
-		<>
-			<header className="bg-ink text-white shadow-lg sticky top-0 z-40">
-				<Container className="py-5 flex items-center justify-between">
-					<Link to="/" className="flex items-center" aria-label="CIT home">
-						<img
-							src={logo}
-							alt="Christians in Tech logo"
-							className="h-10 w-auto"
-						/>
-					</Link>
+		<header className="bg-paper">
+			<Container className="flex items-center justify-between py-6">
+				<Link to="/" className="no-underline">
+					<Wordmark
+						top={wordmark.top}
+						bottom={wordmark.bottom}
+						className="text-[26px]"
+					/>
+				</Link>
 
-					{/* Desktop navigation */}
-					<nav className="hidden md:flex items-center gap-8 uppercase tracking-wider font-bold text-sm">
-						{navItems.map((item) => (
-							<Link
-								key={item.to}
-								to={item.to}
-								className="decoration-signal decoration-2 underline-offset-8 transition-colors hover:underline [&.active]:underline"
-							>
-								{item.label}
-							</Link>
-						))}
-						<a
-							href="https://www.meetup.com/citcbus/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="border-2 border-white px-5 py-2 hover:bg-white hover:text-black transition-colors"
-						>
-							Join Us
-						</a>
-					</nav>
+				{/* Desktop navigation */}
+				<nav aria-label="Primary" className="hidden md:flex items-center gap-8">
+					{nav.map((item) => (
+						<Link key={item.to} to={item.to} className={navLink}>
+							{item.label}
+						</Link>
+					))}
+					<CtaLink href={cta.href} variant="ink" className="ml-2">
+						{cta.label}
+					</CtaLink>
+				</nav>
 
-					{/* Mobile menu button */}
-					<button
-						type="button"
-						onClick={() => setIsOpen(true)}
-						className="p-2 md:hidden hover:bg-gray-800 rounded-lg transition-colors"
-						aria-label="Open menu"
-						aria-expanded={isOpen}
-					>
-						<Menu size={32} />
-					</button>
-				</Container>
-			</header>
-
-			{/* Backdrop */}
-			{isOpen && (
+				{/* Mobile menu button */}
 				<button
 					type="button"
-					aria-label="Close menu"
-					className="fixed inset-0 bg-black/60 z-40 md:hidden cursor-default"
-					onClick={() => setIsOpen(false)}
-				/>
-			)}
+					onClick={() => setIsOpen(!isOpen)}
+					className="md:hidden p-2 -mr-2 text-ink"
+					aria-label={isOpen ? "Close menu" : "Open menu"}
+					aria-expanded={isOpen}
+					aria-controls="mobile-nav"
+				>
+					{isOpen ? <X size={28} /> : <Menu size={28} />}
+				</button>
+			</Container>
 
-			{/* Mobile drawer */}
-			<aside
-				className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-ink text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col md:hidden ${
-					isOpen ? "translate-x-0" : "-translate-x-full"
-				}`}
-				aria-hidden={!isOpen}
+			{/* Mobile navigation */}
+			{/* biome-ignore lint/correctness/useUniqueElementIds: single header per page; id is the aria-controls target */}
+			<nav
+				id="mobile-nav"
+				aria-label="Mobile"
+				className={`md:hidden border-t border-line ${isOpen ? "block" : "hidden"}`}
 			>
-				<div className="flex items-center justify-end p-4 border-b border-gray-700">
-					<button
-						type="button"
-						onClick={() => setIsOpen(false)}
-						className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-						aria-label="Close menu"
-					>
-						<X size={24} />
-					</button>
-				</div>
-
-				<nav className="flex-1 p-4 overflow-y-auto">
-					{navItems.map((item) => (
+				<Container className="flex flex-col gap-1 py-4">
+					{nav.map((item) => (
 						<Link
 							key={item.to}
 							to={item.to}
 							onClick={() => setIsOpen(false)}
-							className="flex items-center gap-3 p-3 rounded-lg hover:bg-white hover:text-black transition-colors mb-2 font-medium"
+							className={`${navLink} py-3`}
 						>
 							{item.label}
 						</Link>
 					))}
-					<a
-						href="https://www.meetup.com/citcbus/"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="mt-4 block border-2 border-white p-3 text-center font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors"
-					>
-						Join Us
-					</a>
-				</nav>
-			</aside>
-		</>
+					<CtaLink href={cta.href} variant="ink" className="mt-3">
+						{cta.label}
+					</CtaLink>
+				</Container>
+			</nav>
+		</header>
 	);
 }
