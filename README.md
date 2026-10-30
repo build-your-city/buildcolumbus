@@ -55,8 +55,8 @@ netlify.toml             # deploy config for the Columbus project
 ## Getting started
 
 ```bash
-git clone https://github.com/citorg/main-website.git
-cd main-website
+git clone https://github.com/build-your-city/buildcolumbus.git
+cd buildcolumbus
 npm install
 npm run dev            # Columbus on http://localhost:3000
 npm run dev:byc        # Build Your City on http://localhost:3001
@@ -107,7 +107,7 @@ Columbus Meetup #48") comes from the event title.
 ## Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md), then look for issues labeled
-[`good first issue`](https://github.com/citorg/main-website/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
+[`good first issue`](https://github.com/build-your-city/buildcolumbus/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 We especially welcome contributions from members learning AI-assisted
 development. This repo includes a [CLAUDE.md](CLAUDE.md) so coding agents
 (Claude Code, Copilot, Cursor) can work productively here.

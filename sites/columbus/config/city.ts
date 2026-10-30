@@ -107,7 +107,6 @@ export const city = {
 		{
 			name: "Nathan Speich",
 			role: "Co-founder",
-			body: "Runs the meetup, Hack, and most of what you see here.",
 			photo: photoNathan,
 			// LinkedIn URL to be supplied.
 			linkedin: "#",
@@ -115,7 +114,6 @@ export const city = {
 		{
 			name: "Cody Steffy",
 			role: "Co-founder",
-			body: "Speaks on family online safety and keeps the community pointed at real needs.",
 			photo: photoCody,
 			// LinkedIn URL to be supplied.
 			linkedin: "#",

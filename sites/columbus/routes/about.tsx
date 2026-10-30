@@ -26,12 +26,12 @@ function AboutPage() {
 						About
 					</SectionHeading>
 					<p className="mt-8 font-sans text-[22px] font-medium leading-[1.4] text-ink">
-						Build Columbus is a community of people who build things:
-						developers, designers, content creators, and anyone who makes
-						something useful. We meet once a month, volunteer with Columbus
-						nonprofits, and hold a Hack once a year. What began in 2024 as a
-						meetup for people in tech has grown into something wider: a place
-						where any skill can help solve a real problem for a Columbus
+						Build Columbus is a community of people who build solutions:
+						developers, designers, content creators, and anyone who can turn a
+						need into something useful. We meet once a month, volunteer with
+						Columbus nonprofits, and hold a Hack once a year. What began in 2024
+						as a meetup for people in tech has grown into something wider: a
+						place where any skill can help solve a real problem for a Columbus
 						nonprofit. You don't need to know what you can offer yet. Come to a
 						meetup and find out.
 					</p>
@@ -59,9 +59,6 @@ function AboutPage() {
 								</h3>
 								<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
 									{person.role}
-								</p>
-								<p className="mt-3 font-sans text-[17px] font-medium leading-[1.55] text-ink">
-									{person.body}
 								</p>
 								<a
 									href={person.linkedin}
@@ -97,8 +94,7 @@ function AboutPage() {
 						Build Your City is a network of city communities where builders use
 						their skills to serve local nonprofits. Every city runs the same
 						three things under its own name: a monthly Meetup, Serve alongside
-						nonprofits, and a yearly Hack with our global partner Indigitous.
-						Columbus is the first.
+						nonprofits, and a Hack once a year. Columbus is the first.
 					</p>
 					<p>
 						Each city has its own organizers, its own site, and its own
