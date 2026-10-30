@@ -20,7 +20,7 @@ export const cities = [
 		siteName: "Build Columbus",
 		wordmark: { top: "Build", bottom: "Columbus" },
 		place: "Columbus, Ohio.",
-		body: "Where it started. Monthly meetups at Improving, volunteering with local nonprofits, and a yearly Hack with global partner Indigitous.",
+		body: "Where it started. Monthly meetups at Improving, volunteering with local nonprofits, and a Hack once a year.",
 		domain: "buildcolumbus.org",
 		href: "https://buildcolumbus.org",
 		photoLabel: "Build Columbus group photo",

@@ -19,7 +19,7 @@ export const hackSteps = [
 	{
 		marker: "1",
 		title: "Hear the need",
-		body: "Six guest speakers shared what they see every day in their work, from homelessness to digital accessibility.",
+		body: "Seven guest speakers shared what they see every day in their work, from homelessness to digital accessibility.",
 	},
 	{
 		marker: "2",
@@ -88,7 +88,7 @@ export const speakers: Speaker[] = [
 		area: "Family Online Safety",
 		name: "Cody Steffy",
 		org: "Co-founder, Build Columbus",
-		body: "Cybersecurity specialist. Walked through how kids are targeted online and what a safety layer could look like.",
+		body: "Walked through how kids are targeted online and what a safety layer could look like.",
 		photo: sCody,
 		// LinkedIn URL to be supplied.
 		link: { label: "Connect on LinkedIn", href: "#" },

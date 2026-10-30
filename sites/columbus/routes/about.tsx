@@ -26,10 +26,14 @@ function AboutPage() {
 						About
 					</SectionHeading>
 					<p className="mt-8 font-sans text-[22px] font-medium leading-[1.4] text-ink">
-						Build Columbus started in 2024 as Christians in Tech, a meetup for
-						people who build things and want to use that for good. Same people,
-						same mission, and a wider door. You don't need to be technical, and
-						you don't need to know what you can offer yet.
+						Build Columbus is a community of people who build solutions:
+						developers, designers, content creators, and anyone who can turn a
+						need into something useful. We meet once a month, volunteer with
+						Columbus nonprofits, and hold a Hack once a year. What began in 2024
+						as a meetup for people in tech has grown into something wider: a
+						place where any skill can help solve a real problem for a Columbus
+						nonprofit. You don't need to know what you can offer yet. Come to a
+						meetup and find out.
 					</p>
 				</SplitBlock>
 			</Section>
@@ -56,9 +60,14 @@ function AboutPage() {
 								<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
 									{person.role}
 								</p>
-								<p className="mt-3 font-sans text-[17px] font-medium leading-[1.55] text-ink">
-									{person.body}
-								</p>
+								<a
+									href={person.linkedin}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="mt-5 inline-block border-b-2 border-blue pb-0.5 font-sans text-base font-semibold text-ink no-underline transition-colors hover:text-blue-deep"
+								>
+									Connect on LinkedIn
+								</a>
 							</div>
 						</li>
 					))}
@@ -78,12 +87,22 @@ function AboutPage() {
 			{/* Parent network */}
 			<Section tone="dark">
 				<SectionHeading eyebrow="Part of Build Your City" tone="paper">
-					One city of many.
+					Build your city.
 				</SectionHeading>
-				<p className="mt-8 max-w-[46rem] font-sans text-[22px] font-medium leading-[1.4] text-paper">
-					Build Columbus is the first city in Build Your City. If you want to do
-					this where you live, the parent site is where to start.
-				</p>
+				<div className="mt-8 flex max-w-[46rem] flex-col gap-6 font-sans text-[22px] font-medium leading-[1.4] text-paper">
+					<p>
+						Build Your City is a network of city communities where builders use
+						their skills to serve local nonprofits. Every city runs the same
+						three things under its own name: a monthly Meetup, Serve alongside
+						nonprofits, and a Hack once a year. Columbus is the first.
+					</p>
+					<p>
+						Each city has its own organizers, its own site, and its own
+						nonprofits. What's shared is the name, the playbook, and the people
+						who've already done it. If you want this where you live, the parent
+						site is where to begin.
+					</p>
+				</div>
 				<CtaLink href={city.links.parent} className="mt-10">
 					{city.links.parent.replace(/^https?:\/\//, "")}
 				</CtaLink>
