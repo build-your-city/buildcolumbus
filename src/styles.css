@@ -1,64 +1,43 @@
 @import "tailwindcss";
 
 /*
- * Design tokens from docs/DESIGN.md. Signal red appears only in
- * interaction states (link hovers, focus rings) and at most one accent
- * element on subpages.
+ * Build Columbus brand tokens. Build Blue is the only accent: buttons,
+ * eyebrows, links, the wordmark's second line, step numbers, date tags.
  */
 @theme {
-  --color-ink: #0a0a0a;
-  --color-paper: #ffffff;
-  --color-stone: #f4f4f4;
-  --color-mist: #6b6b6b;
-  --color-signal: #c8102e;
+  --color-ink: #141a2a;
+  --color-paper: #f4f1ea;
+  --color-blue: #3d8bff;
+  /* Build Blue darkened for text and button fills so it passes 4.5:1 on
+     white and Paper. The wordmark, eyebrows, and decorative uses keep the
+     original. */
+  --color-blue-deep: #0063f7;
+  --color-slate: #8e95a6;
+  --color-line: #d9d4c7;
+  --color-white: #ffffff;
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  --font-display: "Montserrat", "Inter", sans-serif;
+    "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter Tight", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  @apply m-0 bg-paper font-sans text-ink;
+  @apply m-0 bg-paper font-sans font-medium text-ink;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-signal);
+  outline: 2px solid var(--color-blue);
   outline-offset: 2px;
 }
 
 /*
- * The site's one orchestrated motion moment: hero text fades up on page
- * load, staggered per child. Guarded so reduced-motion users see content
- * immediately with no animation.
+ * Wordmark: two uppercase lines. The second line's font size is set from a
+ * CSS variable that Wordmark.tsx measures at runtime so its width matches
+ * the first line exactly, whatever font actually loaded.
  */
-@media (prefers-reduced-motion: no-preference) {
-  .hero-stagger > * {
-    animation: fade-up 0.5s ease-out both;
-  }
-  .hero-stagger > :nth-child(2) {
-    animation-delay: 120ms;
-  }
-  .hero-stagger > :nth-child(3) {
-    animation-delay: 240ms;
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.wordmark-sub {
+  font-size: calc(var(--wm-ratio, 0.6) * 1em);
 }

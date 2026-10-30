@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
 
 /**
- * The site's one shared content container: max-w-7xl, centered, with the
- * horizontal gutters inside the constrained box. Every piece of aligned
- * content — header, NextEvent, page sections, footer — must use this so
- * left/right content edges sit on the same vertical line at every viewport.
- * Outer sections keep backgrounds and vertical padding only, never px-*.
+ * The site's one content container: 1200px max width with the side gutters
+ * inside the box (48px on desktop, 16px on mobile). Every aligned piece of
+ * content, header through footer, uses this so edges line up.
  */
 export default function Container({
 	className = "",
@@ -15,7 +13,7 @@ export default function Container({
 	children: ReactNode;
 }) {
 	return (
-		<div className={`max-w-7xl mx-auto px-6 md:px-12 ${className}`}>
+		<div className={`max-w-[1200px] mx-auto px-4 md:px-12 ${className}`}>
 			{children}
 		</div>
 	);

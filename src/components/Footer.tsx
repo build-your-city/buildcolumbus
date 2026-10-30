@@ -1,69 +1,71 @@
 import { Link } from "@tanstack/react-router";
+import { city } from "../config/city";
 import Container from "./Container";
+import Wordmark from "./Wordmark";
 
-const columns = [
+type FooterLink = { label: string; to?: string; href?: string };
+
+const columns: { heading: string; links: FooterLink[] }[] = [
 	{
 		heading: "Community",
 		links: [
-			{ label: "Meetup", href: "https://www.meetup.com/citcbus/" },
-			{ label: "Discord", href: "https://discord.com/invite/s9bQZBVduF" },
-			{ label: "Events", to: "/events" },
-			{ label: "CIT Serve", to: "/serve" },
+			{ label: "Meetup", to: "/meetup" },
+			{ label: "Serve", to: "/serve" },
+			{ label: "Hack", to: "/hack" },
+			{ label: "Donate", href: city.links.donate },
 		],
 	},
 	{
-		heading: "Build",
+		heading: "Connect",
 		links: [
-			{ label: "#HACK Columbus", to: "/hack" },
+			{ label: "Meetup", href: city.links.meetup },
+			{ label: "Discord", href: city.links.discord },
+			{ label: "Instagram", href: city.links.instagram },
+			{ label: "LinkedIn", href: city.links.linkedin },
+			{ label: "Facebook", href: city.links.facebook },
+		],
+	},
+	{
+		heading: "Contact",
+		links: [
+			{ label: city.email, href: `mailto:${city.email}` },
 			{
-				label: "Contribute on GitHub",
-				href: "https://github.com/citorg/main-website",
+				label: city.links.parent.replace(/^https?:\/\//, ""),
+				href: city.links.parent,
 			},
 		],
 	},
-	{
-		heading: "Support",
-		links: [
-			{ label: "Donate", href: "https://onrealm.org/bwpc/-/form/give/cit" },
-			// TODO: add Merch link when the Queensboro store launches.
-		],
-	},
 ];
 
-const socials = [
-	{ label: "Facebook", href: "https://facebook.com/citcbus" },
-	{ label: "X", href: "https://twitter.com/citcbus" },
-	{ label: "Instagram", href: "https://instagram.com/citcbus" },
-	{ label: "LinkedIn", href: "https://www.linkedin.com/showcase/citcbus/" },
-];
+const linkClass =
+	"font-sans text-base font-medium text-slate no-underline transition-colors hover:text-paper";
 
 export default function Footer() {
 	return (
-		<footer className="bg-ink text-white">
-			<Container className="py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+		<footer className="bg-ink text-paper">
+			<Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
 				<div>
-					<p className="font-bold uppercase tracking-widest mb-3">
-						Christians in Tech
-					</p>
-					<p className="text-gray-400 text-sm leading-relaxed">
-						A community at the intersection of faith and technology, gathering
-						in Columbus, Ohio.
+					<Wordmark
+						top="Build"
+						bottom={city.name}
+						tone="paper"
+						className="text-[26px]"
+					/>
+					<p className="mt-5 max-w-xs font-sans text-base font-medium leading-[1.55] text-slate">
+						Part of Build Your City. Use your skills. Serve your city.
 					</p>
 				</div>
 
 				{columns.map((col) => (
 					<nav key={col.heading} aria-label={col.heading}>
-						<p className="font-bold uppercase tracking-widest mb-4 text-sm text-gray-400">
+						<p className="mb-5 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-paper">
 							{col.heading}
 						</p>
-						<ul className="space-y-2">
+						<ul className="flex flex-col gap-3">
 							{col.links.map((link) => (
-								<li key={link.label}>
-									{"to" in link && link.to ? (
-										<Link
-											to={link.to}
-											className="text-sm decoration-signal decoration-2 underline-offset-4 transition-colors hover:underline"
-										>
+								<li key={`${col.heading}-${link.label}`}>
+									{link.to ? (
+										<Link to={link.to} className={linkClass}>
 											{link.label}
 										</Link>
 									) : (
@@ -71,7 +73,7 @@ export default function Footer() {
 											href={link.href}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="text-sm decoration-signal decoration-2 underline-offset-4 transition-colors hover:underline"
+											className={linkClass}
 										>
 											{link.label}
 										</a>
@@ -82,28 +84,6 @@ export default function Footer() {
 					</nav>
 				))}
 			</Container>
-
-			<div className="border-t border-gray-800">
-				<Container className="py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-					<span>
-						© {new Date().getFullYear()} Christians in Tech. All rights
-						reserved.
-					</span>
-					<div className="flex gap-6">
-						{socials.map((s) => (
-							<a
-								key={s.label}
-								href={s.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="decoration-signal decoration-2 underline-offset-4 transition-colors hover:underline"
-							>
-								{s.label}
-							</a>
-						))}
-					</div>
-				</Container>
-			</div>
 		</footer>
 	);
 }

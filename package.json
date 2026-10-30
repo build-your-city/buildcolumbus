@@ -1,5 +1,5 @@
 {
-	"name": "cit-website",
+	"name": "build-columbus",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -10,7 +10,9 @@
 		"format": "biome format --write",
 		"lint": "biome lint",
 		"check": "biome check",
-		"sync-events": "node scripts/sync-events.mjs"
+		"sync-events": "node scripts/sync-events.mjs",
+		"dev:byc": "vite --config vite.byc.config.ts --port 3001",
+		"build:byc": "tsc --noEmit && vite build --config vite.byc.config.ts"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.0.6",

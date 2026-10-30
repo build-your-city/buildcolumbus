@@ -9,18 +9,27 @@
 		"ignoreUnknown": false,
 		"includes": [
 			"**/src/**/*",
+			"**/sites/**/*",
 			"**/.vscode/**/*",
 			"**/index.html",
 			"**/vite.config.js",
+			"**/vite.byc.config.ts",
 			"!**/src/routeTree.gen.ts",
-			"!**/src/styles.css"
+			"!**/src/styles.css",
+			"!**/sites/**/*.css"
 		]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"assist": { "actions": { "source": { "organizeImports": "on" } } },
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {

@@ -10,8 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EventsRouteImport } from './routes/events'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as HackRouteImport } from './routes/hack'
+import { Route as MeetupRouteImport } from './routes/meetup'
 import { Route as ServeRouteImport } from './routes/serve'
 
 const IndexRoute = IndexRouteImport.update({
@@ -19,14 +20,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HackRoute = HackRouteImport.update({
   id: '/hack',
   path: '/hack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MeetupRoute = MeetupRouteImport.update({
+  id: '/meetup',
+  path: '/meetup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServeRoute = ServeRouteImport.update({
@@ -37,35 +43,39 @@ const ServeRoute = ServeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/events': typeof EventsRoute
+  '/about': typeof AboutRoute
   '/hack': typeof HackRoute
+  '/meetup': typeof MeetupRoute
   '/serve': typeof ServeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/events': typeof EventsRoute
+  '/about': typeof AboutRoute
   '/hack': typeof HackRoute
+  '/meetup': typeof MeetupRoute
   '/serve': typeof ServeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/events': typeof EventsRoute
+  '/about': typeof AboutRoute
   '/hack': typeof HackRoute
+  '/meetup': typeof MeetupRoute
   '/serve': typeof ServeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/events' | '/hack' | '/serve'
+  fullPaths: '/' | '/about' | '/hack' | '/meetup' | '/serve'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/events' | '/hack' | '/serve'
-  id: '__root__' | '/' | '/events' | '/hack' | '/serve'
+  to: '/' | '/about' | '/hack' | '/meetup' | '/serve'
+  id: '__root__' | '/' | '/about' | '/hack' | '/meetup' | '/serve'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EventsRoute: typeof EventsRoute
+  AboutRoute: typeof AboutRoute
   HackRoute: typeof HackRoute
+  MeetupRoute: typeof MeetupRoute
   ServeRoute: typeof ServeRoute
 }
 
@@ -78,11 +88,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hack': {
@@ -90,6 +100,13 @@ declare module '@tanstack/react-router' {
       path: '/hack'
       fullPath: '/hack'
       preLoaderRoute: typeof HackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/meetup': {
+      id: '/meetup'
+      path: '/meetup'
+      fullPath: '/meetup'
+      preLoaderRoute: typeof MeetupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/serve': {
@@ -104,8 +121,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EventsRoute: EventsRoute,
+  AboutRoute: AboutRoute,
   HackRoute: HackRoute,
+  MeetupRoute: MeetupRoute,
   ServeRoute: ServeRoute,
 }
 export const routeTree = rootRouteImport

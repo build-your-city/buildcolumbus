@@ -1,0 +1,6 @@
+/* Same tokens and base styles as the city sites. */
+@import "../../src/styles.css";
+
+/* Tailwind scans these for class names (the Vite root is this folder). */
+@source "../../src/components";
+@source ".";

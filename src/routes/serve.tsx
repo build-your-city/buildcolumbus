@@ -1,92 +1,102 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Ear, HandHeart, Wrench } from "lucide-react";
-import Container from "../components/Container";
 import CtaLink from "../components/CtaLink";
-import Eyebrow from "../components/Eyebrow";
+import PhotoPlaceholder from "../components/PhotoPlaceholder";
+import Section from "../components/Section";
+import SectionHeading from "../components/SectionHeading";
+import SplitBlock from "../components/SplitBlock";
+import ThreeUp from "../components/ThreeUp";
+import { city } from "../config/city";
 
 export const Route = createFileRoute("/serve")({
 	component: ServePage,
 	head: () => ({
-		meta: [{ title: "CIT Serve | Christians in Tech" }],
+		meta: [{ title: `Serve | ${city.siteName}` }],
 	}),
 });
 
-// NOTE: Draft copy — CIT organizers should review and refine this page.
-// See the intro-circle slides for language the community already uses.
-
-const rhythm = [
+const steps = [
 	{
-		icon: <Ear size={48} strokeWidth={1.5} aria-hidden />,
-		title: "Learn",
-		body: "We sit down with local organizations already serving our community and listen — to their mission, their work, and what a day in their world actually looks like.",
+		marker: "1",
+		title: "Pick an opportunity",
+		body: "Opportunities are shared in our Discord and at the monthly meetup. Each one is with a Columbus nonprofit, doing what they do.",
 	},
 	{
-		icon: <HandHeart size={48} strokeWidth={1.5} aria-hidden />,
-		title: "Serve",
-		body: "Then we show up. We schedule time to serve alongside them, doing the work they need done — no laptops required.",
+		marker: "2",
+		title: "Show up and serve",
+		body: "Anyone can do this part. You're there as a volunteer first.",
 	},
 	{
-		icon: <Wrench size={48} strokeWidth={1.5} aria-hidden />,
-		title: "Build",
-		body: "Serving side by side surfaces the real challenges these organizations face. Where technology can genuinely help, we explore building it — together.",
+		marker: "3",
+		title: "See where you fit",
+		body: "You'll notice what they're missing. Tell us, and we'll help turn it into a project.",
 	},
 ];
 
 function ServePage() {
 	return (
-		<div>
-			{/* Hero — centered poster treatment. System: event/initiative pages
-			    (/serve, /hack) center their heroes; community pages (Home,
-			    Events) left-align. */}
-			<section className="bg-ink text-white py-16 md:py-24">
-				<Container className="text-center">
-					<Eyebrow tone="light" className="mb-4">
-						The outreach arm of Christians in Tech
-					</Eyebrow>
-					<h1 className="font-display font-bold uppercase tracking-[0.02em] text-[36px] md:text-[56px] leading-[1.1] mb-6">
-						CIT Serve
-					</h1>
-					<p className="text-base md:text-lg leading-[1.7] italic max-w-2xl mx-auto">
-						"As each has received a gift, use it to serve one another."
-						<span className="not-italic text-mist"> — 1 Peter 4:10</span>
+		<>
+			{/* Page hero */}
+			<Section noBorder>
+				<SplitBlock
+					media={
+						<PhotoPlaceholder label="Serve day with a Columbus nonprofit (wide)" />
+					}
+				>
+					<SectionHeading as="h1" eyebrow="With Columbus nonprofits">
+						Serve
+					</SectionHeading>
+					<p className="mt-8 font-sans text-[22px] font-medium leading-[1.4] text-ink">
+						Show up with a Columbus nonprofit in the work they already do. Serve
+						a meal, sort donations, help run an event. While you're there,
+						you'll see what they need: a website, photos, a designer, a content
+						creator. That's where your skill comes in.
 					</p>
-				</Container>
-			</section>
-
-			<section className="bg-paper py-16 md:py-24">
-				<Container className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-					{rhythm.map((step) => (
-						<div key={step.title} className="flex flex-col items-center">
-							<div className="mb-6">{step.icon}</div>
-							<h2 className="font-display font-bold uppercase tracking-[0.02em] text-[20px] md:text-[24px] mb-4">
-								{step.title}
-							</h2>
-							<p className="text-base md:text-lg leading-[1.7]">{step.body}</p>
-						</div>
-					))}
-				</Container>
-			</section>
-
-			<section className="bg-stone py-16 md:py-24">
-				<Container className="text-center">
-					<Eyebrow className="mb-3">Get involved</Eyebrow>
-					<h2 className="font-display font-bold uppercase tracking-[0.02em] text-[28px] md:text-[36px] mb-6">
-						Serve With Us
-					</h2>
-					<p className="text-base md:text-lg leading-[1.7] mb-8 max-w-2xl mx-auto">
-						Upcoming serve opportunities are announced through our community.
-						Stay up to date:
-					</p>
-					<div className="flex flex-col sm:flex-row justify-center gap-4">
-						<CtaLink href="https://www.meetup.com/citcbus/" theme="dark">
-							Join our Meetup
-						</CtaLink>
-						<CtaLink href="https://discord.com/invite/s9bQZBVduF" theme="dark">
-							Join the Discord
-						</CtaLink>
+					<div className="mt-10">
+						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
 					</div>
-				</Container>
-			</section>
-		</div>
+				</SplitBlock>
+			</Section>
+
+			{/* Why it works this way */}
+			<Section>
+				<SplitBlock
+					mediaSide="left"
+					media={
+						<PhotoPlaceholder label="Builders and nonprofit staff together" />
+					}
+				>
+					<SectionHeading eyebrow="Why it works this way">
+						Serve first. Build second.
+					</SectionHeading>
+					<p className="mt-8 font-sans text-[17px] font-medium leading-[1.55] text-ink">
+						Nobody knows what a nonprofit needs better than the people who work
+						there, and nobody learns it faster than someone standing next to
+						them. Projects come after, once you've seen the need yourself.
+					</p>
+				</SplitBlock>
+			</Section>
+
+			{/* Three steps */}
+			<Section>
+				<SectionHeading eyebrow="How it works">Three steps</SectionHeading>
+				<div className="mt-10">
+					<ThreeUp items={steps} />
+				</div>
+			</Section>
+
+			{/* For nonprofits */}
+			<Section tone="dark">
+				<SectionHeading eyebrow="Nonprofits" tone="paper">
+					Need builders?
+				</SectionHeading>
+				<p className="mt-8 max-w-[46rem] font-sans text-[22px] font-medium leading-[1.4] text-paper">
+					If you run a Columbus nonprofit and could use a group of volunteers,
+					or help with something a skill could solve, tell us about it.
+				</p>
+				<CtaLink href={`mailto:${city.email}`} className="mt-10">
+					Get in touch
+				</CtaLink>
+			</Section>
+		</>
 	);
 }
