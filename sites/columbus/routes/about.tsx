@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
 			{
 				name: "description",
 				content:
-					"Build Columbus is a community of people who use their skills to serve their city. We meet monthly, volunteer with local nonprofits, and hold a hackathon once a year.",
+					"Build Columbus is a community of builders who use their skills to help local nonprofits. We meet once a month, volunteer with local nonprofits, and hold a hackathon once a year.",
 			},
 		],
 	}),
@@ -37,9 +37,9 @@ function AboutPage() {
 					<SectionHeading as="h1">About</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Build Columbus is a community of people who use their skills to
-							serve their city. Developers, designers, content creators, and
-							anyone who can see a need and build something that helps.
+							Build Columbus is a community of builders who use their skills to
+							help local nonprofits. Developers, designers, content creators,
+							and anyone who can see a need and build something that helps.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							We meet once a month, volunteer with local nonprofits, and hold a

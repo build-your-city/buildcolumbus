@@ -90,9 +90,9 @@ function ServePage() {
 					</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
 						Build Columbus is a community of developers, designers, content
-						creators, and other skilled people who volunteer their time to help
-						local nonprofits. If your organization has a problem a skill could
-						solve, tell us about it.
+						creators, and more who use their skills to help local nonprofits. If
+						your organization has a problem a skill could solve, tell us about
+						it.
 					</p>
 					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
 						Get in touch

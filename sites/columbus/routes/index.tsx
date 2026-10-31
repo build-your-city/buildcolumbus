@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 			{
 				name: "description",
 				content:
-					"Developers, designers, content creators, and more. All builders are welcome to serve Columbus nonprofits.",
+					"A community of builders in Columbus using their skills to help local nonprofits. Developers, designers, content creators, and more. All are welcome.",
 			},
 		],
 	}),
@@ -34,7 +34,7 @@ const programs = [
 		title: city.programs.meetup,
 		photo: meetupPhoto,
 		alt: "Builders talking in a circle of chairs at a Build Columbus meetup.",
-		body: "Once a month at Improving, our venue partner in Columbus. Talks, workshops, and time to meet the people building things in Columbus.",
+		body: "Once a month at Improving, our venue partner in Columbus. Talks, workshops, and time to meet builders from around Columbus.",
 		cta: "About the meetup",
 		to: "/meetup",
 	},
@@ -76,8 +76,9 @@ function HomePage() {
 						<span className="block">Serve your city.</span>
 					</h1>
 					<p className={`mt-6 sm:mt-8 sm:max-w-[34rem] ${leadText} text-ink`}>
-						Developers, designers, content creators, and more. All builders are
-						welcome to serve Columbus nonprofits.
+						A community of builders in Columbus using their skills to help local
+						nonprofits. Developers, designers, content creators, and more. All
+						are welcome.
 					</p>
 				</SplitBlock>
 			</Section>
