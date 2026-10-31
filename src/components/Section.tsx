@@ -3,8 +3,11 @@ import Container from "./Container";
 
 type SectionProps = {
 	children: ReactNode;
-	/** "dark" is the one Ink band a page may have. */
-	tone?: "paper" | "dark";
+	/**
+	 * Content sections alternate paper / white down the page, starting with
+	 * the paper hero. "dark" is the one Ink band a page may have.
+	 */
+	tone?: "paper" | "white" | "dark";
 	/** Drop the top border, e.g. for the first section under the header. */
 	noBorder?: boolean;
 	className?: string;
@@ -24,6 +27,7 @@ export default function Section({
 }: SectionProps) {
 	const tones = {
 		paper: "bg-paper text-ink",
+		white: "bg-white text-ink",
 		dark: "bg-ink text-paper",
 	};
 	const border = noBorder ? "" : "border-t border-line";

@@ -66,7 +66,7 @@ function MeetupPage() {
 			</Section>
 
 			{/* Upcoming, from the synced Meetup data */}
-			<Section>
+			<Section tone="white">
 				<SectionHeading eyebrow="Upcoming">Next meetup</SectionHeading>
 				{upcoming.length === 0 ? (
 					<div className="mt-10 border border-line bg-white p-8 md:p-12">
@@ -106,11 +106,12 @@ function MeetupPage() {
 			{/* Call for speakers */}
 			<Section tone="dark">
 				<SectionHeading eyebrow="Want to speak?" tone="paper">
-					Share what you know.
+					Give a talk.
 				</SectionHeading>
 				<p className="mt-8 max-w-[40rem] font-sans text-[22px] font-medium leading-[1.4] text-paper">
-					Talks run 30 minutes to an hour on anything builders would find
-					useful. Submit through Sessionize and we'll be in touch.
+					Have something builders would find useful? Talks run 30 minutes to an
+					hour. Send us your idea through Sessionize and we'll be in touch about
+					a date.
 				</p>
 				<CtaLink href={city.links.sessionize} className="mt-10">
 					Submit a talk

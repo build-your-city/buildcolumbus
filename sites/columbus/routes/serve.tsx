@@ -28,7 +28,7 @@ const steps = [
 	{
 		marker: "3",
 		title: "See where you fit",
-		body: "You'll notice what they're missing. Tell us, and we'll see if it can become a project.",
+		body: "While you're there, you'll notice something a skill could fix. Tell us about it, and we'll see if it can become a project.",
 	},
 ];
 
@@ -46,10 +46,10 @@ function ServePage() {
 						Serve
 					</SectionHeading>
 					<p className="mt-8 font-sans text-[22px] font-medium leading-[1.4] text-ink">
-						Show up with a Columbus nonprofit in the work they already do. Serve
-						a meal, sort donations, help run an event. While you're there,
-						you'll see what they need: a website, photos, a designer, a content
-						creator. That's where your skill comes in.
+						Spend a few hours with a Columbus nonprofit, helping with what they
+						already do: serve a meal, sort donations, help run an event. While
+						you're there, you'll see what they're missing: a website, photos, a
+						designer, a content creator. That's where your skill comes in.
 					</p>
 					<div className="mt-10">
 						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
@@ -58,7 +58,7 @@ function ServePage() {
 			</Section>
 
 			{/* Why it works this way */}
-			<Section>
+			<Section tone="white">
 				<SplitBlock
 					mediaSide="left"
 					media={

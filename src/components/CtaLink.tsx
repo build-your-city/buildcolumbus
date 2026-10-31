@@ -6,11 +6,13 @@ type CtaLinkProps = {
 	/** Internal route path, e.g. "/serve". */
 	to?: string;
 	/**
-	 * primary: Build Blue fill, white text.
-	 * secondary: transparent, 2px Ink border.
+	 * primary: Build Blue fill, white text; darker blue on hover.
+	 * secondary: transparent with a 2px border; fills on hover.
 	 * ink: Ink fill, white text (header only).
 	 */
 	variant?: "primary" | "secondary" | "ink";
+	/** Set on a dark (Ink) band so the secondary variant uses Paper. */
+	onDark?: boolean;
 	children: React.ReactNode;
 	className?: string;
 };
@@ -20,24 +22,32 @@ const base =
 
 const variants = {
 	primary:
-		"border-blue-deep bg-blue-deep text-white hover:bg-ink hover:border-ink",
+		"border-blue-deep bg-blue-deep text-white hover:border-blue-hover hover:bg-blue-hover",
 	secondary: "border-ink bg-transparent text-ink hover:bg-ink hover:text-paper",
-	ink: "border-ink bg-ink text-white hover:bg-blue-deep hover:border-blue-deep",
+	secondaryOnDark:
+		"border-paper bg-transparent text-paper hover:bg-paper hover:text-ink",
+	ink: "border-ink bg-ink text-white hover:border-blue-deep hover:bg-blue-deep",
 };
 
 /**
  * The site-wide button-styled link. Renders a router Link when given `to`,
  * otherwise an anchor. Only http(s) URLs open in a new tab; mailto: and
- * #anchor links stay in the current one.
+ * #anchor links stay in the current one. Every variant keeps a visible
+ * fill or border on hover, on Paper, White, and Ink backgrounds alike.
  */
 export default function CtaLink({
 	href = "#",
 	to,
 	variant = "primary",
+	onDark = false,
 	children,
 	className = "",
 }: CtaLinkProps) {
-	const classes = `${base} ${variants[variant]} ${className}`;
+	const look =
+		variant === "secondary" && onDark
+			? variants.secondaryOnDark
+			: variants[variant];
+	const classes = `${base} ${look} ${className}`;
 
 	if (to) {
 		return (

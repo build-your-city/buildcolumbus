@@ -98,7 +98,7 @@ export default function App() {
 
 				{/* Cities */}
 				{/* biome-ignore lint/correctness/useUniqueElementIds: static anchor for the nav and hero buttons */}
-				<Section id="cities">
+				<Section id="cities" tone="white">
 					<SectionHeading eyebrow="Cities">Where we're building</SectionHeading>
 					<ul className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,725px)]">
 						{cities.map((c) => (
@@ -164,7 +164,7 @@ export default function App() {
 				</Section>
 			</main>
 
-			<footer className="bg-ink text-paper">
+			<footer className="border-t border-white/8 bg-ink-deep text-paper">
 				<Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
 					<div>
 						<Wordmark
