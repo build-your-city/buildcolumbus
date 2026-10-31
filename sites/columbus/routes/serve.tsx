@@ -16,7 +16,7 @@ export const Route = createFileRoute("/serve")({
 			{
 				name: "description",
 				content:
-					"Volunteer with local nonprofits, doing what they already do. The way to see where your skill is needed.",
+					"Columbus nonprofits do important work, often with very little help. Serve is how we pitch in.",
 			},
 		],
 	}),
@@ -26,17 +26,17 @@ const steps = [
 	{
 		marker: "1",
 		title: "Pick an opportunity",
-		body: "Opportunities are posted in our Discord and shared at the monthly meetup. Each one is with a local nonprofit.",
+		body: "We post volunteer days with local nonprofits in our Discord and share them at the monthly meetup.",
 	},
 	{
 		marker: "2",
 		title: "Show up and serve",
-		body: "Anyone can do this part. Show up and help.",
+		body: "Anyone can do this part. Just come ready to help.",
 	},
 	{
 		marker: "3",
 		title: "See where you fit",
-		body: "While you're there, you'll notice something a skill could fix. Tell us about it, and we'll see if it can become a project.",
+		body: "If you notice something your skills could fix, let us know. We'll bring it to the nonprofit and see if it can become a project.",
 	},
 ];
 
@@ -55,13 +55,17 @@ function ServePage() {
 					<SectionHeading as="h1">Serve</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Volunteer with a local nonprofit, helping with what they already
-							do: serve a meal, sort donations, help run an event.
+							Columbus nonprofits do important work, often with very little
+							help. Serve is how we pitch in.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							While you're there, you'll see what they're missing: a website,
-							photos, a designer, a content creator. That's where your skill
-							comes in.
+							It starts with showing up. A nonprofit needs people to serve a
+							meal, sort donations, or set up for an event, and we go do it.
+						</p>
+						<p className={`${leadText} text-ink`}>
+							While you're there, you'll notice what they're missing. A website
+							that's hard to use. No photos. No one to design a flyer. That's
+							where your skills come in.
 						</p>
 					</div>
 					<div className="mt-8 sm:mt-10">
@@ -72,7 +76,7 @@ function ServePage() {
 
 			{/* Three steps */}
 			<Section>
-				<SectionHeading eyebrow="How it works">Three steps</SectionHeading>
+				<SectionHeading eyebrow="Three steps">How it works</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>
@@ -84,17 +88,12 @@ function ServePage() {
 					<SectionHeading eyebrow="Nonprofits" tone="paper">
 						Need builders?
 					</SectionHeading>
-					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
-						<p className={`${leadText} text-paper`}>
-							Build Columbus is a community of developers, designers, content
-							creators, and more who want to put their skills to work for local
-							nonprofits.
-						</p>
-						<p className={`${leadText} text-paper`}>
-							If your organization has a problem a skill could help with, tell
-							us about it.
-						</p>
-					</div>
+					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
+						Build Columbus is a community of developers, designers, content
+						creators, and other skilled people who volunteer their time to help
+						local nonprofits. If your organization has a problem a skill could
+						solve, tell us about it.
+					</p>
 					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
 						Get in touch
 					</CtaLink>

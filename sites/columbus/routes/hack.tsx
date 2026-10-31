@@ -24,7 +24,7 @@ export const Route = createFileRoute("/hack")({
 			{
 				name: "description",
 				content:
-					"One day a year. Hear a real need, pick a challenge, present an idea.",
+					"Once a year, builders from across Columbus spend a day working on real problems in our city. Any skill is welcome. No code required.",
 			},
 		],
 	}),
@@ -45,12 +45,16 @@ function HackPage() {
 					<SectionHeading as="h1">Hack</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							One day a year, builders from across Columbus learn about real
-							needs in our city from the people who work on them every day.
+							Once a year, builders from across Columbus spend a day working on
+							real problems in our city.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							Then they pick a challenge and present an idea. Any skill. No code
-							required.
+							We start by hearing from people who work on those problems every
+							day. Then you pick a challenge, work on an idea solo or with a
+							team, and present it to everyone at the end.
+						</p>
+						<p className={`${leadText} text-ink`}>
+							Any skill is welcome. No code required.
 						</p>
 					</div>
 					<div className="mt-8 sm:mt-10">
@@ -73,13 +77,14 @@ function HackPage() {
 					</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8">
 						<p className={`${bodyText} text-ink`}>
-							Saturday, October 24 at Leading EDJE, a software consultancy in
-							Dublin, Ohio. Seven guest speakers, five challenge areas, and a
-							full room from 8 AM to 8 PM.
+							{city.hackEventName} was Saturday, October 24 at Leading EDJE, a
+							software consulting firm in Dublin, Ohio. Seven guest speakers,
+							five challenge areas, and a room full of builders working from 8
+							AM to 8 PM.
 						</p>
 						<p className={`${bodyText} text-ink`}>
-							Crowd favorite went to Jasmine Harris, Victoria Robertson, and
-							Bryan Fernandez. Runner-up: Pedro and Nick.
+							Crowd favorite for the day went to Jasmine Harris, Victoria
+							Robertson, and Bryan Fernandez.
 						</p>
 					</div>
 				</SplitBlock>
@@ -106,19 +111,21 @@ function HackPage() {
 						of them.
 					</p>
 				</div>
-				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-5 md:gap-0 md:border md:border-line">
+				<ul className="mt-6 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-5 md:gap-0 md:border md:border-line">
 					{challengeAreas.map((area, i) => (
 						<li
 							key={area.title}
-							className={`border border-line bg-white p-8 md:border-y-0 md:border-r-0 ${i === 0 ? "md:border-l-0" : ""}`}
+							className={`flex items-center gap-4 border border-line bg-white p-4 sm:block sm:p-8 md:border-y-0 md:border-r-0 ${i === 0 ? "md:border-l-0" : ""}`}
 						>
 							<img
 								src={area.icon}
 								alt=""
-								className="h-16 w-16"
+								className="h-12 w-12 shrink-0 sm:h-16 sm:w-16"
 								loading="lazy"
 							/>
-							<h3 className={`mt-6 ${smallHeading} text-ink`}>{area.title}</h3>
+							<h3 className={`${smallHeading} text-ink sm:mt-6`}>
+								{area.title}
+							</h3>
 						</li>
 					))}
 				</ul>
@@ -137,7 +144,7 @@ function HackPage() {
 					{speakers.map((s) => (
 						<li
 							key={s.people.map((p) => p.name).join(" & ")}
-							className="flex flex-col border border-line bg-white p-8"
+							className="flex flex-col items-center border border-line bg-white p-8 text-center sm:items-start sm:text-left"
 						>
 							<div className="flex gap-4">
 								{s.people.map((p) => (
@@ -166,7 +173,7 @@ function HackPage() {
 									{s.org}
 								</p>
 							)}
-							<div className="mt-auto flex flex-col items-start gap-3 pt-6">
+							<div className="mt-auto flex flex-col items-center gap-3 pt-6 sm:items-start">
 								{s.links.map((l) => (
 									<a
 										key={l.href}
