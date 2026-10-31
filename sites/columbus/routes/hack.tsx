@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import SponsorGrid from "@/components/SponsorGrid";
-import ThreeUp from "@/components/ThreeUp";
 import {
 	bodyText,
 	leadText,
@@ -12,7 +11,7 @@ import {
 	underlineLink,
 } from "@/components/text";
 import { city, sponsorsFor } from "../config/city";
-import { challengeAreas, hackSteps, speakers } from "../data/hack2026";
+import { challengeAreas, speakers } from "../data/hack2026";
 import winnersPhoto from "../images/photos/h-winners.jpg";
 import heroPhoto from "../images/photos/p-hack.jpg";
 
@@ -90,18 +89,8 @@ function HackPage() {
 				</SplitBlock>
 			</Section>
 
-			{/* How the day went */}
-			<Section>
-				<SectionHeading eyebrow="How the day went">
-					Morning to evening
-				</SectionHeading>
-				<div className="mt-6 sm:mt-10">
-					<ThreeUp items={hackSteps} />
-				</div>
-			</Section>
-
 			{/* Challenge areas: one box with five cells on desktop, cards on mobile */}
-			<Section tone="white">
+			<Section>
 				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
 					<SectionHeading eyebrow="2026 challenge areas">
 						What we built around
@@ -132,7 +121,7 @@ function HackPage() {
 			</Section>
 
 			{/* Guest speakers */}
-			<Section>
+			<Section tone="white">
 				<SectionHeading eyebrow="2026 guest speakers">
 					Who we learned from
 				</SectionHeading>
