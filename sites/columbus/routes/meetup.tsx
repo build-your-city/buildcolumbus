@@ -34,7 +34,7 @@ const steps = [
 	{
 		marker: "2",
 		title: "Main session",
-		body: "A talk, a workshop, or an open build block. It changes month to month and gets posted on Meetup ahead of time.",
+		body: "A talk, a workshop, or open time to work on your own project. It changes month to month and gets posted on Meetup.com ahead of time.",
 	},
 	{
 		marker: "3",
@@ -58,7 +58,7 @@ function MeetupPage() {
 						priority: true,
 					}}
 				>
-					<SectionHeading as="h1" eyebrow="Monthly at Improving">
+					<SectionHeading as="h1" eyebrow="Monthly, hosted by Improving">
 						Meetup
 					</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
@@ -83,7 +83,7 @@ function MeetupPage() {
 				{upcoming.length === 0 ? (
 					<div className="mt-6 border border-line bg-white p-8 sm:mt-10 md:p-12">
 						<p className={`${bodyText} text-ink`}>
-							Nothing on the calendar right now. New meetups post to Meetup
+							Nothing on the calendar right now. New dates go up on Meetup.com
 							first.
 						</p>
 						<CtaLink href={city.links.meetupEvents} className="mt-7">
@@ -123,8 +123,7 @@ function MeetupPage() {
 					</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
 						Have something builders would find useful? Talks run 30 minutes to
-						an hour. Send us your idea through Sessionize and we'll be in touch
-						about a date.
+						an hour. Send us your idea and we'll be in touch about a date.
 					</p>
 					<CtaLink href={city.links.sessionize} className="mt-8 sm:mt-10">
 						Submit a talk

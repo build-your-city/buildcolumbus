@@ -31,12 +31,12 @@ const steps = [
 	{
 		marker: "2",
 		title: "Show up and serve",
-		body: "Anyone can do this part. You're there as a volunteer first.",
+		body: "Anyone can do this part. You're there to volunteer, not to pitch.",
 	},
 	{
 		marker: "3",
 		title: "See where you fit",
-		body: "While you're there, you'll notice something a skill could fix. Tell us about it, and we'll see if it can become a project.",
+		body: "While you're there, you'll notice something a skill could fix. Tell us about it, and we'll see if it can become a project for our builders.",
 	},
 ];
 
@@ -93,8 +93,8 @@ function ServePage() {
 							Columbus nonprofits.
 						</p>
 						<p className={`${leadText} text-paper`}>
-							If your organization has a challenge a skill could solve, tell us
-							about it.
+							If your organization has a problem one of our builders could help
+							with, tell us about it.
 						</p>
 					</div>
 					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
