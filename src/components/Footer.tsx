@@ -28,7 +28,7 @@ export default function Footer({ wordmark, tagline, columns }: FooterProps) {
 						top={wordmark.top}
 						bottom={wordmark.bottom}
 						tone="paper"
-						className="text-[26px]"
+						className="text-[40px]"
 					/>
 					<p className="mt-5 max-w-xs font-sans text-base font-medium leading-[1.55] text-slate">
 						{tagline}

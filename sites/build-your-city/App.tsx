@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import CtaLink from "@/components/CtaLink";
+import Eyebrow from "@/components/Eyebrow";
 import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
@@ -15,6 +16,8 @@ const footerLink =
 const footerHeading =
 	"mb-5 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-paper";
 const lead = "font-sans text-[22px] font-medium leading-[1.4]";
+const darkLead =
+	"font-sans text-[19px] font-medium leading-[1.4] md:text-[22px]";
 const body = "font-sans text-[17px] font-medium leading-[1.55] text-ink";
 
 const ET = "America/New_York";
@@ -42,7 +45,7 @@ export default function App() {
 						<Wordmark
 							top={parent.wordmark.top}
 							bottom={parent.wordmark.bottom}
-							className="text-[26px]"
+							className="text-[28px] md:text-[34px]"
 						/>
 					</a>
 					<nav
@@ -79,7 +82,8 @@ export default function App() {
 							<PhotoPlaceholder label="Builders working alongside a nonprofit" />
 						}
 					>
-						<h1 className="font-display text-[52px] font-extrabold leading-none tracking-[-0.025em] text-ink md:text-[84px]">
+						<Eyebrow>{parent.siteName}</Eyebrow>
+						<h1 className="mt-5 font-display text-[52px] font-extrabold leading-none tracking-[-0.025em] text-ink md:text-[84px]">
 							<span className="block">Use your skills.</span>
 							<span className="block">Serve your city.</span>
 						</h1>
@@ -144,7 +148,7 @@ export default function App() {
 						That's not a slogan. It's the whole idea.
 					</SectionHeading>
 					<div
-						className={`mt-8 flex max-w-[52rem] flex-col gap-6 ${lead} text-paper`}
+						className={`mt-8 flex max-w-[52rem] flex-col gap-6 ${darkLead} text-paper`}
 					>
 						<p>
 							Take what you're good at, whether that's code, design,
@@ -171,7 +175,7 @@ export default function App() {
 							top={parent.wordmark.top}
 							bottom={parent.wordmark.bottom}
 							tone="paper"
-							className="text-[26px]"
+							className="text-[40px]"
 						/>
 						<p className="mt-5 max-w-xs font-sans text-base font-medium leading-[1.55] text-slate">
 							{parent.tagline}

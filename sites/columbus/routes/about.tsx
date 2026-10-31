@@ -10,9 +10,20 @@ import { city, sponsorsFor } from "../config/city";
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
 	head: () => ({
-		meta: [{ title: `About | ${city.siteName}` }],
+		meta: [
+			{ title: `About | ${city.siteName}` },
+			{
+				name: "description",
+				content:
+					"A community of people who build solutions for Columbus nonprofits.",
+			},
+		],
 	}),
 });
+
+const lead = "font-sans text-[22px] font-medium leading-[1.4] text-ink";
+const underlineLink =
+	"inline-block border-b-2 border-blue pb-0.5 font-sans text-base font-semibold text-ink no-underline transition-colors hover:text-blue-deep";
 
 function AboutPage() {
 	return (
@@ -25,16 +36,23 @@ function AboutPage() {
 					<SectionHeading as="h1" eyebrow={city.place}>
 						About
 					</SectionHeading>
-					<p className="mt-8 font-sans text-[22px] font-medium leading-[1.4] text-ink">
-						Build Columbus is a community of people who build solutions:
-						developers, designers, content creators, and anyone who can turn a
-						need into something useful. We meet once a month, volunteer with
-						Columbus nonprofits, and hold a hackathon once a year. What began in
-						2024 as a meetup for people in tech has grown into something wider:
-						a place where any skill can help solve a real problem for a Columbus
-						nonprofit. You don't need to know what you can offer yet. Come to a
-						meetup and find out.
-					</p>
+					<div className="mt-8 flex flex-col gap-5">
+						<p className={lead}>
+							Build Columbus is a community of people who build solutions:
+							developers, designers, content creators, and anyone who can turn a
+							need into something useful.
+						</p>
+						<p className={lead}>
+							We meet once a month, volunteer with Columbus nonprofits, and hold
+							a hackathon once a year.
+						</p>
+						<p className={lead}>
+							What began in 2024 as a meetup for people in tech has grown into a
+							place where any skill can help solve a real problem for a Columbus
+							nonprofit. You don't need to know what you can offer yet. Come to
+							a meetup and find out.
+						</p>
+					</div>
 				</SplitBlock>
 			</Section>
 
@@ -64,7 +82,7 @@ function AboutPage() {
 									href={person.linkedin}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="mt-5 inline-block border-b-2 border-blue pb-0.5 font-sans text-base font-semibold text-ink no-underline transition-colors hover:text-blue-deep"
+									className={`mt-5 ${underlineLink}`}
 								>
 									Connect on LinkedIn
 								</a>
@@ -74,7 +92,7 @@ function AboutPage() {
 				</ul>
 			</Section>
 
-			{/* Sponsors */}
+			{/* Sponsors: always on Paper */}
 			<Section>
 				<SectionHeading eyebrow="Thank you">
 					Sponsors and partners
@@ -89,12 +107,12 @@ function AboutPage() {
 				<SectionHeading eyebrow="Part of Build Your City" tone="paper">
 					Build your city.
 				</SectionHeading>
-				<div className="mt-8 flex max-w-[46rem] flex-col gap-6 font-sans text-[22px] font-medium leading-[1.4] text-paper">
+				<div className="mt-8 flex max-w-[46rem] flex-col gap-6 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
 					<p>
 						Build Your City is a network of city communities where builders use
-						their skills to serve local nonprofits. Every city runs the same
-						three things under its own name: a monthly Meetup, Serve alongside
-						nonprofits, and a hackathon once a year. Columbus is the first.
+						their skills to serve local nonprofits. Every city runs a monthly
+						Meetup, Serve alongside nonprofits, and a hackathon once a year.
+						Columbus is the first.
 					</p>
 					<p>
 						Each city has its own organizers, its own site, and its own

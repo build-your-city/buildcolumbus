@@ -43,7 +43,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 					<Wordmark
 						top={wordmark.top}
 						bottom={wordmark.bottom}
-						className="text-[26px]"
+						className="text-[28px] md:text-[34px]"
 					/>
 				</Link>
 

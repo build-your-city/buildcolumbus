@@ -12,7 +12,14 @@ import { city, sponsorsFor } from "../config/city";
 export const Route = createFileRoute("/meetup")({
 	component: MeetupPage,
 	head: () => ({
-		meta: [{ title: `Meetup | ${city.siteName}` }],
+		meta: [
+			{ title: `Meetup | ${city.siteName}` },
+			{
+				name: "description",
+				content:
+					"Once a month at Improving. Talks, workshops, and time to meet the people building things in Columbus.",
+			},
+		],
 	}),
 });
 
@@ -108,7 +115,7 @@ function MeetupPage() {
 				<SectionHeading eyebrow="Want to speak?" tone="paper">
 					Give a talk.
 				</SectionHeading>
-				<p className="mt-8 max-w-[40rem] font-sans text-[22px] font-medium leading-[1.4] text-paper">
+				<p className="mt-8 max-w-[40rem] font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
 					Have something builders would find useful? Talks run 30 minutes to an
 					hour. Send us your idea through Sessionize and we'll be in touch about
 					a date.

@@ -46,6 +46,13 @@ clarity beats cleverness.
 - **City config:** everything city-specific (name, links, venue, sponsors,
   organizers) lives in `sites/columbus/config/city.ts`. Hack recap content is
   in `sites/columbus/data/hack2026.ts`.
+- **Head tags:** `sites/columbus/config/site.ts` (and `site.ts` in the
+  parent site) holds the site name, URL, description, and preview image.
+  Each site's `vite.config.ts` stamps the Open Graph, Twitter, icon, and
+  manifest tags into `index.html` at build time through `src/lib/headTags.ts`
+  so crawlers see them without JavaScript. Per-page titles and descriptions
+  are set in each route's `head()` and rendered by `HeadContent` in the root
+  route.
 - **Event data:** `src/data/events.json` is written by
   `scripts/sync-events.mjs` via a nightly GitHub Action — don't hand-edit it
   except to hotfix. `src/lib/events.ts` reads it and parses the meetup number

@@ -13,7 +13,14 @@ import servePhoto from "../images/photos/p-serve.jpg";
 export const Route = createFileRoute("/")({
 	component: HomePage,
 	head: () => ({
-		meta: [{ title: city.siteName }],
+		meta: [
+			{ title: city.siteName },
+			{
+				name: "description",
+				content:
+					"Developers, designers, content creators, and more. All builders welcome to serve Columbus nonprofits.",
+			},
+		],
 	}),
 });
 
@@ -53,7 +60,7 @@ function HomePage() {
 			<Section noBorder>
 				<div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
 					<div>
-						<Eyebrow>{city.place}</Eyebrow>
+						<Eyebrow>{city.siteName}</Eyebrow>
 						<h1 className="mt-5 font-display text-[52px] font-extrabold leading-none tracking-[-0.025em] text-ink md:text-[84px]">
 							<span className="block">Use your skills.</span>
 							<span className="block">Serve your city.</span>

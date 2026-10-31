@@ -10,6 +10,7 @@ import logoIndigitous from "../images/logos/logo-ind.png";
 import logoLe from "../images/logos/logo-le.png";
 import photoCody from "../images/photos/about-cody.jpg";
 import photoNathan from "../images/photos/about-nathan.jpg";
+import { site } from "./site";
 
 export type SponsorPage = "meetup" | "hack" | "about";
 
@@ -31,7 +32,7 @@ export const city = {
 	state: "Ohio",
 	/** Short place label used in eyebrows, e.g. "Columbus, Ohio". */
 	place: "Columbus, Ohio",
-	siteName: "Build Columbus",
+	siteName: site.name,
 	domain: "buildcolumbus.org",
 	email: "hello@buildcolumbus.org",
 
@@ -43,9 +44,9 @@ export const city = {
 		sessionize: "https://sessionize.com/citcbus",
 		parent: "https://build-your-city.org",
 		donate: "https://onrealm.org/bwpc/-/form/give/cit",
-		instagram: "https://instagram.com/citcbus",
+		instagram: "https://www.instagram.com/build_columbus",
 		linkedin: "https://www.linkedin.com/showcase/citcbus/",
-		facebook: "https://facebook.com/citcbus",
+		facebook: "https://www.facebook.com/build_columbus",
 	},
 
 	venue: {
@@ -108,15 +109,13 @@ export const city = {
 			name: "Nathan Speich",
 			role: "Co-founder",
 			photo: photoNathan,
-			// LinkedIn URL to be supplied.
-			linkedin: "#",
+			linkedin: "https://www.linkedin.com/in/nathanspeich",
 		},
 		{
 			name: "Cody Steffy",
 			role: "Co-founder",
 			photo: photoCody,
-			// LinkedIn URL to be supplied.
-			linkedin: "#",
+			linkedin: "https://www.linkedin.com/in/cody-steffy",
 		},
 	],
 } as const;
