@@ -45,7 +45,6 @@ const steps = [
 
 function MeetupPage() {
 	const upcoming = upcomingEvents(city.siteName);
-	const next = upcoming[0];
 
 	return (
 		<>
@@ -65,13 +64,8 @@ function MeetupPage() {
 						workshop, then time to meet other builders. First-timers always
 						welcome.
 					</p>
-					<div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-						<CtaLink href={next?.url ?? city.links.meetupEvents}>
-							RSVP on Meetup
-						</CtaLink>
-						<CtaLink href={city.links.discord} variant="secondary">
-							Join the Discord
-						</CtaLink>
+					<div className="mt-8 sm:mt-10">
+						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
 					</div>
 				</SplitBlock>
 			</Section>
