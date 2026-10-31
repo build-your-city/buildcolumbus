@@ -165,7 +165,7 @@ function HackPage() {
 			</Section>
 
 			{/* Sponsors */}
-			<Section tone="white">
+			<Section>
 				<SectionHeading eyebrow="Thank you">
 					Sponsors and partners
 				</SectionHeading>

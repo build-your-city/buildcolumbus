@@ -8,13 +8,13 @@ import icFamily from "../images/logos/ic-family.png";
 import icHome from "../images/logos/ic-home.png";
 import icMissions from "../images/logos/ic-missions.png";
 import icRefugee from "../images/logos/ic-refugee.png";
-import sGenna from "../images/speakers/genna-pellin.jpg";
+import sGenna from "../images/speakers/genna-pellin.webp";
 import sChris from "../images/speakers/s-chris.png";
 import sCody from "../images/speakers/s-cody.jpg";
 import sEmily from "../images/speakers/s-emily.png";
+import sSummer from "../images/speakers/s-genna.jpg";
 import sKeith from "../images/speakers/s-keith.jpg";
 import sKelli from "../images/speakers/s-kelli.jpg";
-import sSummer from "../images/speakers/summer-skodacek.jpg";
 
 export const hackSteps = [
 	{

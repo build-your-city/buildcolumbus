@@ -54,8 +54,10 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
 - Sections have 88px vertical padding and a 1px Line border on top
   (`Section`). Content sections alternate Paper, White, Paper, White down
   the page, starting from the Paper hero; the one dark Ink band a page may
-  have sits outside that alternation. Cards and three-column boxes stay
-  white whatever the section background.
+  have sits outside that alternation. The Sponsors and partners section is
+  always Paper, so logos sit on Paper, and the alternation restarts after
+  it. Cards and three-column boxes stay white whatever the section
+  background.
 - Hero: two equal columns, text left, photo right, 56px gap. Photos keep
   their natural aspect ratio and are never cropped. Two-column blocks
   alternate sides down the page (`SplitBlock`).
