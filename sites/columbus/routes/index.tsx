@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
 			{
 				name: "description",
 				content:
-					"Developers, designers, content creators, and more. All builders welcome to serve Columbus nonprofits.",
+					"Developers, designers, content creators, and more. All builders are welcome to serve Columbus nonprofits.",
 			},
 		],
 	}),
