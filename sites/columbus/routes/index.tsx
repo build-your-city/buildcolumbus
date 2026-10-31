@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import CtaLink from "@/components/CtaLink";
 import EventCard from "@/components/EventCard";
 import Section from "@/components/Section";
 import SplitBlock from "@/components/SplitBlock";
@@ -80,14 +79,6 @@ function HomePage() {
 						Developers, designers, content creators, and more. All builders are
 						welcome to serve Columbus nonprofits.
 					</p>
-					<div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
-						<CtaLink href={next?.url ?? city.links.meetupEvents}>
-							RSVP to the next meetup
-						</CtaLink>
-						<CtaLink href={city.links.discord} variant="secondary">
-							Join the Discord
-						</CtaLink>
-					</div>
 				</SplitBlock>
 			</Section>
 
