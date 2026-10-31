@@ -34,9 +34,7 @@ function AboutPage() {
 						priority: true,
 					}}
 				>
-					<SectionHeading as="h1" eyebrow={city.place}>
-						About
-					</SectionHeading>
+					<SectionHeading as="h1">About</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
 							Build Columbus is a community of people who build solutions.
@@ -51,10 +49,6 @@ function AboutPage() {
 							What began in 2024 as a meetup for people in tech has grown into a
 							place where any skill can help solve a real problem for a local
 							nonprofit.
-						</p>
-						<p className={`${leadText} text-ink`}>
-							You don't need to know what you can offer yet. Come to a meetup
-							and find out.
 						</p>
 					</div>
 				</SplitBlock>
@@ -107,9 +101,7 @@ function AboutPage() {
 			{/* Parent network */}
 			<Section tone="dark">
 				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading eyebrow="One city of many" tone="paper">
-						Build your city.
-					</SectionHeading>
+					<SectionHeading tone="paper">Build your city.</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-paper`}>
 							Build Your City is a network of city communities like this one.

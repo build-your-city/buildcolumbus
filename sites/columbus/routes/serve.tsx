@@ -52,9 +52,7 @@ function ServePage() {
 						priority: true,
 					}}
 				>
-					<SectionHeading as="h1" eyebrow="Volunteer first">
-						Serve
-					</SectionHeading>
+					<SectionHeading as="h1">Serve</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
 							Volunteer with a local nonprofit, helping with what they already

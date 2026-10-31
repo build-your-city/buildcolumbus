@@ -42,9 +42,7 @@ function HackPage() {
 						priority: true,
 					}}
 				>
-					<SectionHeading as="h1" eyebrow="Once a year">
-						Hack
-					</SectionHeading>
+					<SectionHeading as="h1">Hack</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
 							One day a year, builders from across Columbus learn about real
