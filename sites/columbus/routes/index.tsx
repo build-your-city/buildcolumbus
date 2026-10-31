@@ -8,7 +8,7 @@ import { city } from "../config/city";
 import meetupPhoto from "../images/photos/hero-cbus.jpg";
 import hackPhoto from "../images/photos/p-hack.jpg";
 import heroPhoto from "../images/photos/p-meetup.jpg";
-import servePhoto from "../images/photos/p-serve.jpg";
+import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/")({
 	component: HomePage,

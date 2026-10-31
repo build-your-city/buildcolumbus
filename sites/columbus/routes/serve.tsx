@@ -5,9 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import ThreeUp from "@/components/ThreeUp";
 import { city } from "../config/city";
-// serve-cody-full.jpg (the uncropped version) was not in the repo yet;
-// swap this import when it lands.
-import servePhoto from "../images/photos/p-serve.jpg";
+import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/serve")({
 	component: ServePage,
