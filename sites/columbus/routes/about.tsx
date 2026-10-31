@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
 			{
 				name: "description",
 				content:
-					"A community of people who build solutions for local nonprofits.",
+					"Build Columbus is a community of people who use their skills to serve their city. We meet monthly, volunteer with local nonprofits, and hold a hackathon once a year.",
 			},
 		],
 	}),
@@ -37,18 +37,20 @@ function AboutPage() {
 					<SectionHeading as="h1">About</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Build Columbus is a community of people who build solutions.
-							Developers, designers, content creators, and anyone who can turn a
-							need into something useful.
+							Build Columbus is a community of people who use their skills to
+							serve their city. Developers, designers, content creators, and
+							anyone who can see a need and build something that helps.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							We meet once a month, volunteer with local nonprofits, and hold a
 							hackathon once a year.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							What began in 2024 as a meetup for people in tech has grown into a
-							place where any skill can help solve a real problem for a local
-							nonprofit.
+							We started in 2024 as Christians in Tech Columbus, a meetup for
+							people of faith who work in tech. As we began serving nonprofits
+							around the city, we met people from every background who wanted to
+							help, and the work called for more than tech skills. The mission
+							had outgrown the name, so in 2026 we became Build Columbus.
 						</p>
 					</div>
 				</SplitBlock>
@@ -61,7 +63,7 @@ function AboutPage() {
 					{city.organizers.map((person) => (
 						<li
 							key={person.name}
-							className="flex flex-col gap-6 border border-line bg-white p-8 sm:flex-row sm:items-center sm:gap-8"
+							className="flex flex-col items-center gap-6 border border-line bg-white p-8 text-center sm:flex-row sm:gap-8 sm:text-left"
 						>
 							<img
 								src={person.photo}
@@ -104,13 +106,13 @@ function AboutPage() {
 					<SectionHeading tone="paper">Build your city.</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-paper`}>
-							Build Your City is a network of city communities like this one.
-							Each city runs its own monthly meetup, volunteers with local
-							nonprofits, and holds a hackathon once a year.
+							Build Columbus is the first of many. Build Your City is a network
+							of communities that each run a monthly meetup, volunteer with
+							local nonprofits, and hold a hackathon once a year.
 						</p>
 						<p className={`${leadText} text-paper`}>
-							Columbus is the first. Want this where you live? The parent site
-							is the place to begin.
+							Want to start one where you live? Learn more at
+							build-your-city.org.
 						</p>
 					</div>
 					<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">

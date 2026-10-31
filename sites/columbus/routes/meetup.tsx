@@ -19,7 +19,7 @@ export const Route = createFileRoute("/meetup")({
 			{
 				name: "description",
 				content:
-					"Once a month at Improving. Talks, workshops, and time to meet the people building things in Columbus.",
+					"Once a month on a Saturday afternoon, builders from around Columbus get together at Improving. Talks, workshops, and time to share what you're making.",
 			},
 		],
 	}),
@@ -28,18 +28,18 @@ export const Route = createFileRoute("/meetup")({
 const steps = [
 	{
 		marker: "1",
-		title: "Intro circle",
-		body: "Everyone says their name, what they're working on, and what they can help with. Then a quick rundown of what's coming up.",
+		title: "Say hello",
+		body: "We go around the room and everyone shares their name, what they're working on, and something they can help with.",
 	},
 	{
 		marker: "2",
 		title: "Main session",
-		body: "A talk, a workshop, or open time to work on your own project. It changes month to month and gets posted on Meetup.com ahead of time.",
+		body: "A talk, a workshop, or time to work alongside other builders. It changes month to month and gets posted on Meetup.com ahead of time.",
 	},
 	{
 		marker: "3",
 		title: "Hang out",
-		body: "Food, coffee, and time to talk, network, and hear what others are working on.",
+		body: "Food, coffee, and time to keep the conversations going.",
 	},
 ];
 
@@ -59,11 +59,18 @@ function MeetupPage() {
 					}}
 				>
 					<SectionHeading as="h1">Meetup</SectionHeading>
-					<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
-						Once a month on a Saturday afternoon, hosted by Improving. A talk or
-						workshop, then time to meet other builders. First-timers always
-						welcome.
-					</p>
+					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
+						<p className={`${leadText} text-ink`}>
+							Once a month on a Saturday afternoon, builders from around
+							Columbus get together at Improving downtown. Sometimes there's a
+							talk or a workshop. Other times we work on our own projects and
+							share what we're making.
+						</p>
+						<p className={`${leadText} text-ink`}>
+							Either way, you'll meet good people and leave with new ideas.
+							First time? You'll fit right in.
+						</p>
+					</div>
 					<div className="mt-8 sm:mt-10">
 						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
 					</div>
@@ -87,11 +94,7 @@ function MeetupPage() {
 					<ul className="mt-6 flex flex-col gap-4 sm:mt-10 sm:gap-6">
 						{upcoming.map((event) => (
 							<li key={event.id}>
-								<EventCard
-									event={event}
-									hours={city.meetupHours}
-									where={`${city.venue.name}, ${city.venue.address}`}
-								/>
+								<EventCard event={event} details={city.meetupDetails} />
 							</li>
 						))}
 					</ul>
@@ -100,8 +103,8 @@ function MeetupPage() {
 
 			{/* What to expect */}
 			<Section>
-				<SectionHeading eyebrow="A typical Saturday">
-					What to expect
+				<SectionHeading eyebrow="What to expect">
+					What a Saturday looks like
 				</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
@@ -111,13 +114,11 @@ function MeetupPage() {
 			{/* Call for speakers */}
 			<Section tone="dark">
 				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading eyebrow="Want to speak?" tone="paper">
-						Give a talk.
-					</SectionHeading>
+					<SectionHeading tone="paper">Want to give a talk?</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
-						Have a talk or workshop on something builders would find useful?
-						Sessions run 30 minutes to an hour. Send us your idea and we'll be
-						in touch about a date.
+						If you know something other builders would find useful, we'd love to
+						hear it. Talks run 30 minutes to an hour. Send us your idea and
+						we'll get back to you.
 					</p>
 					<CtaLink href={city.links.sessionize} className="mt-8 sm:mt-10">
 						Submit a talk
