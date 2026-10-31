@@ -47,12 +47,12 @@ function HackPage() {
 					</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							One day a year, builders from across Columbus learn about the real
-							needs facing our city from the people who work on them every day,
-							pick a challenge, and present an idea.
+							One day a year, builders from across Columbus learn about real
+							needs in our city from the people who work on them every day.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							Any skill. No code required.
+							Then they pick a challenge and present an idea. Any skill. No code
+							required.
 						</p>
 					</div>
 					<div className="mt-8 sm:mt-10">
@@ -75,8 +75,9 @@ function HackPage() {
 					</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8">
 						<p className={`${bodyText} text-ink`}>
-							Saturday, October 24 at Leading EDJE in Dublin. Seven guest
-							speakers, five challenge areas, and a full room from 8 AM to 8 PM.
+							Saturday, October 24 at Leading EDJE, a software consultancy in
+							Dublin, Ohio. Seven guest speakers, five challenge areas, and a
+							full room from 8 AM to 8 PM.
 						</p>
 						<p className={`${bodyText} text-ink`}>
 							Crowd favorite went to Jasmine Harris, Victoria Robertson, and

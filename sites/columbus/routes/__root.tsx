@@ -64,7 +64,7 @@ function RootLayout() {
 			<Header
 				wordmark={wordmark}
 				nav={nav}
-				cta={{ label: "Join on Meetup", href: city.links.meetup }}
+				cta={{ label: "Join on Meetup.com", href: city.links.meetup }}
 			/>
 			<main className="flex-1">
 				<Outlet />

@@ -39,8 +39,8 @@ function AboutPage() {
 					</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Build Columbus is a community of people who build solutions:
-							developers, designers, content creators, and anyone who can turn a
+							Build Columbus is a community of people who build solutions.
+							Developers, designers, content creators, and anyone who can turn a
 							need into something useful.
 						</p>
 						<p className={`${leadText} text-ink`}>
@@ -113,8 +113,8 @@ function AboutPage() {
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-paper`}>
 							Build Your City is a network of city communities like this one.
-							Each city runs its own Meetup, Serve, and hackathon, with its own
-							organizers and nonprofits.
+							Each city runs its own monthly meetup, volunteers with local
+							nonprofits, and holds a hackathon once a year.
 						</p>
 						<p className={`${leadText} text-paper`}>
 							Columbus is the first. Want this where you live? The parent site
