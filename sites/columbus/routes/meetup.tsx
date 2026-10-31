@@ -59,13 +59,11 @@ function MeetupPage() {
 						focal: "50% 55%",
 					}}
 				>
-					<SectionHeading as="h1" eyebrow="Monthly, hosted by Improving">
-						Meetup
-					</SectionHeading>
+					<SectionHeading as="h1">Meetup</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
-						Once a month on a Saturday afternoon at Improving: a talk or
-						workshop, time to meet other builders, and food. First-timers always
-						welcome.
+						Once a month on a Saturday afternoon at Improving, our venue
+						partner: a talk or workshop, time to meet other builders, and food.
+						First-timers always welcome.
 					</p>
 					<div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
 						<CtaLink href={next?.url ?? city.links.meetupEvents}>

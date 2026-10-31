@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
 import EventCard from "@/components/EventCard";
-import Eyebrow from "@/components/Eyebrow";
 import Section from "@/components/Section";
 import SplitBlock from "@/components/SplitBlock";
 import {
@@ -73,8 +72,7 @@ function HomePage() {
 						focal: "50% 60%",
 					}}
 				>
-					<Eyebrow>{city.siteName}</Eyebrow>
-					<h1 className="mt-5 font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-ink sm:text-[84px] sm:leading-none">
+					<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-ink sm:text-[84px] sm:leading-none">
 						<span className="block">Use your skills.</span>
 						<span className="block">Serve your city.</span>
 					</h1>
