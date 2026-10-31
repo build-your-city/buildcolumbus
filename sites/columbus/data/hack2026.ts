@@ -16,24 +16,6 @@ import sSummer from "../images/speakers/s-genna.jpg";
 import sKeith from "../images/speakers/s-keith.jpg";
 import sKelli from "../images/speakers/s-kelli.jpg";
 
-export const hackSteps = [
-	{
-		marker: "1",
-		title: "Hear the need",
-		body: "Seven guest speakers shared what they see every day in their work, from homelessness to digital accessibility.",
-	},
-	{
-		marker: "2",
-		title: "Pick a challenge",
-		body: "Everyone picked a challenge and got to work, solo or in small teams.",
-	},
-	{
-		marker: "3",
-		title: "Present an idea",
-		body: "Five minutes each in front of the room. Then the crowd voted on its favorite, and three builders took home the grand prize.",
-	},
-];
-
 export const challengeAreas = [
 	{ title: "Homelessness", icon: icHome },
 	{ title: "Refugees & Immigrants", icon: icRefugee },
