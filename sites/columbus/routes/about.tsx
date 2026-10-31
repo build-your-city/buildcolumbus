@@ -39,7 +39,7 @@ function AboutPage() {
 						<p className={`${leadText} text-ink`}>
 							Build Columbus is a community of builders who use their skills to
 							help local nonprofits. Developers, designers, content creators,
-							and more.
+							and anyone who can see a need and build something that helps.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							We meet once a month, volunteer with local nonprofits, and hold a
@@ -47,8 +47,8 @@ function AboutPage() {
 						</p>
 						<p className={`${leadText} text-ink`}>
 							We started in 2024 as Christians in Tech Columbus, a meetup for
-							people of faith who work in tech. As we began helping local
-							nonprofits, we met people from every background who wanted to
+							people of faith who work in tech. As we began serving nonprofits
+							around the city, we met people from every background who wanted to
 							help, and the work called for more than tech skills. The mission
 							had outgrown the name, so in 2026 we became Build Columbus.
 						</p>
