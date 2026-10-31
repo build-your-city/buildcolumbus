@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
 			{
 				name: "description",
 				content:
-					"Developers, designers, content creators, and more. All builders welcome to serve Columbus nonprofits.",
+					"Developers, designers, content creators, and more. All builders are welcome to serve Columbus nonprofits.",
 			},
 		],
 	}),
@@ -43,8 +43,8 @@ const programs = [
 	{
 		title: city.programs.serve,
 		photo: servePhoto,
-		alt: "A volunteer serving food at a Columbus nonprofit.",
-		body: "Volunteer with Columbus nonprofits and see where your skill is needed.",
+		alt: "A volunteer serving food at a local nonprofit.",
+		body: "Volunteer with local nonprofits and see where your skill is needed.",
 		cta: "About Serve",
 		to: "/serve",
 	},
@@ -52,7 +52,7 @@ const programs = [
 		title: city.programs.hack,
 		photo: hackPhoto,
 		alt: "Teams working together around tables at #HACK Columbus.",
-		body: "One day a year. Learn what Columbus nonprofits are up against, pick a challenge, present an idea.",
+		body: "One day a year. Learn what local nonprofits are up against, pick a challenge, present an idea.",
 		cta: "About Hack",
 		to: "/hack",
 	},

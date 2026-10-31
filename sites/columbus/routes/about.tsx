@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
 			{
 				name: "description",
 				content:
-					"A community of people who build solutions for Columbus nonprofits.",
+					"A community of people who build solutions for local nonprofits.",
 			},
 		],
 	}),
@@ -44,12 +44,12 @@ function AboutPage() {
 							need into something useful.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							We meet once a month, volunteer with Columbus nonprofits, and hold
-							a hackathon once a year.
+							We meet once a month, volunteer with local nonprofits, and hold a
+							hackathon once a year.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							What began in 2024 as a meetup for people in tech has grown into a
-							place where any skill can help solve a real problem for a Columbus
+							place where any skill can help solve a real problem for a local
 							nonprofit.
 						</p>
 						<p className={`${leadText} text-ink`}>
