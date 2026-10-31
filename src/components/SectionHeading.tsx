@@ -11,7 +11,8 @@ type SectionHeadingProps = {
 };
 
 /**
- * Eyebrow plus heading, the opener for every section.
+ * Eyebrow plus heading, the opener for every section. Page titles are 44px
+ * on mobile and 72px on desktop; section headings 36px and 56px.
  */
 export default function SectionHeading({
 	eyebrow,
@@ -22,7 +23,7 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
 	const Tag = as;
 	const size =
-		as === "h1" ? "text-[48px] md:text-[72px]" : "text-[40px] md:text-[56px]";
+		as === "h1" ? "text-[44px] sm:text-[72px]" : "text-[36px] sm:text-[56px]";
 	const color = tone === "ink" ? "text-ink" : "text-paper";
 	return (
 		<div className={className}>

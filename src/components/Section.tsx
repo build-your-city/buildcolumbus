@@ -15,8 +15,8 @@ type SectionProps = {
 };
 
 /**
- * A page section: 88px vertical padding on desktop, 1px Line border on top
- * to separate it from the section above.
+ * A page section: 88px vertical padding on desktop and 56px on mobile, with a
+ * 1px Line border on top to separate it from the section above.
  */
 export default function Section({
 	children,
@@ -33,7 +33,7 @@ export default function Section({
 	const border = noBorder ? "" : "border-t border-line";
 	return (
 		<section id={id} className={`${tones[tone]} ${border} ${className}`}>
-			<Container className="py-14 md:py-22">{children}</Container>
+			<Container className="py-14 sm:py-22">{children}</Container>
 		</section>
 	);
 }

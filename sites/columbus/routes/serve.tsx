@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import ThreeUp from "@/components/ThreeUp";
+import { leadText } from "@/components/text";
 import { city } from "../config/city";
 import servePhoto from "../images/photos/serve-cody-full.jpg";
 
@@ -25,7 +26,7 @@ const steps = [
 	{
 		marker: "1",
 		title: "Pick an opportunity",
-		body: "Opportunities are shared in our Discord and at the monthly meetup. Each one is with a Columbus nonprofit, doing what they do.",
+		body: "Opportunities are posted in our Discord and shared at the monthly meetup. Each one is with a Columbus nonprofit.",
 	},
 	{
 		marker: "2",
@@ -39,38 +40,33 @@ const steps = [
 	},
 ];
 
-const lead = "font-sans text-[22px] font-medium leading-[1.4] text-ink";
-
 function ServePage() {
 	return (
 		<>
 			{/* Page hero */}
 			<Section noBorder>
 				<SplitBlock
-					media={
-						<img
-							src={servePhoto}
-							alt="A Build Columbus volunteer handing out food at a Columbus nonprofit."
-							className="h-auto w-full object-contain"
-							fetchPriority="high"
-						/>
-					}
+					photo={{
+						src: servePhoto,
+						alt: "A Build Columbus volunteer handing out food at a Columbus nonprofit.",
+						priority: true,
+					}}
 				>
 					<SectionHeading as="h1" eyebrow="Volunteer first">
 						Serve
 					</SectionHeading>
-					<div className="mt-8 flex flex-col gap-5">
-						<p className={lead}>
+					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
+						<p className={`${leadText} text-ink`}>
 							Volunteer with a Columbus nonprofit, helping with what they
 							already do: serve a meal, sort donations, help run an event.
 						</p>
-						<p className={lead}>
+						<p className={`${leadText} text-ink`}>
 							While you're there, you'll see what they're missing: a website,
 							photos, a designer, a content creator. That's where your skill
 							comes in.
 						</p>
 					</div>
-					<div className="mt-10">
+					<div className="mt-8 sm:mt-10">
 						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
 					</div>
 				</SplitBlock>
@@ -79,22 +75,29 @@ function ServePage() {
 			{/* Three steps */}
 			<Section>
 				<SectionHeading eyebrow="How it works">Three steps</SectionHeading>
-				<div className="mt-10">
+				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>
 			</Section>
 
 			{/* For nonprofits */}
 			<Section tone="dark">
-				<div className="mx-auto max-w-[760px] text-center">
+				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
 					<SectionHeading eyebrow="Nonprofits" tone="paper">
 						Need builders?
 					</SectionHeading>
-					<p className="mt-8 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-						Columbus nonprofit with a need? Whether it's extra hands at an event
-						or a problem a skill could solve, tell us about it.
-					</p>
-					<CtaLink href={`mailto:${city.email}`} className="mt-10">
+					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
+						<p className={`${leadText} text-paper`}>
+							Build Columbus is a community of developers, designers, content
+							creators, and more who want to put their skills to work for
+							Columbus nonprofits.
+						</p>
+						<p className={`${leadText} text-paper`}>
+							If your organization has a challenge a skill could solve, tell us
+							about it.
+						</p>
+					</div>
+					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
 						Get in touch
 					</CtaLink>
 				</div>

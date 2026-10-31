@@ -1,28 +1,46 @@
 import type { ReactNode } from "react";
 
+export type SplitPhoto = {
+	src: string;
+	alt: string;
+	/** Set on the hero photo so the browser fetches it first. */
+	priority?: boolean;
+};
+
 type SplitBlockProps = {
-	/** The photo (or placeholder) side. */
-	media: ReactNode;
+	photo: SplitPhoto;
 	/** The text side. */
 	children: ReactNode;
 	/** Which side the photo sits on at desktop. Alternate down the page. */
-	mediaSide?: "left" | "right";
+	photoSide?: "left" | "right";
 };
 
 /**
- * Two equal columns, photo on one side and text on the other, 56px gap.
- * On mobile the photo goes under the text.
+ * Two equal columns, text on one side and a photo on the other, 56px gap.
+ * The photo fills its column: full width, as tall as the text column (at
+ * least 480px), cropped to fit. On mobile the photo goes under the text at
+ * 16:10, also cropped to fit.
  */
 export default function SplitBlock({
-	media,
+	photo,
 	children,
-	mediaSide = "right",
+	photoSide = "right",
 }: SplitBlockProps) {
-	const mediaOrder = mediaSide === "left" ? "md:order-first" : "";
+	const order = photoSide === "left" ? "md:order-first" : "";
 	return (
-		<div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
-			<div>{children}</div>
-			<div className={mediaOrder}>{media}</div>
+		<div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-14">
+			<div className="md:self-center">{children}</div>
+			<div
+				className={`relative aspect-[16/10] md:aspect-auto md:min-h-[480px] ${order}`}
+			>
+				<img
+					src={photo.src}
+					alt={photo.alt}
+					className="absolute inset-0 h-full w-full object-cover object-center"
+					fetchPriority={photo.priority ? "high" : undefined}
+					loading={photo.priority ? undefined : "lazy"}
+				/>
+			</div>
 		</div>
 	);
 }

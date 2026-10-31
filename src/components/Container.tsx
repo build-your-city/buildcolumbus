@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 /**
  * The site's one content container: 1200px max width with the side gutters
- * inside the box (48px on desktop, 16px on mobile). Every aligned piece of
+ * inside the box (48px on desktop, 20px on mobile). Every aligned piece of
  * content, header through footer, uses this so edges line up.
  */
 export default function Container({
@@ -13,7 +13,7 @@ export default function Container({
 	children: ReactNode;
 }) {
 	return (
-		<div className={`max-w-[1200px] mx-auto px-4 md:px-12 ${className}`}>
+		<div className={`max-w-[1200px] mx-auto px-5 sm:px-12 ${className}`}>
 			{children}
 		</div>
 	);

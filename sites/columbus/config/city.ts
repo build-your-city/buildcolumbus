@@ -97,7 +97,7 @@ export const city = {
 		},
 	} satisfies Record<SponsorId, SponsorEntry>,
 
-	/** Which sponsors appear in each page's carousel, in display order. */
+	/** Which sponsors appear in each page's grid, in display order. */
 	sponsorPages: {
 		meetup: ["improving", "fruitsAndRoots", "bethel"],
 		hack: ["indigitous", "leadingEdje", "bethel", "fruitsAndRoots"],
@@ -122,7 +122,7 @@ export const city = {
 
 export type City = typeof city;
 
-/** Sponsors whose logo belongs in the carousel on the given page. */
+/** Sponsors whose logo belongs in the grid on the given page. */
 export function sponsorsFor(page: SponsorPage): SponsorEntry[] {
 	return city.sponsorPages[page].map((id) => city.sponsors[id]);
 }

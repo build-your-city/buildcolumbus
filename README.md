@@ -20,7 +20,7 @@ The repo root is a shared library. Each site is a sibling folder under
 
 ```
 src/                     # shared package, imported by every site as "@/..."
-  components/            # Header, Footer, Section, ThreeUp, SponsorCarousel, ...
+  components/            # Header, Footer, Section, ThreeUp, SponsorGrid, ...
   styles.css             # brand tokens (Ink, Paper, Build Blue, ...) and base styles
   lib/events.ts          # upcoming-event helpers; parses the meetup number from the title
   data/events.json       # written nightly by the Meetup sync

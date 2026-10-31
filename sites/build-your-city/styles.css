@@ -4,3 +4,8 @@
 /* Tailwind scans these for class names (the Vite root is this folder). */
 @source "../../src/components";
 @source ".";
+
+/* The splash page is Ink edge to edge, including any overscroll. */
+body {
+  background-color: var(--color-ink);
+}
