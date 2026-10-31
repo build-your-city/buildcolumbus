@@ -18,7 +18,7 @@ type CtaLinkProps = {
 };
 
 const base =
-	"inline-block border-2 px-7 py-[16px] text-center font-sans text-base font-semibold leading-tight no-underline transition-colors duration-150";
+	"block w-full border-2 px-7 py-[16px] text-center font-sans text-base font-semibold leading-tight no-underline transition-colors duration-150 sm:inline-block sm:w-auto";
 
 const variants = {
 	primary:
@@ -30,7 +30,8 @@ const variants = {
 };
 
 /**
- * The site-wide button-styled link. Renders a router Link when given `to`,
+ * The site-wide button-styled link. Full width on mobile, inline on desktop.
+ * Renders a router Link when given `to`,
  * otherwise an anchor. Only http(s) URLs open in a new tab; mailto: and
  * #anchor links stay in the current one. Every variant keeps a visible
  * fill or border on hover, on Paper, White, and Ink backgrounds alike.

@@ -1,253 +1,91 @@
-import Container from "@/components/Container";
 import CtaLink from "@/components/CtaLink";
-import Eyebrow from "@/components/Eyebrow";
-import Section from "@/components/Section";
-import SectionHeading from "@/components/SectionHeading";
-import SplitBlock from "@/components/SplitBlock";
 import Wordmark from "@/components/Wordmark";
-import { nextEvent } from "@/lib/events";
 import { cities, parent } from "./config";
-import heroPhoto from "./images/meetup-full-room.jpg";
 
-const navLink =
-	"font-sans text-base font-semibold text-paper no-underline transition-colors hover:text-blue";
-const footerLink =
-	"font-sans text-base font-medium text-slate no-underline transition-colors hover:text-paper";
-const footerHeading =
-	"mb-5 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-paper";
-const lead = "font-sans text-[22px] font-medium leading-[1.4]";
-const darkLead =
-	"font-sans text-[19px] font-medium leading-[1.4] md:text-[22px]";
-const body = "font-sans text-[17px] font-medium leading-[1.55] text-ink";
+/** Paragraph color on the splash: Paper softened so the headline leads. */
+const dim = "text-[#C9CDD8]";
 
-const ET = "America/New_York";
-
-/** "Saturday, November 14" from the synced Columbus meetup data. */
-function nextColumbusMeetup(): string | null {
-	const next = nextEvent(cities[0].siteName);
-	if (!next) return null;
-	return next.date.toLocaleDateString("en-US", {
-		weekday: "long",
-		month: "long",
-		day: "numeric",
-		timeZone: ET,
-	});
-}
-
+/**
+ * build-your-city.org: one screen on desktop, a natural scroll on phones.
+ * Wordmark and email on top, the pitch in the middle, the city list along
+ * the bottom. No nav, no footer component.
+ */
 export default function App() {
-	const nextMeetup = nextColumbusMeetup();
-
 	return (
-		<div className="flex min-h-screen flex-col">
-			<header className="border-b border-white/8 bg-ink-deep text-paper">
-				<Container className="flex items-center justify-between py-6">
-					<a href="/" className="no-underline">
-						<Wordmark
-							top={parent.wordmark.top}
-							bottom={parent.wordmark.bottom}
-							tone="paper"
-							className="text-[28px] md:text-[34px]"
-						/>
-					</a>
-					<nav
-						aria-label="Primary"
-						className="flex items-center gap-5 md:gap-8"
-					>
-						<a
-							href={cities[0].href}
-							target="_blank"
-							rel="noopener noreferrer"
-							className={navLink}
-						>
-							Columbus
-						</a>
-						<a href="#build" className={`${navLink} hidden sm:inline`}>
-							Build your city
-						</a>
-						<CtaLink href={`mailto:${parent.email}`} className="ml-2">
-							Contact
-						</CtaLink>
-					</nav>
-				</Container>
+		<div className="flex min-h-screen flex-col justify-between gap-12 bg-ink px-5 py-7 text-paper sm:px-12 sm:py-10">
+			<header className="flex items-center justify-between">
+				<Wordmark
+					top={parent.wordmark.top}
+					bottom={parent.wordmark.bottom}
+					tone="paper"
+					className="text-[28px] sm:text-[34px]"
+				/>
+				<a
+					href={`mailto:${parent.email}`}
+					className="hidden font-sans text-base font-semibold text-paper no-underline transition-colors hover:text-blue sm:inline"
+				>
+					{parent.email}
+				</a>
 			</header>
 
-			<main className="flex-1">
-				{/* Hero */}
-				<Section noBorder>
-					<SplitBlock
-						media={
-							<img
-								src={heroPhoto}
-								alt="A full room at a Build Columbus meetup"
-								className="h-auto w-full object-contain"
-								fetchPriority="high"
-							/>
-						}
-					>
-						<Eyebrow>{parent.siteName}</Eyebrow>
-						<h1 className="mt-5 font-display text-[52px] font-extrabold leading-none tracking-[-0.025em] text-ink md:text-[84px]">
-							<span className="block">Use your skills.</span>
-							<span className="block">Serve your city.</span>
-						</h1>
-						<p className={`mt-8 max-w-[34rem] ${lead} text-ink`}>
-							Developers, designers, content creators, and more. Local
-							communities of builders serving the nonprofits where they live.
-						</p>
-						<div className="mt-10 flex flex-wrap gap-4">
-							<CtaLink href="#cities">Find your city</CtaLink>
-							<CtaLink href="#build" variant="secondary">
-								Build your city
-							</CtaLink>
-						</div>
-					</SplitBlock>
-				</Section>
-
-				{/* Cities */}
-				{/* biome-ignore lint/correctness/useUniqueElementIds: static anchor for the nav and hero buttons */}
-				<Section id="cities" tone="white">
-					<SectionHeading eyebrow="Cities">Where we're building</SectionHeading>
-					<ul className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,725px)]">
-						{cities.map((c) => (
-							<li
-								key={c.id}
-								className="grid grid-cols-1 border border-line bg-white sm:grid-cols-[45%_1fr]"
-							>
-								<img
-									src={c.photo}
-									alt={c.photoAlt}
-									className="h-full w-full border-b border-line object-cover sm:border-r sm:border-b-0"
-									loading="lazy"
-								/>
-								<div className="flex flex-col p-8">
-									<Wordmark
-										top={c.wordmark.top}
-										bottom={c.wordmark.bottom}
-										className="text-[34px]"
-									/>
-									<p className={`mt-5 ${body}`}>
-										<strong className="font-semibold">{c.place}</strong>{" "}
-										{c.body}
-										{c.id === "columbus" && nextMeetup
-											? ` Next meetup ${nextMeetup}.`
-											: ""}
-									</p>
-									<a
-										href={c.href}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="mt-6 self-start border-b-2 border-blue pb-0.5 font-sans text-base font-semibold text-ink no-underline transition-colors hover:text-blue-deep"
-									>
-										Visit {c.domain}
-									</a>
-								</div>
-							</li>
-						))}
-					</ul>
-				</Section>
-
-				{/* The idea */}
-				{/* biome-ignore lint/correctness/useUniqueElementIds: static anchor for the nav and hero buttons */}
-				<Section id="build" tone="dark">
-					<div className="mx-auto max-w-[760px] text-center">
-						<SectionHeading eyebrow="Build Your City" tone="paper">
-							That's not a slogan. It's the whole idea.
-						</SectionHeading>
-						<div className={`mt-8 flex flex-col gap-6 ${darkLead} text-paper`}>
-							<p>
-								Take what you're good at, whether that's code, design,
-								photography, content, organizing, or something else, and put it
-								to work for the nonprofits in your city. Find an organization
-								that needs help. Work with them to solve a real problem. That's
-								how a city gets built.
-							</p>
-							<p>
-								Build Columbus is where it started. If you want to do this where
-								you live, reach out and we'll help you get going.
-							</p>
-						</div>
-						<CtaLink href={`mailto:${parent.email}`} className="mt-10">
-							Get in touch
+			<main className="w-full max-w-[900px] sm:mx-auto sm:text-center">
+				<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-paper sm:text-[112px] sm:leading-none">
+					<span className="block">Use your skills.</span>
+					<span className="block">Serve your city.</span>
+				</h1>
+				<p
+					className={`mt-6 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-8 sm:max-w-[680px] sm:text-[22px] sm:leading-[1.4]`}
+				>
+					Build Your City is a network of local communities where developers,
+					designers, content creators, and other builders put their skills to
+					work for nonprofits where they live.
+				</p>
+				<p
+					className={`mt-4 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-5 sm:max-w-[680px] sm:text-[19px] sm:leading-[1.4]`}
+				>
+					Each community meets monthly, volunteers with local nonprofits, and
+					holds a hackathon once a year. Free to join. No experience needed.
+				</p>
+				<div className="mt-8 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:justify-center sm:gap-4">
+					{cities.map((c) => (
+						<CtaLink key={c.id} href={c.href}>
+							Join in {c.name}
 						</CtaLink>
-					</div>
-				</Section>
+					))}
+				</div>
+				<p className="mt-5">
+					<a
+						href={`mailto:${parent.email}?subject=${encodeURIComponent(parent.emailSubject)}`}
+						className="inline-block border-b-2 border-blue pb-0.5 font-sans text-[17px] font-semibold text-paper no-underline transition-colors hover:text-blue"
+					>
+						Want this where you live? Email us
+					</a>
+				</p>
 			</main>
 
-			<footer className="border-t border-white/8 bg-ink-deep text-paper">
-				<Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
-					<div>
-						<Wordmark
-							top={parent.wordmark.top}
-							bottom={parent.wordmark.bottom}
-							tone="paper"
-							className="text-[40px]"
-						/>
-						<p className="mt-5 max-w-xs font-sans text-base font-medium leading-[1.55] text-slate">
-							{parent.tagline}
-						</p>
-					</div>
-					<nav aria-label="Cities">
-						<p className={footerHeading}>Cities</p>
-						<ul className="flex flex-col gap-3">
-							{cities.map((c) => (
-								<li key={c.id}>
-									<a
-										href={c.href}
-										target="_blank"
-										rel="noopener noreferrer"
-										className={footerLink}
-									>
-										{c.wordmark.bottom}
-									</a>
-								</li>
-							))}
-						</ul>
-					</nav>
-					<nav aria-label="Connect">
-						<p className={footerHeading}>Connect</p>
-						<ul className="flex flex-col gap-3">
-							<li>
-								<a
-									href={parent.links.instagram}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={footerLink}
-								>
-									Instagram
-								</a>
-							</li>
-							<li>
-								<a
-									href={parent.links.linkedin}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={footerLink}
-								>
-									LinkedIn
-								</a>
-							</li>
-							<li>
-								<a
-									href={parent.links.meetup}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={footerLink}
-								>
-									Meetup
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<nav aria-label="Contact">
-						<p className={footerHeading}>Contact</p>
-						<ul className="flex flex-col gap-3">
-							<li>
-								<a href={`mailto:${parent.email}`} className={footerLink}>
-									{parent.email}
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</Container>
+			<footer className="border-t border-white/8 pt-5">
+				<ul className="flex flex-col gap-3">
+					{cities.map((c) => (
+						<li
+							key={c.id}
+							className="flex flex-col gap-1.5 font-sans text-[15px] font-medium text-slate sm:flex-row sm:items-center sm:justify-between"
+						>
+							<p>
+								Building in{" "}
+								<strong className="font-semibold text-paper">{c.place}</strong>{" "}
+								since {c.since}
+							</p>
+							<a
+								href={c.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-slate no-underline transition-colors hover:text-paper"
+							>
+								{c.domain}
+							</a>
+						</li>
+					))}
+				</ul>
 			</footer>
 		</div>
 	);

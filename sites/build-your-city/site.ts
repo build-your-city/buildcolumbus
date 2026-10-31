@@ -8,7 +8,7 @@ export const site: SiteMeta = {
 	name: "Build Your City",
 	url: "https://build-your-city.org",
 	description:
-		"A network of city communities where builders use their skills to serve local nonprofits.",
+		"A network of local communities where builders use their skills to serve the nonprofits in their own city.",
 	ogImage: "/og-build-your-city.png",
 	themeColor: "#141A2A",
 };

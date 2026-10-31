@@ -16,13 +16,14 @@ const linkClass =
 	"font-sans text-base font-medium text-slate no-underline transition-colors hover:text-paper";
 
 /**
- * Site footer: Ink background, wordmark and tagline, then link columns.
+ * Site footer: Ink background, wordmark and tagline, then link columns. On
+ * mobile the columns stack, 32px apart.
  * Links with `to` use the router; links with `href` are external.
  */
 export default function Footer({ wordmark, tagline, columns }: FooterProps) {
 	return (
 		<footer className="border-t border-white/8 bg-ink-deep text-paper">
-			<Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
+			<Container className="grid grid-cols-1 gap-8 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
 				<div>
 					<Wordmark
 						top={wordmark.top}

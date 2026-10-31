@@ -1,32 +1,25 @@
-import columbusPhoto from "./images/columbus-meetup-circle.jpg";
-
 /**
  * Everything specific to the parent site, build-your-city.org.
  */
 export const parent = {
 	siteName: "Build Your City",
 	wordmark: { top: "Build", bottom: "Your City" },
-	domain: "build-your-city.org",
 	email: "hello@build-your-city.org",
-	tagline: "Use your skills. Serve your city.",
-	links: {
-		instagram: "https://instagram.com/citcbus",
-		linkedin: "https://www.linkedin.com/showcase/citcbus/",
-		meetup: "https://www.meetup.com/citcbus/",
-	},
+	/** Subject line prefilled by the "Want this where you live?" link. */
+	emailSubject: "Build Your City where I live",
 };
 
+/**
+ * The cities, oldest first. Each one gets a "Join in" button and a line in
+ * the list along the bottom of the page, so a new city is one entry here.
+ */
 export const cities = [
 	{
 		id: "columbus",
-		siteName: "Build Columbus",
-		wordmark: { top: "Build", bottom: "Columbus" },
-		place: "Columbus, Ohio.",
-		body: "Where it started. Monthly meetups at Improving, volunteering with local nonprofits, and a hackathon once a year.",
+		name: "Columbus",
+		place: "Columbus, Ohio",
+		since: 2024,
 		domain: "buildcolumbus.org",
 		href: "https://buildcolumbus.org",
-		photo: columbusPhoto,
-		photoAlt:
-			"Builders talking in a circle of chairs at a Build Columbus meetup",
 	},
 ];

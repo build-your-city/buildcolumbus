@@ -21,7 +21,8 @@ const navLink =
 
 /**
  * Site header for a city site: wordmark, router nav, and one button. On
- * mobile the nav collapses behind a menu button.
+ * mobile the nav collapses behind a menu button; the panel is full width
+ * with 48px tap targets.
  */
 export default function Header({ wordmark, nav, cta }: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 						top={wordmark.top}
 						bottom={wordmark.bottom}
 						tone="paper"
-						className="text-[28px] md:text-[34px]"
+						className="text-[28px] sm:text-[34px]"
 					/>
 				</Link>
 
@@ -80,13 +81,13 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 				aria-label="Mobile"
 				className={`md:hidden border-t border-white/8 ${isOpen ? "block" : "hidden"}`}
 			>
-				<Container className="flex flex-col gap-1 py-4">
+				<Container className="flex flex-col py-4">
 					{nav.map((item) => (
 						<Link
 							key={item.to}
 							to={item.to}
 							onClick={() => setIsOpen(false)}
-							className={`${navLink} py-3`}
+							className={`${navLink} flex min-h-12 items-center`}
 						>
 							{item.label}
 						</Link>

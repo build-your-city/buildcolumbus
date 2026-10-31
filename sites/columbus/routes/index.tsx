@@ -3,6 +3,13 @@ import CtaLink from "@/components/CtaLink";
 import EventCard from "@/components/EventCard";
 import Eyebrow from "@/components/Eyebrow";
 import Section from "@/components/Section";
+import SplitBlock from "@/components/SplitBlock";
+import {
+	bodyText,
+	cardHeading,
+	leadText,
+	underlineLink,
+} from "@/components/text";
 import { nextEvent } from "@/lib/events";
 import { city } from "../config/city";
 import meetupPhoto from "../images/photos/hero-cbus.jpg";
@@ -37,7 +44,7 @@ const programs = [
 		title: city.programs.serve,
 		photo: servePhoto,
 		alt: "A volunteer serving food at a Columbus nonprofit.",
-		body: "Volunteer with Columbus nonprofits, doing what they already do. The way to see where your skill is needed.",
+		body: "Volunteer with Columbus nonprofits and see where your skill is needed.",
 		cta: "About Serve",
 		to: "/serve",
 	},
@@ -56,35 +63,33 @@ function HomePage() {
 
 	return (
 		<>
-			{/* Hero: text left, photo right at its natural aspect ratio */}
+			{/* Hero: text left, photo right filling the column */}
 			<Section noBorder>
-				<div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
-					<div>
-						<Eyebrow>{city.siteName}</Eyebrow>
-						<h1 className="mt-5 font-display text-[52px] font-extrabold leading-none tracking-[-0.025em] text-ink md:text-[84px]">
-							<span className="block">Use your skills.</span>
-							<span className="block">Serve your city.</span>
-						</h1>
-						<p className="mt-8 max-w-[34rem] font-sans text-[22px] font-medium leading-[1.4] text-ink">
-							Developers, designers, content creators, and more. All builders
-							welcome to serve Columbus nonprofits.
-						</p>
-						<div className="mt-10 flex flex-wrap gap-4">
-							<CtaLink href={next?.url ?? city.links.meetupEvents}>
-								RSVP to the next meetup
-							</CtaLink>
-							<CtaLink href={city.links.discord} variant="secondary">
-								Join the Discord
-							</CtaLink>
-						</div>
+				<SplitBlock
+					photo={{
+						src: heroPhoto,
+						alt: "A speaker presenting to a full room at a Build Columbus meetup at Improving.",
+						priority: true,
+					}}
+				>
+					<Eyebrow>{city.siteName}</Eyebrow>
+					<h1 className="mt-5 font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-ink sm:text-[84px] sm:leading-none">
+						<span className="block">Use your skills.</span>
+						<span className="block">Serve your city.</span>
+					</h1>
+					<p className={`mt-6 sm:mt-8 sm:max-w-[34rem] ${leadText} text-ink`}>
+						Developers, designers, content creators, and more. All builders
+						welcome to serve Columbus nonprofits.
+					</p>
+					<div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+						<CtaLink href={next?.url ?? city.links.meetupEvents}>
+							RSVP to the next meetup
+						</CtaLink>
+						<CtaLink href={city.links.discord} variant="secondary">
+							Join the Discord
+						</CtaLink>
 					</div>
-					<img
-						src={heroPhoto}
-						alt="A speaker presenting to a full room at a Build Columbus meetup at Improving."
-						className="h-auto w-full object-contain"
-						fetchPriority="high"
-					/>
-				</div>
+				</SplitBlock>
 			</Section>
 
 			{/* Next meetup, from the synced Meetup data */}
@@ -102,10 +107,10 @@ function HomePage() {
 
 			{/* What we do */}
 			<Section>
-				<h2 className="font-display text-[40px] font-extrabold leading-none tracking-[-0.025em] text-ink md:text-[56px]">
+				<h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.025em] text-ink sm:text-[56px]">
 					What we do
 				</h2>
-				<div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+				<div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3 md:gap-8">
 					{programs.map((p) => (
 						<article
 							key={p.title}
@@ -118,15 +123,11 @@ function HomePage() {
 								loading="lazy"
 							/>
 							<div className="flex flex-1 flex-col p-8">
-								<h3 className="font-display text-[28px] font-bold leading-[1.1] tracking-[-0.025em] text-ink">
-									{p.title}
-								</h3>
-								<p className="mt-3 flex-1 font-sans text-[17px] font-medium leading-[1.55] text-ink">
-									{p.body}
-								</p>
+								<h3 className={`${cardHeading} text-ink`}>{p.title}</h3>
+								<p className={`mt-3 flex-1 ${bodyText} text-ink`}>{p.body}</p>
 								<Link
 									to={p.to}
-									className="mt-6 self-start border-b-2 border-blue pb-1 font-sans text-base font-semibold text-ink no-underline transition-colors hover:text-blue-deep"
+									className={`mt-6 self-start ${underlineLink} text-ink`}
 								>
 									{p.cta}
 								</Link>

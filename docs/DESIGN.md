@@ -44,23 +44,26 @@ Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 | Body | 17px | Inter 500, line-height 1.55 |
 | Nav / button | 16px | Inter 600 |
 
-Mobile drops the hero to 52px, page titles to 48px, and section headings to
-40px.
+Mobile (under 640px) uses a smaller scale: hero 52px with line-height 0.95,
+page titles 44px, section headings 36px, card headings 24px, lead
+paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
+`src/components/text.ts`.
 
 ## Layout
 
-- Content is 1200px wide at most, with 48px side padding on desktop and 16px
+- Content is 1200px wide at most, with 48px side padding on desktop and 20px
   on mobile (`Container`).
-- Sections have 88px vertical padding and a 1px Line border on top
-  (`Section`). Content sections alternate Paper, White, Paper, White down
+- Sections have 88px vertical padding (56px on mobile) and a 1px Line border
+  on top (`Section`). Content sections alternate Paper, White, Paper, White down
   the page, starting from the Paper hero; the one dark Ink band a page may
   have sits outside that alternation. The Sponsors and partners section is
   always Paper, so logos sit on Paper, and the alternation restarts after
   it. Cards and three-column boxes stay white whatever the section
   background.
-- Hero: two equal columns, text left, photo right, 56px gap. Photos keep
-  their natural aspect ratio and are never cropped. Two-column blocks
-  alternate sides down the page (`SplitBlock`).
+- Hero and other two-column blocks: two equal columns, text on one side and
+  the photo on the other, 56px gap. The photo fills its column: full width,
+  as tall as the text column (at least 480px), `object-fit: cover`, centered.
+  Blocks alternate sides down the page (`SplitBlock`).
 - Three-step and challenge-area sections are one white box with 1px Line
   border and 1px dividers between cells, no gaps (`ThreeUp`). Program cards
   on the home page and speaker cards are separate boxes with gaps.
@@ -70,10 +73,10 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
   and fills Ink with Paper text on hover; on a dark band it uses a Paper
   border and fills Paper with Ink text. 18px/28px padding, no radius
   (`CtaLink`).
-- Sponsors and partners are a horizontal carousel, four logos visible on
-  desktop, two under 768px, one under 480px, with 48px square arrow buttons
-  (2px Ink border) that disable at either end. Logos sit on Paper with no
-  box (`SponsorCarousel`).
+- Sponsors and partners are a grid of equal white cards, 1px Line border,
+  32px padding, 120px tall, logo centered at up to 56px high. Four columns on
+  desktop, three under 1024px, two under 640px, 16px gap; a partial last row
+  stays left-aligned. The whole card is the link (`SponsorGrid`).
 - Header: `ink-deep` background with a faint bottom border. Wordmark first
   line Paper, second line Build Blue. Nav links are Paper, hover Build Blue,
   and the active page is underlined in Build Blue. The header button is a
@@ -81,8 +84,20 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
 - Footer: `ink-deep` background with a faint top border so it reads as its
   own element under a dark band; four columns (wordmark and tagline,
   Community, Connect, Contact).
-- Mobile: single column, hero photo under the text, three-column boxes
-  stack.
+- Mobile (under 640px): everything left-aligned, including the dark bands and
+  anything centered on desktop. Buttons are full width and stack with a 12px
+  gap, with text links under them. Three-column boxes, program cards,
+  challenge areas, and speaker cards stack as single-column cards with a 16px
+  gap, each keeping its border. Photos go under the text at 16:10, cover.
+  The event card puts the date block on top. The footer stacks its columns
+  32px apart. The header shows the wordmark at 28px and a menu button; the
+  panel is full width with 48px tap targets. No paragraph runs past four
+  lines on a 390px screen; a long one is split at a sentence boundary. No
+  horizontal scroll at 360px.
+- Parent site (build-your-city.org): a single Ink screen, no header bar or
+  footer component. Wordmark and email on top, a 112px headline with two
+  paragraphs and one button in the middle, and the city list along the
+  bottom. On phones it scrolls naturally with the same mobile rules.
 
 ## Photography
 
