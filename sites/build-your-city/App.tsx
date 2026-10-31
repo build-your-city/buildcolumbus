@@ -36,15 +36,16 @@ export default function App() {
 				<p
 					className={`mt-6 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-8 sm:max-w-[680px] sm:text-[22px] sm:leading-[1.4]`}
 				>
-					Build Your City is a network of local communities where developers,
-					designers, content creators, and other builders put their skills to
-					work for nonprofits where they live.
+					Build Your City is a network of communities where developers,
+					designers, content creators, and more put their skills to work for
+					local nonprofits.
 				</p>
 				<p
 					className={`mt-4 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-5 sm:max-w-[680px] sm:text-[19px] sm:leading-[1.4]`}
 				>
-					Each community meets monthly, volunteers with local nonprofits, and
-					holds a hackathon once a year. Free to join. No experience needed.
+					Each community runs a monthly meetup, volunteers with local
+					nonprofits, and holds a hackathon once a year. Free to join. No
+					experience needed.
 				</p>
 				<div className="mt-8 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:justify-center sm:gap-4">
 					{cities.map((c) => (
