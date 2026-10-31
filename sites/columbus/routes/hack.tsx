@@ -40,9 +40,9 @@ function HackPage() {
 						Hack
 					</SectionHeading>
 					<p className="mt-8 font-sans text-[22px] font-medium leading-[1.4] text-ink">
-						One day a year, builders from across Columbus hear real needs from
-						the people who work on them, pick a challenge, and present an idea.
-						Any skill. No code required.
+						One day a year, builders from across Columbus learn about the real
+						needs facing our city from the people who work on them every day,
+						pick a challenge, and present an idea. Any skill. No code required.
 					</p>
 					<div className="mt-10">
 						<CtaLink href={city.links.meetup}>Get notified for 2027</CtaLink>

@@ -15,7 +15,7 @@ drifting from it.
 | `blue` | `#3D8BFF` | Build Blue, the only accent: wordmark second line, eyebrows, link underlines, step numbers, date tags, focus rings |
 | `blue-deep` | `#0063F7` | Build Blue darkened for contrast: primary button fills and hover text |
 | `blue-hover` | `#0052CC` | Primary button hover fill |
-| `ink-deep` | `#0B0F1A` | Footer background, with a 1px `rgba(255,255,255,0.08)` top border |
+| `ink-deep` | `#0B0F1A` | Header and footer background, each with a 1px `rgba(255,255,255,0.08)` border on the page side |
 | `slate` | `#8E95A6` | Secondary text on ink |
 | `line` | `#D9D4C7` | Borders and section dividers |
 | `white` | `#FFFFFF` | Cards |
@@ -74,6 +74,10 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
   desktop, two under 768px, one under 480px, with 48px square arrow buttons
   (2px Ink border) that disable at either end. Logos sit on Paper with no
   box (`SponsorCarousel`).
+- Header: `ink-deep` background with a faint bottom border. Wordmark first
+  line Paper, second line Build Blue. Nav links are Paper, hover Build Blue,
+  and the active page is underlined in Build Blue. The header button is a
+  primary button. The mobile menu panel shares the dark background.
 - Footer: `ink-deep` background with a faint top border so it reads as its
   own element under a dark band; four columns (wordmark and tagline,
   Community, Connect, Contact).
