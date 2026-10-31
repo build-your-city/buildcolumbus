@@ -16,7 +16,7 @@ export const Route = createFileRoute("/serve")({
 			{
 				name: "description",
 				content:
-					"Volunteer with Columbus nonprofits, doing what they already do. The way to see where your skill is needed.",
+					"Volunteer with local nonprofits, doing what they already do. The way to see where your skill is needed.",
 			},
 		],
 	}),
@@ -26,7 +26,7 @@ const steps = [
 	{
 		marker: "1",
 		title: "Pick an opportunity",
-		body: "Opportunities are posted in our Discord and shared at the monthly meetup. Each one is with a Columbus nonprofit.",
+		body: "Opportunities are posted in our Discord and shared at the monthly meetup. Each one is with a local nonprofit.",
 	},
 	{
 		marker: "2",
@@ -57,8 +57,8 @@ function ServePage() {
 					</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Volunteer with a Columbus nonprofit, helping with what they
-							already do: serve a meal, sort donations, help run an event.
+							Volunteer with a local nonprofit, helping with what they already
+							do: serve a meal, sort donations, help run an event.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							While you're there, you'll see what they're missing: a website,
@@ -89,8 +89,8 @@ function ServePage() {
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-paper`}>
 							Build Columbus is a community of developers, designers, content
-							creators, and more who want to put their skills to work for
-							Columbus nonprofits.
+							creators, and more who want to put their skills to work for local
+							nonprofits.
 						</p>
 						<p className={`${leadText} text-paper`}>
 							If your organization has a problem one of our builders could help
