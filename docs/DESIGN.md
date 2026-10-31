@@ -60,10 +60,11 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   always Paper, so logos sit on Paper, and the alternation restarts after
   it. Cards and three-column boxes stay white whatever the section
   background.
-- Hero and other two-column blocks: two equal columns, text on one side and
-  the photo on the other, 56px gap. The photo fills its column: full width,
-  as tall as the text column (at least 480px), `object-fit: cover`, centered.
-  Blocks alternate sides down the page (`SplitBlock`).
+- Hero and other two-column blocks: 45% text and 55% photo, 56px gap. The
+  photo is 4:3, full width of its column, `object-fit: cover`, and vertically
+  centered against the text. Each photo may set a focal point
+  (`object-position`, default `50% 50%`) so a crop keeps the right part in
+  view. Blocks alternate sides down the page (`SplitBlock`).
 - Three-step and challenge-area sections are one white box with 1px Line
   border and 1px dividers between cells, no gaps (`ThreeUp`). Program cards
   on the home page and speaker cards are separate boxes with gaps.

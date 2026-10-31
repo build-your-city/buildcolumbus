@@ -70,6 +70,7 @@ function HomePage() {
 						src: heroPhoto,
 						alt: "A speaker presenting to a full room at a Build Columbus meetup at Improving.",
 						priority: true,
+						focal: "50% 60%",
 					}}
 				>
 					<Eyebrow>{city.siteName}</Eyebrow>
