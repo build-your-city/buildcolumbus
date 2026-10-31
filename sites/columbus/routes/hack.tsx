@@ -13,7 +13,14 @@ import winnersPhoto from "../images/photos/h-winners.jpg";
 export const Route = createFileRoute("/hack")({
 	component: HackPage,
 	head: () => ({
-		meta: [{ title: `Hack | ${city.siteName}` }],
+		meta: [
+			{ title: `Hack | ${city.siteName}` },
+			{
+				name: "description",
+				content:
+					"One day a year. Hear a real need, pick a challenge, present an idea.",
+			},
+		],
 	}),
 });
 
@@ -151,14 +158,19 @@ function HackPage() {
 									{s.org}
 								</p>
 							)}
-							<a
-								href={s.link.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								className={`mt-auto pt-6 ${underlineLink}`}
-							>
-								{s.link.label}
-							</a>
+							<div className="mt-auto flex flex-col items-start gap-3 pt-6">
+								{s.links.map((l) => (
+									<a
+										key={l.href}
+										href={l.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className={underlineLink}
+									>
+										{l.label}
+									</a>
+								))}
+							</div>
 						</li>
 					))}
 				</ul>

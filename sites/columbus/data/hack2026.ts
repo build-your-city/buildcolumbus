@@ -48,14 +48,22 @@ export type SpeakerPerson = {
 	photo: string;
 };
 
+export type SpeakerLink = { label: string; href: string };
+
 /** One speaker card. Two people share a card when they presented together. */
 export type Speaker = {
 	area: string;
 	people: SpeakerPerson[];
 	/** Organization line, shown when there is one. */
 	org?: string;
-	link: { label: string; href: string };
+	/** Org link first, then LinkedIn, in display order. */
+	links: SpeakerLink[];
 };
+
+const linkedin = (slug: string): SpeakerLink => ({
+	label: "Connect on LinkedIn",
+	href: `https://www.linkedin.com/in/${slug}`,
+});
 
 export const speakers: Speaker[] = [
 	{
@@ -68,12 +76,15 @@ export const speakers: Speaker[] = [
 			},
 		],
 		org: "The Bridge Ministry",
-		// Verified: the Columbus org is at thebridge-ministry.com (with a hyphen);
-		// thebridgeministry.com is an unrelated Texas church.
-		link: {
-			label: "thebridge-ministry.com",
-			href: "https://thebridge-ministry.com/",
-		},
+		links: [
+			// Verified: the Columbus org is at thebridge-ministry.com (with a
+			// hyphen); thebridgeministry.com is an unrelated Texas church.
+			{
+				label: "thebridge-ministry.com",
+				href: "https://thebridge-ministry.com/",
+			},
+			linkedin("kelli-welsheimer"),
+		],
 	},
 	{
 		area: "Refugees & Immigrants",
@@ -85,10 +96,13 @@ export const speakers: Speaker[] = [
 			},
 		],
 		org: "Riverview International Center",
-		link: {
-			label: "riverviewinternationalcenter.org",
-			href: "https://riverviewinternationalcenter.org/",
-		},
+		links: [
+			{
+				label: "riverviewinternationalcenter.org",
+				href: "https://riverviewinternationalcenter.org/",
+			},
+			linkedin("emily-lady"),
+		],
 	},
 	{
 		area: "Missions",
@@ -99,8 +113,8 @@ export const speakers: Speaker[] = [
 				photo: sChris,
 			},
 		],
-		// No organization, by his request. LinkedIn URL to be supplied.
-		link: { label: "Connect on LinkedIn", href: "#" },
+		// No organization, by his request.
+		links: [linkedin("chris-lady")],
 	},
 	{
 		area: "Family Online Safety",
@@ -112,8 +126,7 @@ export const speakers: Speaker[] = [
 			},
 		],
 		org: "Build Columbus",
-		// LinkedIn URL to be supplied.
-		link: { label: "Connect on LinkedIn", href: "#" },
+		links: [linkedin("cody-steffy")],
 	},
 	{
 		area: "Disability Inclusion",
@@ -126,7 +139,7 @@ export const speakers: Speaker[] = [
 			},
 		],
 		org: "Special Touch Ministry",
-		link: { label: "specialtouch.org", href: "https://specialtouch.org/" },
+		links: [{ label: "specialtouch.org", href: "https://specialtouch.org/" }],
 	},
 	{
 		area: "Disability Inclusion",
@@ -137,7 +150,6 @@ export const speakers: Speaker[] = [
 				photo: sKeith,
 			},
 		],
-		// No organization. LinkedIn URL to be supplied.
-		link: { label: "Connect on LinkedIn", href: "#" },
+		links: [linkedin("dr-keith-newton")],
 	},
 ];

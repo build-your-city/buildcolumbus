@@ -67,7 +67,7 @@ export default function SponsorCarousel({ sponsors }: { sponsors: Sponsor[] }) {
 				{sponsors.map((s) => (
 					<li
 						key={s.name}
-						className="flex w-1/2 shrink-0 snap-start items-center justify-center px-4 py-2 md:w-1/4 md:px-6"
+						className="flex w-full shrink-0 snap-start items-center justify-center px-4 py-2 min-[480px]:w-1/2 md:w-1/4 md:px-6"
 					>
 						<a
 							href={s.href}
@@ -78,7 +78,7 @@ export default function SponsorCarousel({ sponsors }: { sponsors: Sponsor[] }) {
 							<img
 								src={s.logo}
 								alt={s.name}
-								className="max-h-16 w-auto max-w-full object-contain md:max-h-20"
+								className="max-h-14 w-auto max-w-full object-contain md:max-h-20"
 								loading="lazy"
 							/>
 						</a>

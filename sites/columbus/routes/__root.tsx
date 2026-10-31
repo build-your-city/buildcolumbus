@@ -1,11 +1,20 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { createRootRoute, HeadContent, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import Footer, { type FooterColumn } from "@/components/Footer";
 import Header from "@/components/Header";
 import { city } from "../config/city";
+import { site } from "../config/site";
 
 export const Route = createRootRoute({
 	component: RootLayout,
+	// Site-wide defaults; each page overrides title and description in its
+	// own head(). HeadContent keeps one tag per name.
+	head: () => ({
+		meta: [
+			{ title: site.name },
+			{ name: "description", content: site.description },
+		],
+	}),
 });
 
 const wordmark = { top: "Build", bottom: city.name };
@@ -51,6 +60,7 @@ const footerColumns: FooterColumn[] = [
 function RootLayout() {
 	return (
 		<div className="min-h-screen flex flex-col">
+			<HeadContent />
 			<Header
 				wordmark={wordmark}
 				nav={nav}

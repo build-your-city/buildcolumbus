@@ -38,9 +38,9 @@ Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 | Section heading | 56px | Inter Tight 800 |
 | Card / step heading | 28px | Inter Tight 700 |
 | Name / small heading | 22px | Inter Tight 700 |
-| Wordmark | 26px in the header | Inter Tight 800, uppercase, two lines; the second line is scaled so its width matches "BUILD" |
+| Wordmark | 34px in the header (28px on mobile), 40px in the footer | Inter Tight 800, uppercase, two lines; the second line is scaled so its width matches "BUILD" |
 | Eyebrow / label | 14px | Inter 600, uppercase, 0.12em tracking, Build Blue |
-| Lead paragraph (hero, dark bands) | 22px | Inter 500 |
+| Lead paragraph (hero, dark bands) | 22px; 19px on dark bands at mobile widths | Inter 500 |
 | Body | 17px | Inter 500, line-height 1.55 |
 | Nav / button | 16px | Inter 600 |
 
@@ -70,9 +70,10 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
   and fills Ink with Paper text on hover; on a dark band it uses a Paper
   border and fills Paper with Ink text. 18px/28px padding, no radius
   (`CtaLink`).
-- Sponsors and partners are a horizontal carousel, four logos visible, with
-  48px square arrow buttons (2px Ink border) that disable at either end.
-  Logos sit on Paper with no box (`SponsorCarousel`).
+- Sponsors and partners are a horizontal carousel, four logos visible on
+  desktop, two under 768px, one under 480px, with 48px square arrow buttons
+  (2px Ink border) that disable at either end. Logos sit on Paper with no
+  box (`SponsorCarousel`).
 - Footer: `ink-deep` background with a faint top border so it reads as its
   own element under a dark band; four columns (wordmark and tagline,
   Community, Connect, Contact).
