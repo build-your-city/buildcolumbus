@@ -5,10 +5,10 @@ import Eyebrow from "@/components/Eyebrow";
 import Section from "@/components/Section";
 import { nextEvent } from "@/lib/events";
 import { city } from "../config/city";
-import heroPhoto from "../images/photos/hero-cbus.jpg";
+import meetupPhoto from "../images/photos/hero-cbus.jpg";
 import hackPhoto from "../images/photos/p-hack.jpg";
-import meetupPhoto from "../images/photos/p-meetup.jpg";
-import servePhoto from "../images/photos/p-serve.jpg";
+import heroPhoto from "../images/photos/p-meetup.jpg";
+import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/")({
 	component: HomePage,
@@ -28,7 +28,7 @@ const programs = [
 	{
 		title: city.programs.meetup,
 		photo: meetupPhoto,
-		alt: "A speaker presenting to a full room at a Build Columbus meetup.",
+		alt: "Builders talking in a circle of chairs at a Build Columbus meetup.",
 		body: "Once a month at Improving. Talks, workshops, and time to meet the people building things in Columbus.",
 		cta: "About the meetup",
 		to: "/meetup",
@@ -80,7 +80,7 @@ function HomePage() {
 					</div>
 					<img
 						src={heroPhoto}
-						alt="Builders talking in a circle of chairs at a Build Columbus meetup at Improving."
+						alt="A speaker presenting to a full room at a Build Columbus meetup at Improving."
 						className="h-auto w-full object-contain"
 						fetchPriority="high"
 					/>

@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
 import EventCard from "@/components/EventCard";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SponsorCarousel from "@/components/SponsorCarousel";
 import ThreeUp from "@/components/ThreeUp";
 import { upcomingEvents } from "@/lib/events";
 import { city, sponsorsFor } from "../config/city";
+import heroPhoto from "../images/photos/meetup-hero-lounge.jpg";
 
 export const Route = createFileRoute("/meetup")({
 	component: MeetupPage,
@@ -68,7 +68,12 @@ function MeetupPage() {
 							</CtaLink>
 						</div>
 					</div>
-					<PhotoPlaceholder label="Meetup, full room, speaker up front" />
+					<img
+						src={heroPhoto}
+						alt="Builders talking in the lounge at a Build Columbus meetup at Improving."
+						className="h-auto w-full object-contain"
+						fetchPriority="high"
+					/>
 				</div>
 			</Section>
 
@@ -112,17 +117,19 @@ function MeetupPage() {
 
 			{/* Call for speakers */}
 			<Section tone="dark">
-				<SectionHeading eyebrow="Want to speak?" tone="paper">
-					Give a talk.
-				</SectionHeading>
-				<p className="mt-8 max-w-[40rem] font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-					Have something builders would find useful? Talks run 30 minutes to an
-					hour. Send us your idea through Sessionize and we'll be in touch about
-					a date.
-				</p>
-				<CtaLink href={city.links.sessionize} className="mt-10">
-					Submit a talk
-				</CtaLink>
+				<div className="mx-auto max-w-[760px] text-center">
+					<SectionHeading eyebrow="Want to speak?" tone="paper">
+						Give a talk.
+					</SectionHeading>
+					<p className="mt-8 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
+						Have something builders would find useful? Talks run 30 minutes to
+						an hour. Send us your idea through Sessionize and we'll be in touch
+						about a date.
+					</p>
+					<CtaLink href={city.links.sessionize} className="mt-10">
+						Submit a talk
+					</CtaLink>
+				</div>
 			</Section>
 
 			{/* Sponsors */}

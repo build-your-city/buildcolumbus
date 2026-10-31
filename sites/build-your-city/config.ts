@@ -1,3 +1,5 @@
+import columbusPhoto from "./images/columbus-meetup-circle.jpg";
+
 /**
  * Everything specific to the parent site, build-your-city.org.
  */
@@ -23,6 +25,8 @@ export const cities = [
 		body: "Where it started. Monthly meetups at Improving, volunteering with local nonprofits, and a hackathon once a year.",
 		domain: "buildcolumbus.org",
 		href: "https://buildcolumbus.org",
-		photoLabel: "Build Columbus group photo",
+		photo: columbusPhoto,
+		photoAlt:
+			"Builders talking in a circle of chairs at a Build Columbus meetup",
 	},
 ];

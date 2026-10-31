@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import SponsorCarousel from "@/components/SponsorCarousel";
 import { city, sponsorsFor } from "../config/city";
+import heroPhoto from "../images/photos/about-first-meetup.jpg";
 
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
@@ -31,7 +31,14 @@ function AboutPage() {
 			{/* Page hero */}
 			<Section noBorder>
 				<SplitBlock
-					media={<PhotoPlaceholder label="Nathan and Cody at a meetup" />}
+					media={
+						<img
+							src={heroPhoto}
+							alt="One of the first meetups in 2024"
+							className="h-auto w-full object-contain"
+							fetchPriority="high"
+						/>
+					}
 				>
 					<SectionHeading as="h1" eyebrow={city.place}>
 						About
@@ -104,26 +111,28 @@ function AboutPage() {
 
 			{/* Parent network */}
 			<Section tone="dark">
-				<SectionHeading eyebrow="One city of many" tone="paper">
-					Build your city.
-				</SectionHeading>
-				<div className="mt-8 flex max-w-[46rem] flex-col gap-6 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-					<p>
-						Build Columbus is part of a network of city communities where
-						builders use their skills to serve local nonprofits. Every city runs
-						a monthly Meetup, Serve alongside nonprofits, and a hackathon once a
-						year. Columbus is the first.
-					</p>
-					<p>
-						Each city has its own organizers, its own site, and its own
-						nonprofits. What's shared is the name, the playbook, and the people
-						who've already done it. If you want this where you live, the parent
-						site is where to begin.
-					</p>
+				<div className="mx-auto max-w-[760px] text-center">
+					<SectionHeading eyebrow="One city of many" tone="paper">
+						Build your city.
+					</SectionHeading>
+					<div className="mt-8 flex flex-col gap-6 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
+						<p>
+							Build Columbus is part of a network of city communities where
+							builders use their skills to serve local nonprofits. Every city
+							runs a monthly Meetup, Serve alongside nonprofits, and a hackathon
+							once a year. Columbus is the first.
+						</p>
+						<p>
+							Each city has its own organizers, its own site, and its own
+							nonprofits. What's shared is the name, the playbook, and the
+							people who've already done it. If you want this where you live,
+							the parent site is where to begin.
+						</p>
+					</div>
+					<CtaLink href={city.links.parent} className="mt-10">
+						{city.links.parent.replace(/^https?:\/\//, "")}
+					</CtaLink>
 				</div>
-				<CtaLink href={city.links.parent} className="mt-10">
-					{city.links.parent.replace(/^https?:\/\//, "")}
-				</CtaLink>
 			</Section>
 		</>
 	);

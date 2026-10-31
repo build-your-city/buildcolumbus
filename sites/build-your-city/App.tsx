@@ -1,13 +1,13 @@
 import Container from "@/components/Container";
 import CtaLink from "@/components/CtaLink";
 import Eyebrow from "@/components/Eyebrow";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import Wordmark from "@/components/Wordmark";
 import { nextEvent } from "@/lib/events";
 import { cities, parent } from "./config";
+import heroPhoto from "./images/meetup-full-room.jpg";
 
 const navLink =
 	"font-sans text-base font-semibold text-paper no-underline transition-colors hover:text-blue";
@@ -76,7 +76,12 @@ export default function App() {
 				<Section noBorder>
 					<SplitBlock
 						media={
-							<PhotoPlaceholder label="Builders working alongside a nonprofit" />
+							<img
+								src={heroPhoto}
+								alt="A full room at a Build Columbus meetup"
+								className="h-auto w-full object-contain"
+								fetchPriority="high"
+							/>
 						}
 					>
 						<Eyebrow>{parent.siteName}</Eyebrow>
@@ -107,9 +112,11 @@ export default function App() {
 								key={c.id}
 								className="grid grid-cols-1 border border-line bg-white sm:grid-cols-[45%_1fr]"
 							>
-								<PhotoPlaceholder
-									label={c.photoLabel}
-									className="h-full border-0 border-b border-line sm:aspect-auto sm:border-r sm:border-b-0"
+								<img
+									src={c.photo}
+									alt={c.photoAlt}
+									className="h-full w-full border-b border-line object-cover sm:border-r sm:border-b-0"
+									loading="lazy"
 								/>
 								<div className="flex flex-col p-8">
 									<Wordmark
@@ -141,27 +148,27 @@ export default function App() {
 				{/* The idea */}
 				{/* biome-ignore lint/correctness/useUniqueElementIds: static anchor for the nav and hero buttons */}
 				<Section id="build" tone="dark">
-					<SectionHeading eyebrow="Build Your City" tone="paper">
-						That's not a slogan. It's the whole idea.
-					</SectionHeading>
-					<div
-						className={`mt-8 flex max-w-[52rem] flex-col gap-6 ${darkLead} text-paper`}
-					>
-						<p>
-							Take what you're good at, whether that's code, design,
-							photography, content, organizing, or something else, and put it to
-							work for the nonprofits in your city. Find an organization that
-							needs help. Work with them to solve a real problem. That's how a
-							city gets built.
-						</p>
-						<p>
-							Build Columbus is where it started. If you want to do this where
-							you live, reach out and we'll help you get going.
-						</p>
+					<div className="mx-auto max-w-[760px] text-center">
+						<SectionHeading eyebrow="Build Your City" tone="paper">
+							That's not a slogan. It's the whole idea.
+						</SectionHeading>
+						<div className={`mt-8 flex flex-col gap-6 ${darkLead} text-paper`}>
+							<p>
+								Take what you're good at, whether that's code, design,
+								photography, content, organizing, or something else, and put it
+								to work for the nonprofits in your city. Find an organization
+								that needs help. Work with them to solve a real problem. That's
+								how a city gets built.
+							</p>
+							<p>
+								Build Columbus is where it started. If you want to do this where
+								you live, reach out and we'll help you get going.
+							</p>
+						</div>
+						<CtaLink href={`mailto:${parent.email}`} className="mt-10">
+							Get in touch
+						</CtaLink>
 					</div>
-					<CtaLink href={`mailto:${parent.email}`} className="mt-10">
-						Get in touch
-					</CtaLink>
 				</Section>
 			</main>
 

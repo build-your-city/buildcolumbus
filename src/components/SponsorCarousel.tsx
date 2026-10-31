@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 
 export type Sponsor = {
 	name: string;
@@ -19,7 +19,13 @@ export default function SponsorCarousel({ sponsors }: { sponsors: Sponsor[] }) {
 	const trackRef = useRef<HTMLUListElement>(null);
 	const [atStart, setAtStart] = useState(true);
 	const [atEnd, setAtEnd] = useState(true);
+	// True when every logo fits in the visible slots, so no scrolling is
+	// possible: the logos center and the arrows are not rendered. Starts
+	// false so an overflowing track is never laid out centered, which would
+	// leave it scrolled away from the first logo.
+	const [fits, setFits] = useState(false);
 
+	// Runs on scroll: which arrows are enabled.
 	const update = useCallback(() => {
 		const el = trackRef.current;
 		if (!el) return;
@@ -27,18 +33,29 @@ export default function SponsorCarousel({ sponsors }: { sponsors: Sponsor[] }) {
 		setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 1);
 	}, []);
 
-	useEffect(() => {
+	// Runs on mount and resize: whether everything fits. When it doesn't,
+	// snap back to the first logo so the row never starts mid-way.
+	const measure = useCallback(() => {
+		const el = trackRef.current;
+		if (!el) return;
+		const everythingFits = el.scrollWidth <= el.clientWidth + 1;
+		setFits(everythingFits);
+		if (!everythingFits && el.scrollLeft !== 0) el.scrollLeft = 0;
 		update();
+	}, [update]);
+
+	useLayoutEffect(() => {
+		measure();
 		const el = trackRef.current;
 		if (!el) return;
 		el.addEventListener("scroll", update, { passive: true });
-		const ro = new ResizeObserver(update);
+		const ro = new ResizeObserver(measure);
 		ro.observe(el);
 		return () => {
 			el.removeEventListener("scroll", update);
 			ro.disconnect();
 		};
-	}, [update]);
+	}, [measure, update]);
 
 	const scrollByOne = (dir: 1 | -1) => {
 		const el = trackRef.current;
@@ -50,19 +67,21 @@ export default function SponsorCarousel({ sponsors }: { sponsors: Sponsor[] }) {
 
 	return (
 		<div className="flex items-center gap-4 md:gap-6">
-			<button
-				type="button"
-				className={arrowClass}
-				onClick={() => scrollByOne(-1)}
-				disabled={atStart}
-				aria-label="Previous sponsors"
-			>
-				<ChevronLeft size={22} aria-hidden="true" />
-			</button>
+			{!fits && (
+				<button
+					type="button"
+					className={arrowClass}
+					onClick={() => scrollByOne(-1)}
+					disabled={atStart}
+					aria-label="Previous sponsors"
+				>
+					<ChevronLeft size={22} aria-hidden="true" />
+				</button>
+			)}
 
 			<ul
 				ref={trackRef}
-				className="flex min-w-0 flex-1 snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+				className={`flex min-w-0 flex-1 snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${fits ? "justify-center" : ""}`}
 			>
 				{sponsors.map((s) => (
 					<li
@@ -86,15 +105,17 @@ export default function SponsorCarousel({ sponsors }: { sponsors: Sponsor[] }) {
 				))}
 			</ul>
 
-			<button
-				type="button"
-				className={arrowClass}
-				onClick={() => scrollByOne(1)}
-				disabled={atEnd}
-				aria-label="Next sponsors"
-			>
-				<ChevronRight size={22} aria-hidden="true" />
-			</button>
+			{!fits && (
+				<button
+					type="button"
+					className={arrowClass}
+					onClick={() => scrollByOne(1)}
+					disabled={atEnd}
+					aria-label="Next sponsors"
+				>
+					<ChevronRight size={22} aria-hidden="true" />
+				</button>
+			)}
 		</div>
 	);
 }

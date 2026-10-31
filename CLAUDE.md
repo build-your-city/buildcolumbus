@@ -87,7 +87,7 @@ clarity beats cleverness.
   meetup, not on Meetup.com.
 - "Build Your City" is always written as a proper name.
 - Gray "PHOTO PLACEHOLDER" boxes are deliberate; swap in a real photo when
-  one is supplied. Never reuse a photo in two places.
+  one is supplied. Photos may be reused across pages.
 
 ## Gotchas
 
