@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import ThreeUp from "@/components/ThreeUp";
 import { city } from "../config/city";
+// serve-cody-full.jpg (the uncropped version) was not in the repo yet;
+// swap this import when it lands.
+import servePhoto from "../images/photos/p-serve.jpg";
 
 export const Route = createFileRoute("/serve")({
 	component: ServePage,
@@ -48,7 +50,12 @@ function ServePage() {
 			<Section noBorder>
 				<SplitBlock
 					media={
-						<PhotoPlaceholder label="Serve day with a Columbus nonprofit (wide)" />
+						<img
+							src={servePhoto}
+							alt="A Build Columbus volunteer handing out food at a Columbus nonprofit."
+							className="h-auto w-full object-contain"
+							fetchPriority="high"
+						/>
 					}
 				>
 					<SectionHeading as="h1" eyebrow="Volunteer first">
@@ -79,38 +86,20 @@ function ServePage() {
 				</div>
 			</Section>
 
-			{/* Why it works this way */}
-			<Section tone="white">
-				<SplitBlock
-					mediaSide="left"
-					media={
-						<PhotoPlaceholder label="Builders and nonprofit staff together" />
-					}
-				>
-					<SectionHeading eyebrow="Why it works this way">
-						Serve first. Build second.
-					</SectionHeading>
-					<p className="mt-8 font-sans text-[17px] font-medium leading-[1.55] text-ink">
-						Nobody knows what a nonprofit needs better than the people who work
-						there, and nobody learns it faster than someone volunteering
-						alongside them. Projects come after, once you've seen the need
-						yourself.
-					</p>
-				</SplitBlock>
-			</Section>
-
 			{/* For nonprofits */}
 			<Section tone="dark">
-				<SectionHeading eyebrow="Nonprofits" tone="paper">
-					Need builders?
-				</SectionHeading>
-				<p className="mt-8 max-w-[46rem] font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-					Columbus nonprofit with a need? Whether it's extra hands at an event
-					or a problem a skill could solve, tell us about it.
-				</p>
-				<CtaLink href={`mailto:${city.email}`} className="mt-10">
-					Get in touch
-				</CtaLink>
+				<div className="mx-auto max-w-[760px] text-center">
+					<SectionHeading eyebrow="Nonprofits" tone="paper">
+						Need builders?
+					</SectionHeading>
+					<p className="mt-8 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
+						Columbus nonprofit with a need? Whether it's extra hands at an event
+						or a problem a skill could solve, tell us about it.
+					</p>
+					<CtaLink href={`mailto:${city.email}`} className="mt-10">
+						Get in touch
+					</CtaLink>
+				</div>
 			</Section>
 		</>
 	);

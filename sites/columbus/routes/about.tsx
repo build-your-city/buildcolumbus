@@ -104,26 +104,28 @@ function AboutPage() {
 
 			{/* Parent network */}
 			<Section tone="dark">
-				<SectionHeading eyebrow="One city of many" tone="paper">
-					Build your city.
-				</SectionHeading>
-				<div className="mt-8 flex max-w-[46rem] flex-col gap-6 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-					<p>
-						Build Columbus is part of a network of city communities where
-						builders use their skills to serve local nonprofits. Every city runs
-						a monthly Meetup, Serve alongside nonprofits, and a hackathon once a
-						year. Columbus is the first.
-					</p>
-					<p>
-						Each city has its own organizers, its own site, and its own
-						nonprofits. What's shared is the name, the playbook, and the people
-						who've already done it. If you want this where you live, the parent
-						site is where to begin.
-					</p>
+				<div className="mx-auto max-w-[760px] text-center">
+					<SectionHeading eyebrow="One city of many" tone="paper">
+						Build your city.
+					</SectionHeading>
+					<div className="mt-8 flex flex-col gap-6 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
+						<p>
+							Build Columbus is part of a network of city communities where
+							builders use their skills to serve local nonprofits. Every city
+							runs a monthly Meetup, Serve alongside nonprofits, and a hackathon
+							once a year. Columbus is the first.
+						</p>
+						<p>
+							Each city has its own organizers, its own site, and its own
+							nonprofits. What's shared is the name, the playbook, and the
+							people who've already done it. If you want this where you live,
+							the parent site is where to begin.
+						</p>
+					</div>
+					<CtaLink href={city.links.parent} className="mt-10">
+						{city.links.parent.replace(/^https?:\/\//, "")}
+					</CtaLink>
 				</div>
-				<CtaLink href={city.links.parent} className="mt-10">
-					{city.links.parent.replace(/^https?:\/\//, "")}
-				</CtaLink>
 			</Section>
 		</>
 	);

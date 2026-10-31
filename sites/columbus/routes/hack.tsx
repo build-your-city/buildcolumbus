@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
@@ -9,6 +8,7 @@ import ThreeUp from "@/components/ThreeUp";
 import { city, sponsorsFor } from "../config/city";
 import { challengeAreas, hackSteps, speakers } from "../data/hack2026";
 import winnersPhoto from "../images/photos/h-winners.jpg";
+import heroPhoto from "../images/photos/p-hack.jpg";
 
 export const Route = createFileRoute("/hack")({
 	component: HackPage,
@@ -34,7 +34,14 @@ function HackPage() {
 			{/* Page hero */}
 			<Section noBorder>
 				<SplitBlock
-					media={<PhotoPlaceholder label="#HACK Columbus, full room" />}
+					media={
+						<img
+							src={heroPhoto}
+							alt="Teams working together around tables at #HACK Columbus."
+							className="h-auto w-full object-contain"
+							fetchPriority="high"
+						/>
+					}
 				>
 					<SectionHeading as="h1" eyebrow="Once a year">
 						Hack
@@ -87,13 +94,15 @@ function HackPage() {
 
 			{/* Challenge areas: one box, five cells */}
 			<Section tone="white">
-				<SectionHeading eyebrow="2026 challenge areas">
-					What we built around
-				</SectionHeading>
-				<p className={`mt-6 ${bodyText}`}>
-					Five real needs in Columbus. Every project in the room answered one of
-					them.
-				</p>
+				<div className="mx-auto max-w-[760px] text-center">
+					<SectionHeading eyebrow="2026 challenge areas">
+						What we built around
+					</SectionHeading>
+					<p className={`mt-6 ${bodyText}`}>
+						Five real needs in Columbus. Every project in the room answered one
+						of them.
+					</p>
+				</div>
 				<ul className="mt-10 grid grid-cols-1 border border-line bg-white sm:grid-cols-2 md:grid-cols-5">
 					{challengeAreas.map((area, i) => (
 						<li

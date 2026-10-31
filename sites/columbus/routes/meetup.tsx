@@ -112,17 +112,19 @@ function MeetupPage() {
 
 			{/* Call for speakers */}
 			<Section tone="dark">
-				<SectionHeading eyebrow="Want to speak?" tone="paper">
-					Give a talk.
-				</SectionHeading>
-				<p className="mt-8 max-w-[40rem] font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-					Have something builders would find useful? Talks run 30 minutes to an
-					hour. Send us your idea through Sessionize and we'll be in touch about
-					a date.
-				</p>
-				<CtaLink href={city.links.sessionize} className="mt-10">
-					Submit a talk
-				</CtaLink>
+				<div className="mx-auto max-w-[760px] text-center">
+					<SectionHeading eyebrow="Want to speak?" tone="paper">
+						Give a talk.
+					</SectionHeading>
+					<p className="mt-8 font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
+						Have something builders would find useful? Talks run 30 minutes to
+						an hour. Send us your idea through Sessionize and we'll be in touch
+						about a date.
+					</p>
+					<CtaLink href={city.links.sessionize} className="mt-10">
+						Submit a talk
+					</CtaLink>
+				</div>
 			</Section>
 
 			{/* Sponsors */}

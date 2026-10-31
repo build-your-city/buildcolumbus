@@ -86,7 +86,8 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
 
 ## Photography
 
-Real community photos only, each used once. Where no photo exists yet, a
+Real community photos only; a photo may appear on more than one page.
+Where no photo exists yet, a
 gray box labeled "PHOTO PLACEHOLDER" with a caption stands in
 (`PhotoPlaceholder`), rendered with `aria-hidden`. Photos belong to the
 site that uses them, under `sites/<city>/images/`.
