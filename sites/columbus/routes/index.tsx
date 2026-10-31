@@ -86,12 +86,7 @@ function HomePage() {
 			{next && (
 				<Section tone="white">
 					<h2 className="sr-only">Next meetup</h2>
-					<EventCard
-						event={next}
-						hours={city.meetupHours}
-						where={`${city.venue.name}, ${city.venue.address}`}
-						detail="full"
-					/>
+					<EventCard event={next} details={city.meetupDetails} />
 				</Section>
 			)}
 

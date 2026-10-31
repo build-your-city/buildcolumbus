@@ -94,11 +94,7 @@ function MeetupPage() {
 					<ul className="mt-6 flex flex-col gap-4 sm:mt-10 sm:gap-6">
 						{upcoming.map((event) => (
 							<li key={event.id}>
-								<EventCard
-									event={event}
-									hours={city.meetupHours}
-									where={`${city.venue.name}, ${city.venue.address}`}
-								/>
+								<EventCard event={event} details={city.meetupDetails} />
 							</li>
 						))}
 					</ul>

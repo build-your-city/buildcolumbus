@@ -55,8 +55,9 @@ export const city = {
 		cityState: "Columbus, OH 43215",
 	},
 
-	/** Standard meetup hours, shown on event cards. */
-	meetupHours: "1 to 4 PM",
+	/** When, where, and what to expect. Shown on every upcoming event card. */
+	meetupDetails:
+		"1 to 4 PM at Improving, 330 Rush Alley, Suite 150. Food and beverages provided.",
 
 	/** Program names. Never "Hackathon" except in the formal event name. */
 	programs: {

@@ -9,12 +9,8 @@ import { bodyText, cardHeading } from "./text";
 
 type EventCardProps = {
 	event: MeetupEvent;
-	/** Standard meetup hours, e.g. "1 to 4 PM". */
-	hours: string;
-	/** Venue name and address, e.g. "Improving, 330 Rush Alley, Suite 150". */
-	where: string;
-	/** "full" adds the food and first-timers line (home page). */
-	detail?: "full" | "short";
+	/** When and where, e.g. "1 to 4 PM at Improving, 330 Rush Alley." */
+	details: string;
 };
 
 /**
@@ -22,12 +18,7 @@ type EventCardProps = {
  * RSVP button. On mobile the date block sits on top, left-aligned, with the
  * rest under it. Title and date come from the synced Meetup data.
  */
-export default function EventCard({
-	event,
-	hours,
-	where,
-	detail = "short",
-}: EventCardProps) {
+export default function EventCard({ event, details }: EventCardProps) {
 	return (
 		<article className="flex flex-col gap-6 border border-line bg-white p-8 md:flex-row md:gap-12 md:p-12">
 			<div className="flex shrink-0 flex-row items-baseline gap-3 md:w-44 md:flex-col md:items-center md:gap-0 md:text-center">
@@ -41,11 +32,7 @@ export default function EventCard({
 			</div>
 			<div className="min-w-0 flex-1">
 				<h3 className={`${cardHeading} text-ink`}>{event.title}</h3>
-				<p className={`mt-3 ${bodyText} text-ink`}>
-					{hours} at {where}.
-					{detail === "full" &&
-						" Food and beverages provided. First-timers always welcome."}
-				</p>
+				<p className={`mt-3 ${bodyText} text-ink`}>{details}</p>
 				<CtaLink href={event.url} className="mt-7">
 					RSVP on Meetup
 				</CtaLink>
