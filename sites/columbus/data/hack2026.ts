@@ -30,7 +30,7 @@ export const hackSteps = [
 	{
 		marker: "3",
 		title: "Present an idea",
-		body: "Five minutes each in front of the room. The crowd voted, and three builders went home with the favorite.",
+		body: "Five minutes each in front of the room. Then the crowd voted on its favorite, and three builders took home the grand prize.",
 	},
 ];
 

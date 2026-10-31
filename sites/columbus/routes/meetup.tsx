@@ -56,6 +56,7 @@ function MeetupPage() {
 						src: heroPhoto,
 						alt: "Builders talking in the lounge at a Build Columbus meetup at Improving.",
 						priority: true,
+						focal: "50% 55%",
 					}}
 				>
 					<SectionHeading as="h1" eyebrow="Monthly, hosted by Improving">
@@ -105,10 +106,10 @@ function MeetupPage() {
 				)}
 			</Section>
 
-			{/* How a meetup goes */}
+			{/* What to expect */}
 			<Section>
-				<SectionHeading eyebrow="What to expect">
-					How a meetup goes
+				<SectionHeading eyebrow="A typical Saturday">
+					What to expect
 				</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
@@ -122,8 +123,9 @@ function MeetupPage() {
 						Give a talk.
 					</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
-						Have something builders would find useful? Talks run 30 minutes to
-						an hour. Send us your idea and we'll be in touch about a date.
+						Have a talk or workshop on something builders would find useful?
+						Sessions run 30 minutes to an hour. Send us your idea and we'll be
+						in touch about a date.
 					</p>
 					<CtaLink href={city.links.sessionize} className="mt-8 sm:mt-10">
 						Submit a talk
