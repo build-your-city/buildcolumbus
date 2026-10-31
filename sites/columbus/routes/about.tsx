@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import SponsorCarousel from "@/components/SponsorCarousel";
 import { city, sponsorsFor } from "../config/city";
+import heroPhoto from "../images/photos/about-first-meetup.jpg";
 
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
@@ -31,7 +31,14 @@ function AboutPage() {
 			{/* Page hero */}
 			<Section noBorder>
 				<SplitBlock
-					media={<PhotoPlaceholder label="Nathan and Cody at a meetup" />}
+					media={
+						<img
+							src={heroPhoto}
+							alt="One of the first meetups in 2024"
+							className="h-auto w-full object-contain"
+							fetchPriority="high"
+						/>
+					}
 				>
 					<SectionHeading as="h1" eyebrow={city.place}>
 						About

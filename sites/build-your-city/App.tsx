@@ -1,13 +1,13 @@
 import Container from "@/components/Container";
 import CtaLink from "@/components/CtaLink";
 import Eyebrow from "@/components/Eyebrow";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import Wordmark from "@/components/Wordmark";
 import { nextEvent } from "@/lib/events";
 import { cities, parent } from "./config";
+import heroPhoto from "./images/meetup-full-room.jpg";
 
 const navLink =
 	"font-sans text-base font-semibold text-paper no-underline transition-colors hover:text-blue";
@@ -76,7 +76,12 @@ export default function App() {
 				<Section noBorder>
 					<SplitBlock
 						media={
-							<PhotoPlaceholder label="Builders working alongside a nonprofit" />
+							<img
+								src={heroPhoto}
+								alt="A full room at a Build Columbus meetup"
+								className="h-auto w-full object-contain"
+								fetchPriority="high"
+							/>
 						}
 					>
 						<Eyebrow>{parent.siteName}</Eyebrow>
@@ -107,9 +112,11 @@ export default function App() {
 								key={c.id}
 								className="grid grid-cols-1 border border-line bg-white sm:grid-cols-[45%_1fr]"
 							>
-								<PhotoPlaceholder
-									label={c.photoLabel}
-									className="h-full border-0 border-b border-line sm:aspect-auto sm:border-r sm:border-b-0"
+								<img
+									src={c.photo}
+									alt={c.photoAlt}
+									className="h-full w-full border-b border-line object-cover sm:border-r sm:border-b-0"
+									loading="lazy"
 								/>
 								<div className="flex flex-col p-8">
 									<Wordmark
