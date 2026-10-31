@@ -10,7 +10,7 @@ import { nextEvent } from "@/lib/events";
 import { cities, parent } from "./config";
 
 const navLink =
-	"font-sans text-base font-semibold text-ink no-underline transition-colors hover:text-blue-deep";
+	"font-sans text-base font-semibold text-paper no-underline transition-colors hover:text-blue";
 const footerLink =
 	"font-sans text-base font-medium text-slate no-underline transition-colors hover:text-paper";
 const footerHeading =
@@ -39,12 +39,13 @@ export default function App() {
 
 	return (
 		<div className="flex min-h-screen flex-col">
-			<header className="bg-paper">
+			<header className="border-b border-white/8 bg-ink-deep text-paper">
 				<Container className="flex items-center justify-between py-6">
 					<a href="/" className="no-underline">
 						<Wordmark
 							top={parent.wordmark.top}
 							bottom={parent.wordmark.bottom}
+							tone="paper"
 							className="text-[28px] md:text-[34px]"
 						/>
 					</a>
@@ -63,11 +64,7 @@ export default function App() {
 						<a href="#build" className={`${navLink} hidden sm:inline`}>
 							Build your city
 						</a>
-						<CtaLink
-							href={`mailto:${parent.email}`}
-							variant="ink"
-							className="ml-2"
-						>
+						<CtaLink href={`mailto:${parent.email}`} className="ml-2">
 							Contact
 						</CtaLink>
 					</nav>

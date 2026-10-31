@@ -105,10 +105,8 @@ function ServePage() {
 					Need builders?
 				</SectionHeading>
 				<p className="mt-8 max-w-[46rem] font-sans text-[19px] font-medium leading-[1.4] text-paper md:text-[22px]">
-					We're developers, designers, content creators, and more who want to
-					help where we can. If your Columbus nonprofit has a need, whether
-					that's extra hands at an event or a problem a skill could solve, tell
-					us about it.
+					Columbus nonprofit with a need? Whether it's extra hands at an event
+					or a problem a skill could solve, tell us about it.
 				</p>
 				<CtaLink href={`mailto:${city.email}`} className="mt-10">
 					Get in touch

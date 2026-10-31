@@ -45,7 +45,7 @@ const programs = [
 		title: city.programs.hack,
 		photo: hackPhoto,
 		alt: "Teams working together around tables at #HACK Columbus.",
-		body: "One day a year. Hear a real need, pick a challenge, present an idea.",
+		body: "One day a year. Learn what Columbus nonprofits are up against, pick a challenge, present an idea.",
 		cta: "About Hack",
 		to: "/hack",
 	},

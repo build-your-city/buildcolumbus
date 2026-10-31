@@ -17,7 +17,7 @@ type HeaderProps = {
 };
 
 const navLink =
-	"font-sans text-base font-semibold text-ink no-underline decoration-blue decoration-2 underline-offset-8 transition-colors hover:text-blue-deep [&.active]:underline";
+	"font-sans text-base font-semibold text-paper no-underline decoration-blue decoration-2 underline-offset-8 transition-colors hover:text-blue [&.active]:underline";
 
 /**
  * Site header for a city site: wordmark, router nav, and one button. On
@@ -37,12 +37,13 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 	}, [isOpen]);
 
 	return (
-		<header className="bg-paper">
+		<header className="border-b border-white/8 bg-ink-deep text-paper">
 			<Container className="flex items-center justify-between py-6">
 				<Link to="/" className="no-underline">
 					<Wordmark
 						top={wordmark.top}
 						bottom={wordmark.bottom}
+						tone="paper"
 						className="text-[28px] md:text-[34px]"
 					/>
 				</Link>
@@ -54,7 +55,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 							{item.label}
 						</Link>
 					))}
-					<CtaLink href={cta.href} variant="ink" className="ml-2">
+					<CtaLink href={cta.href} className="ml-2">
 						{cta.label}
 					</CtaLink>
 				</nav>
@@ -63,7 +64,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 				<button
 					type="button"
 					onClick={() => setIsOpen(!isOpen)}
-					className="md:hidden p-2 -mr-2 text-ink"
+					className="md:hidden p-2 -mr-2 text-paper"
 					aria-label={isOpen ? "Close menu" : "Open menu"}
 					aria-expanded={isOpen}
 					aria-controls="mobile-nav"
@@ -77,7 +78,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 			<nav
 				id="mobile-nav"
 				aria-label="Mobile"
-				className={`md:hidden border-t border-line ${isOpen ? "block" : "hidden"}`}
+				className={`md:hidden border-t border-white/8 ${isOpen ? "block" : "hidden"}`}
 			>
 				<Container className="flex flex-col gap-1 py-4">
 					{nav.map((item) => (
@@ -90,7 +91,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 							{item.label}
 						</Link>
 					))}
-					<CtaLink href={cta.href} variant="ink" className="mt-3">
+					<CtaLink href={cta.href} className="mt-3">
 						{cta.label}
 					</CtaLink>
 				</Container>
