@@ -43,7 +43,7 @@ const programs = [
 	{
 		title: city.programs.serve,
 		photo: servePhoto,
-		alt: "A volunteer serving food at a Columbus nonprofit.",
+		alt: "A volunteer serving food at a local nonprofit.",
 		body: "Volunteer with local nonprofits and see where your skill is needed.",
 		cta: "About Serve",
 		to: "/serve",

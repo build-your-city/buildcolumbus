@@ -31,12 +31,12 @@ const steps = [
 	{
 		marker: "2",
 		title: "Show up and serve",
-		body: "Anyone can do this part. You're there to volunteer, not to pitch.",
+		body: "Anyone can do this part. Show up and help.",
 	},
 	{
 		marker: "3",
 		title: "See where you fit",
-		body: "While you're there, you'll notice something a skill could fix. Tell us about it, and we'll see if it can become a project for our builders.",
+		body: "While you're there, you'll notice something a skill could fix. Tell us about it, and we'll see if it can become a project.",
 	},
 ];
 
@@ -48,7 +48,7 @@ function ServePage() {
 				<SplitBlock
 					photo={{
 						src: servePhoto,
-						alt: "A Build Columbus volunteer handing out food at a Columbus nonprofit.",
+						alt: "A Build Columbus volunteer handing out food at a local nonprofit.",
 						priority: true,
 					}}
 				>
@@ -93,8 +93,8 @@ function ServePage() {
 							nonprofits.
 						</p>
 						<p className={`${leadText} text-paper`}>
-							If your organization has a problem one of our builders could help
-							with, tell us about it.
+							If your organization has a problem a skill could help with, tell
+							us about it.
 						</p>
 					</div>
 					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
