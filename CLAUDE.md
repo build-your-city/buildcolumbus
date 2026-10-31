@@ -71,8 +71,10 @@ clarity beats cleverness.
 
 ## Content rules
 
-- Programs are Meetup, Serve, Hack. Never "Hackathon" except in the formal
-  event name "#HACK Columbus 2026".
+- Programs are Meetup, Serve, Hack. "Hack" is the program name: nav, footer
+  links, headings, card headings, link labels, the city config, and the
+  formal name "#HACK Columbus 2026". In running sentences write
+  "hackathon".
 - No scripture, no prayer, "content creator" not "writer", no "Serve days",
   no "ongoing projects". Serve opportunities are shared on Discord and at the
   meetup, not on Meetup.com.

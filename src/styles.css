@@ -12,6 +12,11 @@
      white and Paper. The wordmark, eyebrows, and decorative uses keep the
      original. */
   --color-blue-deep: #0063f7;
+  /* Primary button hover. */
+  --color-blue-hover: #0052cc;
+  /* Footer background, a step deeper than Ink so it reads as its own element
+     even under a dark band. */
+  --color-ink-deep: #0b0f1a;
   --color-slate: #8e95a6;
   --color-line: #d9d4c7;
   --color-white: #ffffff;

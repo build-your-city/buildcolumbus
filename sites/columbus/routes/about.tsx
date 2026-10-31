@@ -29,9 +29,9 @@ function AboutPage() {
 						Build Columbus is a community of people who build solutions:
 						developers, designers, content creators, and anyone who can turn a
 						need into something useful. We meet once a month, volunteer with
-						Columbus nonprofits, and hold a Hack once a year. What began in 2024
-						as a meetup for people in tech has grown into something wider: a
-						place where any skill can help solve a real problem for a Columbus
+						Columbus nonprofits, and hold a hackathon once a year. What began in
+						2024 as a meetup for people in tech has grown into something wider:
+						a place where any skill can help solve a real problem for a Columbus
 						nonprofit. You don't need to know what you can offer yet. Come to a
 						meetup and find out.
 					</p>
@@ -39,7 +39,7 @@ function AboutPage() {
 			</Section>
 
 			{/* Organizers */}
-			<Section>
+			<Section tone="white">
 				<SectionHeading eyebrow="Organizers">Who runs it</SectionHeading>
 				<ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
 					{city.organizers.map((person) => (
@@ -94,7 +94,7 @@ function AboutPage() {
 						Build Your City is a network of city communities where builders use
 						their skills to serve local nonprofits. Every city runs the same
 						three things under its own name: a monthly Meetup, Serve alongside
-						nonprofits, and a Hack once a year. Columbus is the first.
+						nonprofits, and a hackathon once a year. Columbus is the first.
 					</p>
 					<p>
 						Each city has its own organizers, its own site, and its own

@@ -21,7 +21,7 @@ const linkClass =
  */
 export default function Footer({ wordmark, tagline, columns }: FooterProps) {
 	return (
-		<footer className="bg-ink text-paper">
+		<footer className="border-t border-white/8 bg-ink-deep text-paper">
 			<Container className="grid grid-cols-1 gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10 md:py-24">
 				<div>
 					<Wordmark

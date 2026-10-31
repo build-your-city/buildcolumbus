@@ -82,7 +82,7 @@ function HomePage() {
 
 			{/* Next meetup, from the synced Meetup data */}
 			{next && (
-				<Section>
+				<Section tone="white">
 					<h2 className="sr-only">Next meetup</h2>
 					<EventCard
 						event={next}

@@ -8,12 +8,13 @@ import icFamily from "../images/logos/ic-family.png";
 import icHome from "../images/logos/ic-home.png";
 import icMissions from "../images/logos/ic-missions.png";
 import icRefugee from "../images/logos/ic-refugee.png";
+import sGenna from "../images/speakers/genna-pellin.jpg";
 import sChris from "../images/speakers/s-chris.png";
 import sCody from "../images/speakers/s-cody.jpg";
 import sEmily from "../images/speakers/s-emily.png";
-import sGenna from "../images/speakers/s-genna.jpg";
 import sKeith from "../images/speakers/s-keith.jpg";
 import sKelli from "../images/speakers/s-kelli.jpg";
+import sSummer from "../images/speakers/summer-skodacek.jpg";
 
 export const hackSteps = [
 	{
@@ -41,22 +42,32 @@ export const challengeAreas = [
 	{ title: "Disability Inclusion", icon: icDisability },
 ];
 
+export type SpeakerPerson = {
+	name: string;
+	title: string;
+	photo: string;
+};
+
+/** One speaker card. Two people share a card when they presented together. */
 export type Speaker = {
 	area: string;
-	name: string;
-	org: string;
-	body: string;
-	photo: string;
+	people: SpeakerPerson[];
+	/** Organization line, shown when there is one. */
+	org?: string;
 	link: { label: string; href: string };
 };
 
 export const speakers: Speaker[] = [
 	{
 		area: "Homelessness",
-		name: "Kelli Welsheimer",
+		people: [
+			{
+				name: "Kelli Welsheimer",
+				title: "Chief Advancement and Strategy Officer",
+				photo: sKelli,
+			},
+		],
 		org: "The Bridge Ministry",
-		body: "Serves people experiencing homelessness in Columbus through outreach, meals, and relationship.",
-		photo: sKelli,
 		// Verified: the Columbus org is at thebridge-ministry.com (with a hyphen);
 		// thebridgeministry.com is an unrelated Texas church.
 		link: {
@@ -66,10 +77,14 @@ export const speakers: Speaker[] = [
 	},
 	{
 		area: "Refugees & Immigrants",
-		name: "Emily Lady",
+		people: [
+			{
+				name: "Emily Lady",
+				title: "Community Care Program Manager",
+				photo: sEmily,
+			},
+		],
 		org: "Riverview International Center",
-		body: "A community center on the north side serving refugee and immigrant families with education, support, and connection.",
-		photo: sEmily,
 		link: {
 			label: "riverviewinternationalcenter.org",
 			href: "https://riverviewinternationalcenter.org/",
@@ -77,37 +92,52 @@ export const speakers: Speaker[] = [
 	},
 	{
 		area: "Missions",
-		name: "Chris Lady",
-		org: "Data strategy and architecture",
-		body: "Shared how the shape of global missions has shifted, and where builders fit in the 2026 reality.",
-		photo: sChris,
-		// LinkedIn URL to be supplied.
+		people: [
+			{
+				name: "Chris Lady",
+				title: "Director, Data Strategy and Architecture",
+				photo: sChris,
+			},
+		],
+		// No organization, by his request. LinkedIn URL to be supplied.
 		link: { label: "Connect on LinkedIn", href: "#" },
 	},
 	{
 		area: "Family Online Safety",
-		name: "Cody Steffy",
-		org: "Co-founder, Build Columbus",
-		body: "Walked through how kids are targeted online and what a safety layer could look like.",
-		photo: sCody,
+		people: [
+			{
+				name: "Cody Steffy",
+				title: "Sr. Cybersecurity Specialist and Co-founder",
+				photo: sCody,
+			},
+		],
+		org: "Build Columbus",
 		// LinkedIn URL to be supplied.
 		link: { label: "Connect on LinkedIn", href: "#" },
 	},
 	{
 		area: "Disability Inclusion",
-		name: "Genna Pellin & Summer Skodacek",
+		people: [
+			{ name: "Genna Pellin", title: "National Secretary", photo: sGenna },
+			{
+				name: "Summer Skodacek",
+				title: "National Ministry Representative",
+				photo: sSummer,
+			},
+		],
 		org: "Special Touch Ministry",
-		body: "Camps, respite, and community for people with disabilities and their families across Ohio.",
-		photo: sGenna,
 		link: { label: "specialtouch.org", href: "https://specialtouch.org/" },
 	},
 	{
 		area: "Disability Inclusion",
-		name: "Dr. Keith Newton",
-		org: "Digital accessibility",
-		body: "The technical side: why accessibility removes barriers, and how to build it in instead of bolting it on.",
-		photo: sKeith,
-		// LinkedIn URL to be supplied.
+		people: [
+			{
+				name: "Dr. Keith Newton",
+				title: "Founder & Principal, Accessibility, AI & Product Systems",
+				photo: sKeith,
+			},
+		],
+		// No organization. LinkedIn URL to be supplied.
 		link: { label: "Connect on LinkedIn", href: "#" },
 	},
 ];

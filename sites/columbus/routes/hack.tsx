@@ -44,7 +44,7 @@ function HackPage() {
 			</Section>
 
 			{/* 2026 recap */}
-			<Section>
+			<Section tone="white">
 				<SplitBlock
 					mediaSide="left"
 					media={
@@ -79,7 +79,7 @@ function HackPage() {
 			</Section>
 
 			{/* Challenge areas: one box, five cells */}
-			<Section>
+			<Section tone="white">
 				<SectionHeading eyebrow="2026 challenge areas">
 					What we built around
 				</SectionHeading>
@@ -119,30 +119,43 @@ function HackPage() {
 				<ul className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
 					{speakers.map((s) => (
 						<li
-							key={s.name}
+							key={s.people.map((p) => p.name).join(" & ")}
 							className="flex flex-col border border-line bg-white p-8"
 						>
-							<img
-								src={s.photo}
-								alt={`${s.name} headshot`}
-								className="h-24 w-24 rounded-full object-cover"
-								loading="lazy"
-							/>
+							<div className="flex gap-4">
+								{s.people.map((p) => (
+									<img
+										key={p.name}
+										src={p.photo}
+										alt={`${p.name} headshot`}
+										className="h-24 w-24 rounded-full object-cover"
+										loading="lazy"
+									/>
+								))}
+							</div>
 							<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue">
 								{s.area}
 							</p>
-							<h3 className="mt-2 font-display text-[22px] font-bold leading-[1.1] tracking-[-0.025em] text-ink">
-								{s.name}
-							</h3>
-							<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
-								{s.org}
-							</p>
-							<p className={`mt-4 flex-1 ${bodyText}`}>{s.body}</p>
+							{s.people.map((p, i) => (
+								<div key={p.name} className={i === 0 ? "mt-2" : "mt-4"}>
+									<h3 className="font-display text-[22px] font-bold leading-[1.1] tracking-[-0.025em] text-ink">
+										{p.name}
+									</h3>
+									<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
+										{p.title}
+									</p>
+								</div>
+							))}
+							{s.org && (
+								<p className="mt-2 font-sans text-[15px] font-medium text-ink">
+									{s.org}
+								</p>
+							)}
 							<a
 								href={s.link.href}
 								target="_blank"
 								rel="noopener noreferrer"
-								className={`mt-6 ${underlineLink}`}
+								className={`mt-auto pt-6 ${underlineLink}`}
 							>
 								{s.link.label}
 							</a>
@@ -152,7 +165,7 @@ function HackPage() {
 			</Section>
 
 			{/* Sponsors */}
-			<Section>
+			<Section tone="white">
 				<SectionHeading eyebrow="Thank you">
 					Sponsors and partners
 				</SectionHeading>

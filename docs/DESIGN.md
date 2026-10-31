@@ -14,6 +14,8 @@ drifting from it.
 | `paper` | `#F4F1EA` | Page background |
 | `blue` | `#3D8BFF` | Build Blue, the only accent: wordmark second line, eyebrows, link underlines, step numbers, date tags, focus rings |
 | `blue-deep` | `#0063F7` | Build Blue darkened for contrast: primary button fills and hover text |
+| `blue-hover` | `#0052CC` | Primary button hover fill |
+| `ink-deep` | `#0B0F1A` | Footer background, with a 1px `rgba(255,255,255,0.08)` top border |
 | `slate` | `#8E95A6` | Secondary text on ink |
 | `line` | `#D9D4C7` | Borders and section dividers |
 | `white` | `#FFFFFF` | Cards |
@@ -50,7 +52,10 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
 - Content is 1200px wide at most, with 48px side padding on desktop and 16px
   on mobile (`Container`).
 - Sections have 88px vertical padding and a 1px Line border on top
-  (`Section`). Each page has at most one dark Ink band.
+  (`Section`). Content sections alternate Paper, White, Paper, White down
+  the page, starting from the Paper hero; the one dark Ink band a page may
+  have sits outside that alternation. Cards and three-column boxes stay
+  white whatever the section background.
 - Hero: two equal columns, text left, photo right, 56px gap. Photos keep
   their natural aspect ratio and are never cropped. Two-column blocks
   alternate sides down the page (`SplitBlock`).
@@ -58,13 +63,17 @@ Mobile drops the hero to 52px, page titles to 48px, and section headings to
   border and 1px dividers between cells, no gaps (`ThreeUp`). Program cards
   on the home page and speaker cards are separate boxes with gaps.
 - Cards are white with a 1px Line border, no shadow, no radius.
-- Buttons: primary is `blue-deep` with white text; secondary is transparent
-  with a 2px Ink border. 18px/28px padding, no radius (`CtaLink`).
+- Buttons: primary is `blue-deep` with white text and `blue-hover` on
+  hover, never transparent. Secondary is transparent with a 2px Ink border
+  and fills Ink with Paper text on hover; on a dark band it uses a Paper
+  border and fills Paper with Ink text. 18px/28px padding, no radius
+  (`CtaLink`).
 - Sponsors and partners are a horizontal carousel, four logos visible, with
   48px square arrow buttons (2px Ink border) that disable at either end.
   Logos sit on Paper with no box (`SponsorCarousel`).
-- Footer: Ink background, four columns (wordmark and tagline, Community,
-  Connect, Contact).
+- Footer: `ink-deep` background with a faint top border so it reads as its
+  own element under a dark band; four columns (wordmark and tagline,
+  Community, Connect, Contact).
 - Mobile: single column, hero photo under the text, three-column boxes
   stack.
 
