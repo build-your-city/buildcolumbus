@@ -50,10 +50,14 @@ clarity beats cleverness.
   parent site) holds the site name, URL, description, and preview image.
   Each site's `vite.config.ts` stamps the Open Graph, Twitter, icon, and
   manifest tags into `index.html` at build time through `src/lib/headTags.ts`
-  so crawlers see them without JavaScript. Per-page titles, descriptions,
-  and canonical links (via `canonical()` in `config/site.ts`) are set in
-  each route's `head()` and rendered by `HeadContent` in the root route.
-  Adding a page means adding it to `public/sitemap.xml` too. The preview images in each site's `public/` are rendered by
+  so crawlers see them without JavaScript. Every Columbus page is listed in
+  `pages` in `config/site.ts` with its title ("Page | Build Columbus"; the
+  home page is "Build Columbus") and description. From that list, each
+  route's `head()` calls `pageHead()`, and the build writes one HTML file
+  per page with its own title, description, canonical, and share tags
+  (`meetup.html`, ...), the Netlify rewrites for them, and `sitemap.xml`.
+  Adding a page means adding it to `pages`; nothing else to keep in sync.
+  The preview images in each site's `public/` are rendered by
   `node scripts/og-images.mjs`; rerun it rather than editing the PNGs.
 - **Event data:** `src/data/events.json` is written by
   `scripts/sync-events.mjs` via a nightly GitHub Action. Don't hand-edit it
@@ -67,8 +71,9 @@ clarity beats cleverness.
   both.
 - **Styling:** Tailwind v4 utilities. No inline `style` objects, no CSS
   modules. Shared CTA styling lives in `src/components/CtaLink.tsx`; use it
-  instead of styling raw anchors. Build Blue is the only accent color;
-  `blue-deep` is its contrast-safe variant for button fills and hover text.
+  instead of styling raw anchors. Build Blue is the only accent color.
+  Small blue text (under 18px) on White or Paper uses `blue-text`; on navy
+  it keeps `blue`. Button fills use `blue-deep`. See docs/DESIGN.md.
 
 ## Conventions
 
@@ -107,6 +112,9 @@ clarity beats cleverness.
 
 - Devtools render only when `import.meta.env.DEV` is true; keep it that way.
 - The old `/events` route redirects to `/meetup` via
-  `sites/columbus/public/_redirects`.
+  `sites/columbus/public/_redirects`. The build appends the page rewrites
+  and a `/* /index.html 404` fallback to that file, so unknown URLs get a
+  real 404 status and the app's `NotFound` page. Build Your City does the
+  same with a static `_redirects` and a not-found view in `App.tsx`.
 - LinkedIn links for Hack speakers and the "Get notified for 2027" target are
   placeholders until organizers supply URLs.

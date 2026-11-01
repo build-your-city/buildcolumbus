@@ -30,7 +30,7 @@ sites/
     config/city.ts       # everything city-specific: links, venue, sponsors, organizers
     data/hack2026.ts     # Hack Columbus 2026 recap content
     images/              # photos, sponsor logos, speaker headshots
-    public/              # favicon, manifest, robots.txt, sitemap.xml, _redirects
+    public/              # favicon, manifest, robots.txt, _redirects (the build adds page files and sitemap.xml)
     vite.config.ts
   build-your-city/       # build-your-city.org, a single page
     App.tsx, config.ts, vite.config.ts, netlify.toml
