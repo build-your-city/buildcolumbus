@@ -50,9 +50,10 @@ clarity beats cleverness.
   parent site) holds the site name, URL, description, and preview image.
   Each site's `vite.config.ts` stamps the Open Graph, Twitter, icon, and
   manifest tags into `index.html` at build time through `src/lib/headTags.ts`
-  so crawlers see them without JavaScript. Per-page titles and descriptions
-  are set in each route's `head()` and rendered by `HeadContent` in the root
-  route. The preview images in each site's `public/` are rendered by
+  so crawlers see them without JavaScript. Per-page titles, descriptions,
+  and canonical links (via `canonical()` in `config/site.ts`) are set in
+  each route's `head()` and rendered by `HeadContent` in the root route.
+  Adding a page means adding it to `public/sitemap.xml` too. The preview images in each site's `public/` are rendered by
   `node scripts/og-images.mjs`; rerun it rather than editing the PNGs.
 - **Event data:** `src/data/events.json` is written by
   `scripts/sync-events.mjs` via a nightly GitHub Action. Don't hand-edit it
@@ -60,7 +61,10 @@ clarity beats cleverness.
   out of the synced title.
 - **Deploys:** the root `netlify.toml` builds Columbus. The Build Your City
   Netlify project uses `sites/build-your-city/netlify.toml` via its base
-  directory setting. See README.md.
+  directory setting. See README.md. Both files set the security headers;
+  the Content-Security-Policy only allows the site itself and Google Fonts,
+  so a new third-party script, embed, or form needs its origin added in
+  both.
 - **Styling:** Tailwind v4 utilities. No inline `style` objects, no CSS
   modules. Shared CTA styling lives in `src/components/CtaLink.tsx`; use it
   instead of styling raw anchors. Build Blue is the only accent color;
@@ -81,8 +85,8 @@ clarity beats cleverness.
 
 - Programs are Meetup, Serve, Hack. "Hack" is the program name: nav, footer
   links, headings, card headings, link labels, the city config, and the
-  formal name "#HACK Columbus 2026". In running sentences write
-  "hackathon".
+  formal name "Hack Columbus 2026" (never "#HACK"). In running sentences
+  write "hackathon".
 - No scripture, no prayer, "content creator" not "writer", no "Serve days",
   no "ongoing projects". Serve opportunities are shared on Discord and at the
   meetup, not on Meetup.com.

@@ -6,7 +6,7 @@
 
 - [ ] `npm run check` passes
 - [ ] `npm run build` passes
-- [ ] Checked the Vercel preview (or `npm run dev`) on desktop and mobile widths
+- [ ] Checked the Netlify deploy preview (or `npm run dev`) on desktop and mobile widths
 
 ## Screenshots
 
