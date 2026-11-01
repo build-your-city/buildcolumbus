@@ -23,19 +23,23 @@ src/                     # shared package, imported by every site as "@/..."
   components/            # Header, Footer, Section, ThreeUp, SponsorGrid, ...
   styles.css             # brand tokens (Ink, Paper, Build Blue, ...) and base styles
   lib/events.ts          # upcoming-event helpers; parses the meetup number from the title
+  lib/headTags.ts        # page titles, share tags, and icons for every site's <head>
   data/events.json       # written nightly by the Meetup sync
 sites/
   columbus/              # buildcolumbus.org
     routes/              # one file per page (TanStack Router); __root.tsx is the layout
-    config/city.ts       # everything city-specific: links, venue, sponsors, organizers
+    config/city.ts       # everything city-specific: links, meetup details, sponsors, organizers
+    config/site.ts       # site name, URL, and the page list (titles, descriptions)
+    config/photos.ts     # cropped photos and their focal points
     data/hack2026.ts     # Hack Columbus 2026 recap content
     images/              # photos, sponsor logos, speaker headshots
     public/              # favicon, manifest, robots.txt, _redirects (the build adds page files and sitemap.xml)
     vite.config.ts
   build-your-city/       # build-your-city.org, a single page
-    App.tsx, config.ts, vite.config.ts, netlify.toml
+    App.tsx, config.ts, site.ts, vite.config.ts, netlify.toml
 scripts/
   sync-events.mjs        # fetches upcoming events from the public Meetup page
+  og-images.mjs          # renders the share preview images into each site's public/
 .github/workflows/
   ci.yml                 # lint, typecheck, test, build on every PR
   sync-events.yml        # nightly event sync (commits src/data/events.json)

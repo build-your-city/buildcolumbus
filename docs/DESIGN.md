@@ -43,14 +43,14 @@ Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 
 | Role | Size | Font |
 |---|---|---|
-| Hero headline (home, parent) | 84px | Inter Tight 800 |
+| Hero headline | 84px on Home, 112px on the parent site | Inter Tight 800 |
 | Page title | 72px | Inter Tight 800 |
 | Section heading | 56px | Inter Tight 800 |
 | Card / step heading | 28px | Inter Tight 700 |
 | Name / small heading | 22px | Inter Tight 700 |
 | Wordmark | 34px in the header (28px on mobile), 40px in the footer | Inter Tight 800, uppercase, two lines; the second line is scaled so its width matches "BUILD" |
 | Label | 14px | Inter 600, uppercase, 0.12em tracking, `blue-text` on White and Paper |
-| Lead paragraph (hero, dark bands) | 22px; 19px on dark bands at mobile widths | Inter 500 |
+| Lead paragraph (hero, dark bands) | 22px | Inter 500 |
 | Body | 17px | Inter 500, line-height 1.55 |
 | Nav / button | 16px | Inter 600 |
 
@@ -149,11 +149,13 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   own element under a dark band; four columns (wordmark and tagline,
   Community, Connect, Contact) when it is 64rem wide or more, two by two
   from 36rem, stacked below that.
-- Mobile (under 640px): everything left-aligned, including the dark bands and
-  anything centered on desktop. Buttons are full width and stack with a 12px
+- Mobile (under 640px): the same alignment as desktop, so headings over a
+  group of cards and call-to-action bands stay centered and everything else
+  is left-aligned. Buttons are full width and stack with a 12px
   gap, with text links under them. Three-column boxes, program cards,
   challenge areas, and speaker cards stack as single-column cards with a 16px
-  gap, each keeping its border. Photos go under the text at 16:10, cover.
+  gap (12px for challenge areas), each keeping its border. Photos go under
+  the text: heroes as a 16:10 strip, the Hack recap as the whole 4:3 photo.
   The event card puts the date block on top. The footer stacks its columns
   32px apart. The header shows the wordmark at 28px and a menu button; the
   panel is full width with 48px tap targets. No paragraph runs past four
