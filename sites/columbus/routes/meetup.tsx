@@ -10,8 +10,8 @@ import { bodyText, leadText } from "@/components/text";
 import { upcomingEvents } from "@/lib/events";
 import { pageHead } from "@/lib/headTags";
 import { city, sponsorsFor } from "../config/city";
+import { photos } from "../config/photos";
 import { pages, site } from "../config/site";
-import heroPhoto from "../images/photos/meetup-hero-lounge.jpg";
 
 export const Route = createFileRoute("/meetup")({
 	component: MeetupPage,
@@ -45,10 +45,9 @@ function MeetupPage() {
 			<Section hero>
 				<SplitBlock
 					photo={{
-						src: heroPhoto,
+						...photos.meetupLounge,
 						alt: "Builders talking in the lounge at a Build Columbus meetup at Improving.",
 						priority: true,
-						focal: "50% 55%",
 					}}
 				>
 					<SectionHeading as="h1">Meetup</SectionHeading>

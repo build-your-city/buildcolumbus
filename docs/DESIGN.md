@@ -116,10 +116,13 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   its column, `object-fit: cover`, and vertically centered against the
   text. Narrower, the photo goes under the text, shaped by `stackedPhoto`:
   `"strip"` (heroes, the default) is a 16:10 crop, capped at 70% of the
-  screen height on short screens; `"full"` (content photos that must not be
-  cropped, like the Hack recap) is the whole 4:3 photo with no cap, framed
-  toward the top. Each photo may set a focal point (`object-position`,
-  default `50% 50%`) so a crop keeps the right part in view. Blocks
+  screen height on short screens; `"full"` (content
+  photos that must not be cropped, like the Hack recap) is the whole 4:3
+  photo with no cap. Every cropped photo has a focal point
+  (`object-position`, default `50% 50%`) so each crop keeps its subject in
+  view; it is set next to the photo in `sites/columbus/config/photos.ts`,
+  from the classes in `src/components/focal.ts`. When adding or swapping a
+  photo, check its crop at the test sizes above and set its focal point. Blocks
   alternate sides down the page (`SplitBlock`).
 - Three-step and challenge-area sections are one white box with 1px Line
   border and 1px dividers between cells, no gaps, once there is room (48rem
