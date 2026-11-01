@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import CtaLink from "@/components/CtaLink";
 import EventCard from "@/components/EventCard";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
@@ -81,6 +82,10 @@ function HomePage() {
 						nonprofits. Developers, designers, content creators, and more. All
 						are welcome.
 					</p>
+					{/* Phone only: the header button takes over from md up. */}
+					<div className="mt-8 sm:mt-10 md:hidden">
+						<CtaLink href={city.links.meetup}>Join on Meetup.com</CtaLink>
+					</div>
 				</SplitBlock>
 			</Section>
 
