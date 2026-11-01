@@ -62,7 +62,7 @@ const footerColumns: FooterColumn[] = [
 
 function RootLayout() {
 	return (
-		<div className="min-h-screen flex flex-col">
+		<div className="min-h-dvh flex flex-col">
 			<HeadContent />
 			<Header
 				wordmark={wordmark}

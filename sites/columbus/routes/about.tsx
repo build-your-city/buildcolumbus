@@ -45,7 +45,8 @@ function AboutPage() {
 			{/* Organizers */}
 			<Section>
 				<SectionHeading align="center">Meet the organizers</SectionHeading>
-				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-2 md:gap-8">
+				{/* Cards at least 26rem wide, so the photo and name sit side by side. */}
+				<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,26rem),1fr))] gap-4 sm:mt-10 md:gap-8">
 					{city.organizers.map((person) => (
 						<li
 							key={person.name}

@@ -32,6 +32,13 @@
     "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
 }
 
+/*
+ * short: screens under 500px tall, which in practice means phones held
+ * sideways. Used to keep heroes, photos, and the header from filling the
+ * whole screen, e.g. short:max-h-[70dvh]. Tablets and desktops are taller.
+ */
+@custom-variant short (@media (max-height: 500px));
+
 body {
   @apply m-0 bg-paper font-sans font-medium text-ink;
   -webkit-font-smoothing: antialiased;

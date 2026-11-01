@@ -20,6 +20,9 @@ export const cardHeading =
 export const smallHeading =
 	"font-display text-[22px] font-bold leading-[1.1] tracking-[-0.025em]";
 
-/** Text link with a 2px Build Blue underline. */
+/**
+ * Text link with a 2px Build Blue underline. A link too long for its box
+ * (a bare domain in a narrow card) wraps instead of spilling out.
+ */
 export const underlineLink =
-	"inline-block border-b-2 border-blue pb-0.5 font-sans text-base font-semibold no-underline transition-colors hover:text-blue-text";
+	"inline-block max-w-full border-b-2 border-blue pb-0.5 font-sans text-base font-semibold no-underline transition-colors [overflow-wrap:anywhere] hover:text-blue-text";

@@ -87,24 +87,28 @@ function HackPage() {
 				>
 					What we built around
 				</SectionHeading>
-				<ul className="mt-6 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-5 md:gap-0 md:border md:border-line">
-					{challengeAreas.map((area, i) => (
-						<li
-							key={area.title}
-							className={`flex items-center gap-4 border border-line bg-white p-4 sm:block sm:p-8 md:border-y-0 md:border-r-0 ${i === 0 ? "md:border-l-0" : ""}`}
-						>
-							<img
-								src={area.icon}
-								alt=""
-								className="h-12 w-12 shrink-0 sm:h-16 sm:w-16"
-								loading="lazy"
-							/>
-							<h3 className={`${smallHeading} text-ink sm:mt-6`}>
-								{area.title}
-							</h3>
-						</li>
-					))}
-				</ul>
+				{/* One box with five cells once the list is 64rem wide (desktop);
+				    narrower, icon-and-title cards in as many columns as fit. */}
+				<div className="@container">
+					<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,15rem),1fr))] gap-3 sm:mt-10 sm:gap-4 @5xl:grid-cols-5 @5xl:gap-0 @5xl:border @5xl:border-line">
+						{challengeAreas.map((area, i) => (
+							<li
+								key={area.title}
+								className={`flex items-center gap-4 border border-line bg-white p-4 @5xl:block @5xl:border-y-0 @5xl:border-r-0 @5xl:p-8 ${i === 0 ? "@5xl:border-l-0" : ""}`}
+							>
+								<img
+									src={area.icon}
+									alt=""
+									className="h-12 w-12 shrink-0 @5xl:h-16 @5xl:w-16"
+									loading="lazy"
+								/>
+								<h3 className={`${smallHeading} text-ink @5xl:mt-6`}>
+									{area.title}
+								</h3>
+							</li>
+						))}
+					</ul>
+				</div>
 			</Section>
 
 			{/* Guest speakers */}
@@ -115,7 +119,8 @@ function HackPage() {
 				>
 					Who we learned from
 				</SectionHeading>
-				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3 md:gap-8">
+				{/* Cards at least 21rem wide, so the longest org link fits. */}
+				<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,21rem),1fr))] gap-4 sm:mt-10 md:gap-8">
 					{speakers.map((s) => (
 						<li
 							key={s.people.map((p) => p.name).join(" & ")}
