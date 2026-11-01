@@ -45,46 +45,36 @@ function AboutPage() {
 			{/* Organizers */}
 			<Section>
 				<SectionHeading align="center">Meet the organizers</SectionHeading>
-				{/*
-				  Exactly two cards, centered as a pair: two columns once each can
-				  be at least 200px wide (a 26rem container), otherwise one. Each
-				  card puts the photo beside the name only when the card itself
-				  has room (21rem inside its padding); narrower, it stacks.
-				  Rules in docs/DESIGN.md.
-				*/}
-				<div className="@container mt-6 sm:mt-10">
-					<ul className="grid grid-cols-1 gap-4 md:gap-8 @min-[26rem]:grid-cols-2">
-						{city.organizers.map((person) => (
-							<li
-								key={person.name}
-								className="@container border border-line bg-white p-8"
-							>
-								<div className="flex flex-col items-center gap-6 text-center @min-[21rem]:flex-row @min-[21rem]:gap-8 @min-[21rem]:text-left">
-									<img
-										src={person.photo}
-										alt={`${person.name} headshot`}
-										className="h-[120px] w-[120px] shrink-0 rounded-full object-cover"
-										loading="lazy"
-									/>
-									<div>
-										<h3 className={`${cardHeading} text-ink`}>{person.name}</h3>
-										<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
-											{person.role}
-										</p>
-										<a
-											href={person.linkedin}
-											target="_blank"
-											rel="noopener noreferrer"
-											className={`mt-5 ${underlineLink} text-ink`}
-										>
-											Connect on LinkedIn
-										</a>
-									</div>
-								</div>
-							</li>
-						))}
-					</ul>
-				</div>
+				{/* Cards at least 26rem wide, so the photo and name sit side by side. */}
+				<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,26rem),1fr))] gap-4 sm:mt-10 md:gap-8">
+					{city.organizers.map((person) => (
+						<li
+							key={person.name}
+							className="flex flex-col items-center gap-6 border border-line bg-white p-8 text-center sm:flex-row sm:gap-8 sm:text-left"
+						>
+							<img
+								src={person.photo}
+								alt={`${person.name} headshot`}
+								className="h-[120px] w-[120px] shrink-0 rounded-full object-cover"
+								loading="lazy"
+							/>
+							<div>
+								<h3 className={`${cardHeading} text-ink`}>{person.name}</h3>
+								<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
+									{person.role}
+								</p>
+								<a
+									href={person.linkedin}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={`mt-5 ${underlineLink} text-ink`}
+								>
+									Connect on LinkedIn
+								</a>
+							</div>
+						</li>
+					))}
+				</ul>
 			</Section>
 
 			{/* Parent network */}

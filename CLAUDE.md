@@ -70,11 +70,8 @@ clarity beats cleverness.
   so a new third-party script, embed, or form needs its origin added in
   both.
 - **Styling:** Tailwind v4 utilities. No inline `style` objects, no CSS
-  modules. Layouts size by the space available, not the screen: each card
-  grid follows its rule (fixed sets stay balanced, short labels wrap onto
-  centered lines, growing collections use `repeat(auto-fit, minmax(...))`,
-  and one-column cards on a wide container turn sideways), side-by-side
-  blocks switch with
+  modules. Layouts size by the space available, not the screen: card grids
+  use `repeat(auto-fit, minmax(...))`, side-by-side blocks switch with
   container queries (`@container`, `@4xl:`), no fixed heights on cards, and
   the `short:` variant (screens under 500px tall) keeps landscape phones
   from being swamped. See "Responsive rule" in docs/DESIGN.md before adding

@@ -87,19 +87,14 @@ function HackPage() {
 				>
 					What we built around
 				</SectionHeading>
-				{/*
-				  Short labels: one box with five cells once the list is 64rem
-				  wide (desktop). Narrower, icon-and-title items of equal width
-				  wrap onto centered lines, so a short last line sits in the
-				  middle, never to the left: two per line from 31rem, three from
-				  47rem, one below that (phones). Rules in docs/DESIGN.md.
-				*/}
+				{/* One box with five cells once the list is 64rem wide (desktop);
+				    narrower, icon-and-title cards in as many columns as fit. */}
 				<div className="@container">
-					<ul className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4 @5xl:grid @5xl:grid-cols-5 @5xl:gap-0 @5xl:border @5xl:border-line">
+					<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,15rem),1fr))] gap-3 sm:mt-10 sm:gap-4 @5xl:grid-cols-5 @5xl:gap-0 @5xl:border @5xl:border-line">
 						{challengeAreas.map((area, i) => (
 							<li
 								key={area.title}
-								className={`flex w-full items-center gap-4 border border-line bg-white p-4 @min-[31rem]:w-[calc((100%-1rem)/2)] @min-[47rem]:w-[calc((100%-2rem)/3)] @5xl:block @5xl:w-auto @5xl:border-y-0 @5xl:border-r-0 @5xl:p-8 ${i === 0 ? "@5xl:border-l-0" : ""}`}
+								className={`flex items-center gap-4 border border-line bg-white p-4 @5xl:block @5xl:border-y-0 @5xl:border-r-0 @5xl:p-8 ${i === 0 ? "@5xl:border-l-0" : ""}`}
 							>
 								<img
 									src={area.icon}
@@ -124,67 +119,56 @@ function HackPage() {
 				>
 					Who we learned from
 				</SectionHeading>
-				{/*
-				  A growing collection, so a left-aligned grid of cards at least
-				  21rem wide (the longest org link fits). It is one column below a
-				  44rem container; there, on a container wider than 35rem (560px:
-				  landscape phones, small tablets), each card turns sideways,
-				  headshots left in a 40% column and text right. Rules in
-				  docs/DESIGN.md.
-				*/}
-				<div className="@container mt-6 sm:mt-10">
-					<ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,21rem),1fr))] gap-4 md:gap-8">
-						{speakers.map((s) => (
-							<li
-								key={s.people.map((p) => p.name).join(" & ")}
-								className="flex flex-col items-center border border-line bg-white p-8 text-center sm:items-start sm:text-left @min-[35rem]:@max-[44rem]:flex-row @min-[35rem]:@max-[44rem]:items-stretch @min-[35rem]:@max-[44rem]:gap-8"
-							>
-								<div className="flex gap-4 @min-[35rem]:@max-[44rem]:w-2/5 @min-[35rem]:@max-[44rem]:shrink-0 @min-[35rem]:@max-[44rem]:items-center @min-[35rem]:@max-[44rem]:justify-center">
-									{s.people.map((p) => (
-										<img
-											key={p.name}
-											src={p.photo}
-											alt={`${p.name} headshot`}
-											className="h-24 w-24 rounded-full object-cover"
-											loading="lazy"
-										/>
-									))}
-								</div>
-								<div className="flex flex-1 flex-col items-center self-stretch sm:items-start">
-									<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue-text @min-[35rem]:@max-[44rem]:mt-0">
-										{s.area}
+				{/* Cards at least 21rem wide, so the longest org link fits. */}
+				<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,21rem),1fr))] gap-4 sm:mt-10 md:gap-8">
+					{speakers.map((s) => (
+						<li
+							key={s.people.map((p) => p.name).join(" & ")}
+							className="flex flex-col items-center border border-line bg-white p-8 text-center sm:items-start sm:text-left"
+						>
+							<div className="flex gap-4">
+								{s.people.map((p) => (
+									<img
+										key={p.name}
+										src={p.photo}
+										alt={`${p.name} headshot`}
+										className="h-24 w-24 rounded-full object-cover"
+										loading="lazy"
+									/>
+								))}
+							</div>
+							<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue-text">
+								{s.area}
+							</p>
+							{s.people.map((p, i) => (
+								<div key={p.name} className={i === 0 ? "mt-2" : "mt-4"}>
+									<h3 className={`${smallHeading} text-ink`}>{p.name}</h3>
+									<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
+										{p.title}
 									</p>
-									{s.people.map((p, i) => (
-										<div key={p.name} className={i === 0 ? "mt-2" : "mt-4"}>
-											<h3 className={`${smallHeading} text-ink`}>{p.name}</h3>
-											<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
-												{p.title}
-											</p>
-										</div>
-									))}
-									{s.org && (
-										<p className="mt-2 font-sans text-[15px] font-medium text-ink">
-											{s.org}
-										</p>
-									)}
-									<div className="mt-auto flex flex-col items-center gap-3 pt-6 sm:items-start">
-										{s.links.map((l) => (
-											<a
-												key={l.href}
-												href={l.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												className={`${underlineLink} text-ink`}
-											>
-												{l.label}
-											</a>
-										))}
-									</div>
 								</div>
-							</li>
-						))}
-					</ul>
-				</div>
+							))}
+							{s.org && (
+								<p className="mt-2 font-sans text-[15px] font-medium text-ink">
+									{s.org}
+								</p>
+							)}
+							<div className="mt-auto flex flex-col items-center gap-3 pt-6 sm:items-start">
+								{s.links.map((l) => (
+									<a
+										key={l.href}
+										href={l.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										className={`${underlineLink} text-ink`}
+									>
+										{l.label}
+									</a>
+								))}
+							</div>
+						</li>
+					))}
+				</ul>
 			</Section>
 
 			{/* Sponsors */}
