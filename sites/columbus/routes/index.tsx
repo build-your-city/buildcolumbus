@@ -93,7 +93,8 @@ function HomePage() {
 			{/* What we do */}
 			<Section>
 				<SectionHeading align="center">What we do</SectionHeading>
-				<div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3 md:gap-8">
+				{/* As many 17rem-plus columns as fit: one on phones, three on desktop. */}
+				<div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,17rem),1fr))] gap-4 sm:mt-10 md:gap-8">
 					{programs.map((p) => (
 						<article
 							key={p.title}

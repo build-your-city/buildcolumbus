@@ -39,7 +39,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 
 	return (
 		<header className="border-b border-white/8 bg-ink-deep text-paper">
-			<Container className="flex items-center justify-between py-6">
+			<Container className="flex items-center justify-between py-6 short:py-3">
 				<Link to="/" className="no-underline">
 					<Wordmark
 						top={wordmark.top}
@@ -81,7 +81,9 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 				aria-label="Mobile"
 				className={`md:hidden border-t border-white/8 ${isOpen ? "block" : "hidden"}`}
 			>
-				<Container className="flex flex-col py-4">
+				{/* On short screens (phones held sideways) the links sit in one
+				    row so the open menu doesn't fill the screen. */}
+				<Container className="flex flex-col py-4 short:flex-row short:flex-wrap short:items-center short:gap-x-6 short:py-2">
 					{nav.map((item) => (
 						<Link
 							key={item.to}
@@ -92,7 +94,7 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 							{item.label}
 						</Link>
 					))}
-					<CtaLink href={cta.href} className="mt-3">
+					<CtaLink href={cta.href} className="mt-3 short:my-2 short:ml-auto">
 						{cta.label}
 					</CtaLink>
 				</Container>

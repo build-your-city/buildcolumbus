@@ -16,7 +16,7 @@ export default function App() {
 	const isHome = window.location.pathname === "/";
 
 	return (
-		<div className="flex min-h-screen flex-col justify-between gap-12 bg-ink px-5 py-7 text-paper sm:px-12 sm:py-10">
+		<div className="flex min-h-dvh flex-col justify-between gap-12 bg-ink px-5 py-7 text-paper short:gap-8 short:py-5 sm:px-12 sm:py-10">
 			<header className="flex items-center justify-between">
 				<Wordmark
 					top={parent.wordmark.top}
@@ -66,7 +66,7 @@ export default function App() {
 function Splash() {
 	return (
 		<main className="w-full max-w-[900px] sm:mx-auto sm:text-center">
-			<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-paper sm:text-[112px] sm:leading-none">
+			<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-paper sm:text-[112px] sm:leading-none short:text-[64px]">
 				<span className="block">Use your skills.</span>
 				<span className="block">Serve your city.</span>
 			</h1>
@@ -109,7 +109,7 @@ function NotFound() {
 			<p className="font-display text-[72px] font-extrabold leading-none tracking-[-0.025em] text-blue sm:text-[112px]">
 				404
 			</p>
-			<h1 className="mt-4 font-display text-[44px] font-extrabold leading-none tracking-[-0.025em] text-paper sm:mt-6 sm:text-[72px]">
+			<h1 className="mt-4 font-display text-[44px] font-extrabold leading-none tracking-[-0.025em] text-paper sm:mt-6 sm:text-[72px] short:text-[52px]">
 				Page not found
 			</h1>
 			<p
