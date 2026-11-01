@@ -5,23 +5,14 @@ import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import ThreeUp from "@/components/ThreeUp";
 import { leadText } from "@/components/text";
+import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
-import { canonical } from "../config/site";
+import { pages, site } from "../config/site";
 import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/serve")({
 	component: ServePage,
-	head: () => ({
-		links: [canonical("/serve")],
-		meta: [
-			{ title: `Serve | ${city.siteName}` },
-			{
-				name: "description",
-				content:
-					"Local nonprofits do important work, often with very little help. Serve is how we pitch in.",
-			},
-		],
-	}),
+	head: () => pageHead(site, pages.serve),
 });
 
 const steps = [

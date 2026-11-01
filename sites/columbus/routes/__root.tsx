@@ -2,19 +2,22 @@ import { createRootRoute, HeadContent, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import Footer, { type FooterColumn } from "@/components/Footer";
 import Header from "@/components/Header";
+import NotFound from "@/components/NotFound";
 import { city } from "../config/city";
 import { site } from "../config/site";
 
 export const Route = createRootRoute({
 	component: RootLayout,
-	// Site-wide defaults; each page overrides title and description in its
-	// own head(). HeadContent keeps one tag per name.
+	// Site-wide defaults, used as is by the 404 page. Each page overrides
+	// them in its own head(); HeadContent keeps one tag per name.
 	head: () => ({
 		meta: [
 			{ title: site.name },
 			{ name: "description", content: site.description },
 		],
 	}),
+	// Any URL that matches no route renders this inside the layout.
+	notFoundComponent: () => <NotFound links={nav} />,
 });
 
 const wordmark = { top: "Build", bottom: city.name };
