@@ -49,7 +49,7 @@ function MeetupPage() {
 	return (
 		<>
 			{/* Page hero */}
-			<Section noBorder>
+			<Section hero>
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
@@ -77,8 +77,8 @@ function MeetupPage() {
 			</Section>
 
 			{/* Upcoming, from the synced Meetup data */}
-			<Section tone="white">
-				<SectionHeading>Next meetup</SectionHeading>
+			<Section>
+				<SectionHeading align="center">Next meetup</SectionHeading>
 				{upcoming.length === 0 ? (
 					<div className="mt-6 border border-line bg-white p-8 sm:mt-10 md:p-12">
 						<p className={`${bodyText} text-ink`}>
@@ -102,30 +102,28 @@ function MeetupPage() {
 
 			{/* What to expect */}
 			<Section>
-				<SectionHeading>What to expect</SectionHeading>
+				<SectionHeading align="center">What to expect</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>
 			</Section>
 
 			{/* Call for speakers */}
-			<Section tone="dark">
-				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading tone="paper">Want to give a talk?</SectionHeading>
-					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
-						If you know something other builders would find useful, we'd love to
-						hear it. Talks run 30 minutes to an hour. Send us your idea and
-						we'll get back to you.
-					</p>
-					<CtaLink href={city.links.sessionize} className="mt-8 sm:mt-10">
-						Submit a talk
-					</CtaLink>
-				</div>
+			<Section tone="dark" align="center">
+				<SectionHeading tone="paper">Want to give a talk?</SectionHeading>
+				<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
+					If you know something other builders would find useful, we'd love to
+					hear it. Talks run 30 minutes to an hour. Send us your idea and we'll
+					get back to you.
+				</p>
+				<CtaLink href={city.links.sessionize} className="mt-8 sm:mt-10">
+					Submit a talk
+				</CtaLink>
 			</Section>
 
 			{/* Sponsors */}
 			<Section>
-				<SectionHeading>Sponsors and partners</SectionHeading>
+				<SectionHeading align="center">Sponsors and partners</SectionHeading>
 				<div className="mt-6 sm:mt-12">
 					<SponsorGrid sponsors={sponsorsFor("meetup")} />
 				</div>

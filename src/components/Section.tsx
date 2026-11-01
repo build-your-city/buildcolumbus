@@ -4,36 +4,52 @@ import Container from "./Container";
 type SectionProps = {
 	children: ReactNode;
 	/**
-	 * Content sections alternate paper / white down the page, starting with
-	 * the paper hero. "dark" is the one Ink band a page may have.
+	 * "auto" sections alternate White and Paper down the page on their own,
+	 * starting with a White hero (see `section[data-band]` in styles.css).
+	 * "dark" is the one Ink call-to-action band a page may have; it sits
+	 * outside the alternation, so the bands around it still alternate.
 	 */
-	tone?: "paper" | "white" | "dark";
-	/** Drop the top border, e.g. for the first section under the header. */
-	noBorder?: boolean;
+	tone?: "auto" | "dark";
+	/** The page's first section, directly under the header. */
+	hero?: boolean;
+	/**
+	 * "center" puts everything in one narrow, centered column: heading,
+	 * text, and button. Used for call-to-action bands.
+	 */
+	align?: "left" | "center";
 	className?: string;
 	id?: string;
 };
 
 /**
- * A page section: 88px vertical padding on desktop and 56px on mobile, with a
- * 1px Line border on top to separate it from the section above.
+ * A page section: 72px vertical padding on desktop and 48px on mobile, with a
+ * 1px Line border on top to separate it from the section above. The hero has
+ * no border and a shorter bottom so the first section follows closely.
  */
 export default function Section({
 	children,
-	tone = "paper",
-	noBorder = false,
+	tone = "auto",
+	hero = false,
+	align = "left",
 	className = "",
 	id,
 }: SectionProps) {
-	const tones = {
-		paper: "bg-paper text-ink",
-		white: "bg-white text-ink",
-		dark: "bg-ink text-paper",
-	};
-	const border = noBorder ? "" : "border-t border-line";
+	const color = tone === "dark" ? "bg-ink text-paper" : "text-ink";
+	const border = hero ? "" : "border-t border-line";
+	const padding = hero ? "pt-12 pb-10 sm:pt-18 sm:pb-14" : "py-12 sm:py-18";
 	return (
-		<section id={id} className={`${tones[tone]} ${border} ${className}`}>
-			<Container className="py-14 sm:py-22">{children}</Container>
+		<section
+			id={id}
+			data-band={tone === "auto" ? "" : undefined}
+			className={`${color} ${border} ${className}`}
+		>
+			<Container className={padding}>
+				{align === "center" ? (
+					<div className="mx-auto max-w-[40rem] text-center">{children}</div>
+				) : (
+					children
+				)}
+			</Container>
 		</section>
 	);
 }

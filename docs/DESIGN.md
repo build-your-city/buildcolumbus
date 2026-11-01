@@ -53,13 +53,19 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
 
 - Content is 1200px wide at most, with 48px side padding on desktop and 20px
   on mobile (`Container`).
-- Sections have 88px vertical padding (56px on mobile) and a 1px Line border
-  on top (`Section`). Content sections alternate Paper, White, Paper, White down
-  the page, starting from the Paper hero; the one dark Ink band a page may
-  have sits outside that alternation. The Sponsors and partners section is
-  always Paper, so logos sit on Paper, and the alternation restarts after
-  it. Cards and three-column boxes stay white whatever the section
-  background.
+- Sections have 72px vertical padding (48px on mobile) and a 1px Line border
+  on top (`Section`). The hero has no border and a shorter bottom. Content
+  sections alternate White and Paper down the page, starting from the White
+  hero. The alternation is automatic (`section[data-band]` in
+  `src/styles.css`), so adding or removing a section never puts two
+  same-colored bands together. The one dark Ink call-to-action band a page
+  may have sits outside that alternation. Cards and three-column boxes stay
+  white with a 1px Line border whatever the section background.
+- Section headings over a centered or symmetric group (cards, steps, logos)
+  are centered, with any intro line held to a narrower width
+  (`SectionHeading align="center"`). Call-to-action bands center the whole
+  block in one narrow column (`Section align="center"`). Heroes and photo
+  blocks stay left-aligned.
 - Hero and other two-column blocks: 45% text and 55% photo, 56px gap. The
   photo is 4:3, full width of its column, `object-fit: cover`, and vertically
   centered against the text. Each photo may set a focal point
@@ -76,8 +82,8 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   (`CtaLink`).
 - Sponsors and partners are a grid of equal white cards, 1px Line border,
   32px padding, 120px tall, logo centered at up to 56px high. Four columns on
-  desktop, three under 1024px, two under 640px, 16px gap; a partial last row
-  stays left-aligned. The whole card is the link (`SponsorGrid`).
+  desktop, three under 1024px, two under 640px, 16px gap; fewer logos than
+  columns, or a partial last row, sit centered. The whole card is the link (`SponsorGrid`).
 - Header: `ink-deep` background with a faint bottom border. Wordmark first
   line Paper, second line Build Blue. Nav links are Paper, hover Build Blue,
   and the active page is underlined in Build Blue. The header button is a
