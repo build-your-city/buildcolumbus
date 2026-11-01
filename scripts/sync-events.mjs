@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Fetches upcoming events from the public CIT Meetup page and writes them to
- * src/data/events.json. Run by .github/workflows/sync-events.yml nightly.
+ * Fetches upcoming events from the public Build Columbus Meetup page and
+ * writes them to src/data/events.json. Run nightly by
+ * .github/workflows/sync-events.yml.
  *
  * Design notes:
  * - Meetup locked its iCal/RSS feeds behind login and its API behind Meetup
@@ -92,7 +93,7 @@ function extractNextData(html) {
 
 async function main() {
 	const res = await fetch(EVENTS_URL, {
-		headers: { "user-agent": "cit-website-event-sync (christians-in-tech.org)" },
+		headers: { "user-agent": "build-columbus-event-sync (buildcolumbus.org)" },
 	});
 	if (!res.ok) {
 		throw new Error(`Meetup responded ${res.status}`);

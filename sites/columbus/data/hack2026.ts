@@ -1,5 +1,5 @@
 /**
- * Content for the #HACK Columbus 2026 recap on /hack. Event-specific, so it
+ * Content for the Hack Columbus 2026 recap on /hack. Event-specific, so it
  * lives apart from the city config.
  */
 
@@ -8,13 +8,14 @@ import icFamily from "../images/logos/ic-family.png";
 import icHome from "../images/logos/ic-home.png";
 import icMissions from "../images/logos/ic-missions.png";
 import icRefugee from "../images/logos/ic-refugee.png";
+// Cody is also an organizer; his headshot lives with the About photos.
+import sCody from "../images/photos/about-cody.jpg";
 import sGenna from "../images/speakers/genna-pellin.webp";
-import sChris from "../images/speakers/s-chris.png";
-import sCody from "../images/speakers/s-cody.jpg";
-import sEmily from "../images/speakers/s-emily.png";
-import sSummer from "../images/speakers/s-genna.jpg";
+import sChris from "../images/speakers/s-chris.webp";
+import sEmily from "../images/speakers/s-emily.webp";
 import sKeith from "../images/speakers/s-keith.jpg";
 import sKelli from "../images/speakers/s-kelli.jpg";
+import sSummer from "../images/speakers/s-summer.jpg";
 
 export const challengeAreas = [
 	{ title: "Homelessness", icon: icHome },
