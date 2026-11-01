@@ -1,1 +1,3 @@
-/*    /index.html   200
+# The site is one page. Every other path gets the app with a real 404
+# status, and App.tsx shows the not-found view.
+/*  /index.html  404
