@@ -2,8 +2,8 @@ import { fileURLToPath, URL } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { headTags, pageMetaHtml } from "../../src/lib/headTags";
-import { site } from "./site";
+import { headTags, pageMetaHtml } from "../../src/lib/headTags.ts";
+import { site } from "./site.ts";
 
 /**
  * Build config for the parent site, build-your-city.org. A single-page app
