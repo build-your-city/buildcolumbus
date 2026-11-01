@@ -30,18 +30,12 @@ const images = [
 	{
 		top: "Build",
 		bottom: "Columbus",
-		files: [
-			"sites/columbus/public/og-columbus.png",
-			"sites/build-your-city/public/og-columbus.png",
-		],
+		files: ["sites/columbus/public/og-columbus.png"],
 	},
 	{
 		top: "Build",
 		bottom: "Your City",
-		files: [
-			"sites/columbus/public/og-build-your-city.png",
-			"sites/build-your-city/public/og-build-your-city.png",
-		],
+		files: ["sites/build-your-city/public/og-build-your-city.png"],
 	},
 ];
 
