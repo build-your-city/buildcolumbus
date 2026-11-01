@@ -82,8 +82,8 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   (`CtaLink`).
 - Sponsors and partners are a grid of equal white cards, 1px Line border,
   32px padding, 120px tall, logo centered at up to 56px high. Four columns on
-  desktop, three under 1024px, two under 640px, 16px gap; a partial last row
-  stays left-aligned. The whole card is the link (`SponsorGrid`).
+  desktop, three under 1024px, two under 640px, 16px gap; fewer logos than
+  columns, or a partial last row, sit centered. The whole card is the link (`SponsorGrid`).
 - Header: `ink-deep` background with a faint bottom border. Wordmark first
   line Paper, second line Build Blue. Nav links are Paper, hover Build Blue,
   and the active page is underlined in Build Blue. The header button is a
