@@ -44,11 +44,16 @@ type Options = {
 	 * ends up with exactly one description tag.
 	 */
 	description?: boolean;
+	/**
+	 * Include a static <link rel="canonical"> to the home page. A site with
+	 * several routes passes false and sets one per route instead.
+	 */
+	canonical?: boolean;
 };
 
 export function headTags(
 	site: SiteMeta,
-	{ description = true }: Options = {},
+	{ description = true, canonical = true }: Options = {},
 ): HeadTag[] {
 	const image = `${site.url}${site.ogImage}`;
 	const url = `${site.url}/`;
@@ -57,6 +62,7 @@ export function headTags(
 			? [meta({ name: "description", content: site.description })]
 			: []),
 		meta({ name: "theme-color", content: site.themeColor }),
+		...(canonical ? [link({ rel: "canonical", href: url })] : []),
 
 		meta({ property: "og:type", content: "website" }),
 		meta({ property: "og:site_name", content: site.name }),

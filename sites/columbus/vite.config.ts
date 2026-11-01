@@ -28,9 +28,11 @@ export default defineConfig({
 		{
 			// Stamp the site's social preview and icon tags into index.html so
 			// crawlers that don't run JavaScript still see them. The description
-			// is left to the routes, which set one per page through HeadContent.
+			// and canonical link are left to the routes, which set one per page
+			// through HeadContent.
 			name: "site-head-tags",
-			transformIndexHtml: () => headTags(site, { description: false }),
+			transformIndexHtml: () =>
+				headTags(site, { description: false, canonical: false }),
 		},
 	],
 	resolve: {

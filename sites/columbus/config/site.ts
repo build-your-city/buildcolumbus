@@ -13,3 +13,12 @@ export const site: SiteMeta = {
 	ogImage: "/og-columbus.png",
 	themeColor: "#141A2A",
 };
+
+/**
+ * A page's canonical link, for a route's head(). `path` is the route path,
+ * e.g. "/meetup", or "/" for the home page.
+ */
+export const canonical = (path: string) => ({
+	rel: "canonical",
+	href: `${site.url}${path}`,
+});

@@ -10,3 +10,26 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Security headers for every page and file. The Content-Security-Policy
+# allows only what the site loads: its own scripts, styles, images, and
+# manifest, plus Google Fonts (stylesheet from fonts.googleapis.com, font
+# files from fonts.gstatic.com). data: images cover small assets Vite
+# inlines. If a new third-party script, embed, or form is added, add its
+# origin here or it will be blocked. See docs/AUDIT-2026-11.md.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+    Strict-Transport-Security = "max-age=31536000"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"
+
+# Vite puts a content hash in every file name under /assets, so a changed
+# file always gets a new URL and these can be cached for a year.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

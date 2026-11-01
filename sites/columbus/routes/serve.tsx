@@ -6,11 +6,13 @@ import SplitBlock from "@/components/SplitBlock";
 import ThreeUp from "@/components/ThreeUp";
 import { leadText } from "@/components/text";
 import { city } from "../config/city";
+import { canonical } from "../config/site";
 import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/serve")({
 	component: ServePage,
 	head: () => ({
+		links: [canonical("/serve")],
 		meta: [
 			{ title: `Serve | ${city.siteName}` },
 			{

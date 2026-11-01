@@ -9,11 +9,13 @@ import ThreeUp from "@/components/ThreeUp";
 import { bodyText, leadText } from "@/components/text";
 import { upcomingEvents } from "@/lib/events";
 import { city, sponsorsFor } from "../config/city";
+import { canonical } from "../config/site";
 import heroPhoto from "../images/photos/meetup-hero-lounge.jpg";
 
 export const Route = createFileRoute("/meetup")({
 	component: MeetupPage,
 	head: () => ({
+		links: [canonical("/meetup")],
 		meta: [
 			{ title: `Meetup | ${city.siteName}` },
 			{
