@@ -1,34 +1,11 @@
 import type { ReactNode } from "react";
+import { type FocalPhoto, focalClass } from "./focal";
 
-/**
- * Where the photo is anchored when it is cropped, as a CSS object-position.
- * Each value maps to a Tailwind class below so the styles are generated at
- * build time; add a value to both places to use a new focal point.
- */
-export type Focal = keyof typeof focalClass;
-
-const focalClass = {
-	"50% 50%": "object-center",
-	"50% 55%": "object-[50%_55%]",
-	"50% 60%": "object-[50%_60%]",
-	"0% 50%": "object-[0%_50%]",
-};
-
-/** The same focal points, applied only side by side (see stackedPhoto). */
-const focalClassSideBySide: Record<Focal, string> = {
-	"50% 50%": "@4xl:object-center",
-	"50% 55%": "@4xl:object-[50%_55%]",
-	"50% 60%": "@4xl:object-[50%_60%]",
-	"0% 50%": "@4xl:object-[0%_50%]",
-};
-
-export type SplitPhoto = {
-	src: string;
+/** focal: the point kept in view when the photo is cropped. */
+export type SplitPhoto = FocalPhoto & {
 	alt: string;
 	/** Set on the hero photo so the browser fetches it first. */
 	priority?: boolean;
-	/** Focal point kept in view when the photo is cropped. Default "50% 50%". */
-	focal?: Focal;
 };
 
 type SplitBlockProps = {
@@ -42,8 +19,8 @@ type SplitBlockProps = {
 	 * "strip" (heroes): a 16:10 crop, capped at 70% of the screen height on
 	 * short screens so a hero never fills a landscape phone. "full" (content
 	 * photos that must not be cropped, like the Hack recap): the whole 4:3
-	 * photo, no height cap, framed toward the top. Side by side, both are 4:3
-	 * at the photo's focal point.
+	 * photo, no height cap. Both are framed at the photo's focal point, and
+	 * side by side both are 4:3.
 	 */
 	stackedPhoto?: "strip" | "full";
 };
@@ -71,7 +48,7 @@ export default function SplitBlock({
 	const focalPoint = photo.focal ?? "50% 50%";
 	const shape =
 		stackedPhoto === "full"
-			? `aspect-[4/3] object-[50%_15%] ${focalClassSideBySide[focalPoint]}`
+			? `aspect-[4/3] ${focalClass[focalPoint]}`
 			: `aspect-[16/10] @max-4xl:short:max-h-[70dvh] @4xl:aspect-[4/3] ${focalClass[focalPoint]}`;
 	return (
 		<div className="@container">

@@ -6,8 +6,8 @@ import SplitBlock from "@/components/SplitBlock";
 import { cardHeading, leadText, underlineLink } from "@/components/text";
 import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
+import { photos } from "../config/photos";
 import { pages, site } from "../config/site";
-import heroPhoto from "../images/photos/about-first-meetup.jpg";
 
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
@@ -21,7 +21,7 @@ function AboutPage() {
 			<Section hero>
 				<SplitBlock
 					photo={{
-						src: heroPhoto,
+						...photos.aboutFirstMeetup,
 						alt: "One of the first community meetups in 2024.",
 						priority: true,
 					}}

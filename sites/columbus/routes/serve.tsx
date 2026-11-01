@@ -7,8 +7,8 @@ import ThreeUp from "@/components/ThreeUp";
 import { leadText } from "@/components/text";
 import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
+import { photos } from "../config/photos";
 import { pages, site } from "../config/site";
-import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/serve")({
 	component: ServePage,
@@ -40,7 +40,7 @@ function ServePage() {
 			<Section hero>
 				<SplitBlock
 					photo={{
-						src: servePhoto,
+						...photos.serve,
 						alt: "A Build Columbus volunteer handing out food at a local nonprofit.",
 						priority: true,
 					}}

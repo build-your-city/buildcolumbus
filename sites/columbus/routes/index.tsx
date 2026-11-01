@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
 import EventCard from "@/components/EventCard";
+import { focalClass } from "@/components/focal";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
@@ -13,11 +14,8 @@ import {
 import { nextEvent } from "@/lib/events";
 import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
+import { photos } from "../config/photos";
 import { pages, site } from "../config/site";
-import meetupPhoto from "../images/photos/hero-cbus.jpg";
-import hackPhoto from "../images/photos/p-hack.jpg";
-import heroPhoto from "../images/photos/p-meetup.jpg";
-import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/")({
 	component: HomePage,
@@ -27,7 +25,7 @@ export const Route = createFileRoute("/")({
 const programs = [
 	{
 		title: city.programs.meetup,
-		photo: meetupPhoto,
+		photo: photos.meetupCircle,
 		alt: "Builders talking in a circle of chairs at a Build Columbus meetup.",
 		body: "Once a month at Improving, our venue partner in Columbus. Talks, workshops, and time to meet other builders.",
 		cta: "About the meetup",
@@ -35,7 +33,7 @@ const programs = [
 	},
 	{
 		title: city.programs.serve,
-		photo: servePhoto,
+		photo: photos.serve,
 		alt: "A volunteer serving food at a local nonprofit.",
 		body: "Volunteer with local nonprofits and see where your skill is needed.",
 		cta: "About Serve",
@@ -43,7 +41,7 @@ const programs = [
 	},
 	{
 		title: city.programs.hack,
-		photo: hackPhoto,
+		photo: photos.hack,
 		alt: "Teams working together around tables at Hack Columbus.",
 		body: "One day a year. Learn what local nonprofits are up against, pick a challenge, present an idea.",
 		cta: "About Hack",
@@ -60,10 +58,9 @@ function HomePage() {
 			<Section hero>
 				<SplitBlock
 					photo={{
-						src: heroPhoto,
+						...photos.meetupTalk,
 						alt: "A speaker presenting to a full room at a Build Columbus meetup at Improving.",
 						priority: true,
-						focal: "50% 60%",
 					}}
 				>
 					<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-ink sm:text-[84px] sm:leading-none">
@@ -101,9 +98,9 @@ function HomePage() {
 							className="flex flex-col border border-line bg-white"
 						>
 							<img
-								src={p.photo}
+								src={p.photo.src}
 								alt={p.alt}
-								className="aspect-[3/2] w-full object-cover"
+								className={`aspect-[3/2] w-full object-cover ${focalClass[p.photo.focal]}`}
 								loading="lazy"
 							/>
 							<div className="flex flex-1 flex-col p-8">
