@@ -19,7 +19,7 @@ export const Route = createFileRoute("/meetup")({
 			{
 				name: "description",
 				content:
-					"Once a month on a Saturday afternoon, builders from around Columbus get together at Improving. Talks, workshops, and time to share what you're making.",
+					"Once a month on a Saturday afternoon, we get together at Improving downtown. Sometimes there's a talk or a workshop. Other times we work on our own projects and share what we're making.",
 			},
 		],
 	}),

@@ -12,7 +12,7 @@ import photoCody from "../images/photos/about-cody.jpg";
 import photoNathan from "../images/photos/about-nathan.jpg";
 import { site } from "./site";
 
-export type SponsorPage = "meetup" | "hack" | "about";
+export type SponsorPage = "meetup" | "hack";
 
 export type SponsorId =
 	| "improving"
@@ -116,7 +116,6 @@ export const city = {
 	sponsorPages: {
 		meetup: ["improving", "fruitsAndRoots", "bethel"],
 		hack: ["indigitous", "leadingEdje", "bethel", "fruitsAndRoots"],
-		about: ["improving", "fruitsAndRoots", "bethel"],
 	} satisfies Record<SponsorPage, SponsorId[]>,
 
 	organizers: [

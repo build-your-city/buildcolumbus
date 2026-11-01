@@ -16,7 +16,7 @@ export const Route = createFileRoute("/serve")({
 			{
 				name: "description",
 				content:
-					"Columbus nonprofits do important work, often with very little help. Serve is how we pitch in.",
+					"Local nonprofits do important work, often with very little help. Serve is how we pitch in.",
 			},
 		],
 	}),

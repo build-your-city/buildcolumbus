@@ -49,7 +49,7 @@ const programs = [
 	{
 		title: city.programs.hack,
 		photo: hackPhoto,
-		alt: "Teams working together around tables at #HACK Columbus.",
+		alt: "Teams working together around tables at Hack Columbus.",
 		body: "One day a year. Learn what local nonprofits are up against, pick a challenge, present an idea.",
 		cta: "About Hack",
 		to: "/hack",
