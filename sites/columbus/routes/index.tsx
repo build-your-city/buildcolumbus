@@ -11,8 +11,9 @@ import {
 	underlineLink,
 } from "@/components/text";
 import { nextEvent } from "@/lib/events";
+import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
-import { canonical } from "../config/site";
+import { pages, site } from "../config/site";
 import meetupPhoto from "../images/photos/hero-cbus.jpg";
 import hackPhoto from "../images/photos/p-hack.jpg";
 import heroPhoto from "../images/photos/p-meetup.jpg";
@@ -20,17 +21,7 @@ import servePhoto from "../images/photos/serve-cody-full.jpg";
 
 export const Route = createFileRoute("/")({
 	component: HomePage,
-	head: () => ({
-		links: [canonical("/")],
-		meta: [
-			{ title: city.siteName },
-			{
-				name: "description",
-				content:
-					"A community of builders in Columbus using their skills to help local nonprofits. Developers, designers, content creators, and more. All are welcome.",
-			},
-		],
-	}),
+	head: () => pageHead(site, pages.home),
 });
 
 const programs = [

@@ -4,23 +4,14 @@ import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import { cardHeading, leadText, underlineLink } from "@/components/text";
+import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
-import { canonical } from "../config/site";
+import { pages, site } from "../config/site";
 import heroPhoto from "../images/photos/about-first-meetup.jpg";
 
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
-	head: () => ({
-		links: [canonical("/about")],
-		meta: [
-			{ title: `About | ${city.siteName}` },
-			{
-				name: "description",
-				content:
-					"Build Columbus is a community of builders who use their skills to help local nonprofits. We meet once a month, volunteer with local nonprofits, and hold a hackathon once a year.",
-			},
-		],
-	}),
+	head: () => pageHead(site, pages.about),
 });
 
 function AboutPage() {

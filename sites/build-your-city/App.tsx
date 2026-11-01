@@ -11,6 +11,10 @@ const dim = "text-[#C9CDD8]";
  * the bottom. No nav, no footer component.
  */
 export default function App() {
+	// The site is one page. Netlify serves this app with a 404 status for
+	// every other path (see public/_redirects), and it shows NotFound.
+	const isHome = window.location.pathname === "/";
+
 	return (
 		<div className="flex min-h-screen flex-col justify-between gap-12 bg-ink px-5 py-7 text-paper sm:px-12 sm:py-10">
 			<header className="flex items-center justify-between">
@@ -28,41 +32,7 @@ export default function App() {
 				</a>
 			</header>
 
-			<main className="w-full max-w-[900px] sm:mx-auto sm:text-center">
-				<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-paper sm:text-[112px] sm:leading-none">
-					<span className="block">Use your skills.</span>
-					<span className="block">Serve your city.</span>
-				</h1>
-				<p
-					className={`mt-6 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-8 sm:max-w-[680px] sm:text-[22px] sm:leading-[1.4]`}
-				>
-					Build Your City is a network of communities where developers,
-					designers, content creators, and more put their skills to work for
-					local nonprofits.
-				</p>
-				<p
-					className={`mt-4 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-5 sm:max-w-[680px] sm:text-[19px] sm:leading-[1.4]`}
-				>
-					Each community runs a monthly meetup, volunteers with local
-					nonprofits, and holds a hackathon once a year. Free to join. No
-					experience needed.
-				</p>
-				<div className="mt-8 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:justify-center sm:gap-4">
-					{cities.map((c) => (
-						<CtaLink key={c.id} href={c.href}>
-							Join in {c.name}
-						</CtaLink>
-					))}
-				</div>
-				<p className="mt-5">
-					<a
-						href={`mailto:${parent.email}?subject=${encodeURIComponent(parent.emailSubject)}`}
-						className="inline-block border-b-2 border-blue pb-0.5 font-sans text-[17px] font-semibold text-paper no-underline transition-colors hover:text-blue"
-					>
-						Want this where you live? Email us
-					</a>
-				</p>
-			</main>
+			{isHome ? <Splash /> : <NotFound />}
 
 			<footer className="border-t border-white/8 pt-5">
 				<ul className="flex flex-col gap-3">
@@ -89,5 +59,73 @@ export default function App() {
 				</ul>
 			</footer>
 		</div>
+	);
+}
+
+/** The home page: the pitch and a button for each city. */
+function Splash() {
+	return (
+		<main className="w-full max-w-[900px] sm:mx-auto sm:text-center">
+			<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-paper sm:text-[112px] sm:leading-none">
+				<span className="block">Use your skills.</span>
+				<span className="block">Serve your city.</span>
+			</h1>
+			<p
+				className={`mt-6 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-8 sm:max-w-[680px] sm:text-[22px] sm:leading-[1.4]`}
+			>
+				Build Your City is a network of communities where developers, designers,
+				content creators, and more put their skills to work for local
+				nonprofits.
+			</p>
+			<p
+				className={`mt-4 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-5 sm:max-w-[680px] sm:text-[19px] sm:leading-[1.4]`}
+			>
+				Each community runs a monthly meetup, volunteers with local nonprofits,
+				and holds a hackathon once a year. Free to join. No experience needed.
+			</p>
+			<div className="mt-8 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:justify-center sm:gap-4">
+				{cities.map((c) => (
+					<CtaLink key={c.id} href={c.href}>
+						Join in {c.name}
+					</CtaLink>
+				))}
+			</div>
+			<p className="mt-5">
+				<a
+					href={`mailto:${parent.email}?subject=${encodeURIComponent(parent.emailSubject)}`}
+					className="inline-block border-b-2 border-blue pb-0.5 font-sans text-[17px] font-semibold text-paper no-underline transition-colors hover:text-blue"
+				>
+					Want this where you live? Email us
+				</a>
+			</p>
+		</main>
+	);
+}
+
+/** Shown for any path other than "/". */
+function NotFound() {
+	return (
+		<main className="w-full max-w-[900px] sm:mx-auto sm:text-center">
+			<p className="font-display text-[72px] font-extrabold leading-none tracking-[-0.025em] text-blue sm:text-[112px]">
+				404
+			</p>
+			<h1 className="mt-4 font-display text-[44px] font-extrabold leading-none tracking-[-0.025em] text-paper sm:mt-6 sm:text-[72px]">
+				Page not found
+			</h1>
+			<p
+				className={`mt-6 font-sans text-[17px] font-medium leading-[1.5] ${dim} sm:mx-auto sm:mt-8 sm:max-w-[680px] sm:text-[22px] sm:leading-[1.4]`}
+			>
+				We couldn't find that page. It may have moved, or the link may have a
+				typo.
+			</p>
+			<div className="mt-8 flex flex-col gap-3 sm:mt-11 sm:flex-row sm:justify-center sm:gap-4">
+				<CtaLink href="/">Go to the home page</CtaLink>
+				{cities.map((c) => (
+					<CtaLink key={c.id} href={c.href} variant="secondary" onDark>
+						Visit Build {c.name}
+					</CtaLink>
+				))}
+			</div>
+		</main>
 	);
 }

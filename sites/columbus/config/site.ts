@@ -1,4 +1,4 @@
-import type { SiteMeta } from "@/lib/headTags";
+import type { PageMeta, SiteMeta } from "@/lib/headTags";
 
 /**
  * Site-level metadata: the title, description, canonical URL, social
@@ -15,10 +15,36 @@ export const site: SiteMeta = {
 };
 
 /**
- * A page's canonical link, for a route's head(). `path` is the route path,
- * e.g. "/meetup", or "/" for the home page.
+ * Every page on the site, with its title and description. Route head()s,
+ * the per-page static HTML that social crawlers read, the Netlify rewrites,
+ * and sitemap.xml are all built from this list (see vite.config.ts), so
+ * adding a page means adding it here. Inner pages are titled
+ * "Page | Build Columbus"; the home page is just "Build Columbus".
  */
-export const canonical = (path: string) => ({
-	rel: "canonical",
-	href: `${site.url}${path}`,
-});
+export const pages = {
+	home: { path: "/", title: site.name, description: site.description },
+	meetup: {
+		path: "/meetup",
+		title: `Meetup | ${site.name}`,
+		description:
+			"Once a month on a Saturday afternoon, we get together at Improving downtown. Sometimes there's a talk or a workshop. Other times we work on our own projects and share what we're making.",
+	},
+	serve: {
+		path: "/serve",
+		title: `Serve | ${site.name}`,
+		description:
+			"Local nonprofits do important work, often with very little help. Serve is how we pitch in.",
+	},
+	hack: {
+		path: "/hack",
+		title: `Hack | ${site.name}`,
+		description:
+			"Once a year, we spend a day working on real problems in our city. Any skill is welcome. No code required.",
+	},
+	about: {
+		path: "/about",
+		title: `About | ${site.name}`,
+		description:
+			"Build Columbus is a community of builders who use their skills to help local nonprofits. We meet once a month, volunteer with local nonprofits, and hold a hackathon once a year.",
+	},
+} satisfies Record<string, PageMeta>;

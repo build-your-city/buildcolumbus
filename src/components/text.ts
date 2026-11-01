@@ -22,4 +22,4 @@ export const smallHeading =
 
 /** Text link with a 2px Build Blue underline. */
 export const underlineLink =
-	"inline-block border-b-2 border-blue pb-0.5 font-sans text-base font-semibold no-underline transition-colors hover:text-blue-deep";
+	"inline-block border-b-2 border-blue pb-0.5 font-sans text-base font-semibold no-underline transition-colors hover:text-blue-text";

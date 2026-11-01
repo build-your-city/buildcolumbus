@@ -1,2 +1,5 @@
+# The old Events page is now Meetup.
 /events  /meetup  301
-/*    /index.html   200
+
+# The build appends the page rewrites and the 404 fallback after this line
+# (see the site-pages plugin in vite.config.ts).

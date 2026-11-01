@@ -23,6 +23,13 @@ declare module "@tanstack/react-router" {
 	}
 }
 
+// Each page's HTML ships static title, description, canonical, and share
+// tags for crawlers that don't run JavaScript (see pageMetaHtml in
+// src/lib/headTags.ts). HeadContent renders the same tags from each route's
+// head() and keeps them right during navigation, so drop the static copies
+// first to avoid duplicates.
+for (const el of document.querySelectorAll("[data-page-meta]")) el.remove();
+
 const rootElement = document.getElementById("app");
 if (rootElement && !rootElement.innerHTML) {
 	const root = ReactDOM.createRoot(rootElement);

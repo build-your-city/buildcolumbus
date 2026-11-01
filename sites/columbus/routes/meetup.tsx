@@ -8,23 +8,14 @@ import SponsorGrid from "@/components/SponsorGrid";
 import ThreeUp from "@/components/ThreeUp";
 import { bodyText, leadText } from "@/components/text";
 import { upcomingEvents } from "@/lib/events";
+import { pageHead } from "@/lib/headTags";
 import { city, sponsorsFor } from "../config/city";
-import { canonical } from "../config/site";
+import { pages, site } from "../config/site";
 import heroPhoto from "../images/photos/meetup-hero-lounge.jpg";
 
 export const Route = createFileRoute("/meetup")({
 	component: MeetupPage,
-	head: () => ({
-		links: [canonical("/meetup")],
-		meta: [
-			{ title: `Meetup | ${city.siteName}` },
-			{
-				name: "description",
-				content:
-					"Once a month on a Saturday afternoon, we get together at Improving downtown. Sometimes there's a talk or a workshop. Other times we work on our own projects and share what we're making.",
-			},
-		],
-	}),
+	head: () => pageHead(site, pages.meetup),
 });
 
 const steps = [

@@ -10,25 +10,16 @@ import {
 	smallHeading,
 	underlineLink,
 } from "@/components/text";
+import { pageHead } from "@/lib/headTags";
 import { city, sponsorsFor } from "../config/city";
-import { canonical } from "../config/site";
+import { pages, site } from "../config/site";
 import { challengeAreas, speakers } from "../data/hack2026";
 import winnersPhoto from "../images/photos/h-winners.jpg";
 import heroPhoto from "../images/photos/p-hack.jpg";
 
 export const Route = createFileRoute("/hack")({
 	component: HackPage,
-	head: () => ({
-		links: [canonical("/hack")],
-		meta: [
-			{ title: `Hack | ${city.siteName}` },
-			{
-				name: "description",
-				content:
-					"Once a year, builders from across Columbus spend a day working on real problems in our city. Any skill is welcome. No code required.",
-			},
-		],
-	}),
+	head: () => pageHead(site, pages.hack),
 });
 
 function HackPage() {
@@ -141,7 +132,7 @@ function HackPage() {
 									/>
 								))}
 							</div>
-							<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue">
+							<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue-text">
 								{s.area}
 							</p>
 							{s.people.map((p, i) => (

@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from "node:url";
 import tailwindcss from "@tailwindcss/vite";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { headTags } from "../../src/lib/headTags";
+import { headTags, pageMetaHtml } from "../../src/lib/headTags";
 import { site } from "./site";
 
 /**
@@ -19,10 +19,18 @@ export default defineConfig({
 		viteReact(),
 		tailwindcss(),
 		{
-			// Stamp the site's description, social preview, and icon tags into
-			// index.html so crawlers that don't run JavaScript still see them.
+			// Stamp the title, description, canonical, social preview, and icon
+			// tags into index.html so crawlers that don't run JavaScript still
+			// see them. The site is a single page, so it uses the site's own
+			// name and description.
 			name: "site-head-tags",
-			transformIndexHtml: () => headTags(site),
+			transformIndexHtml: (html) => ({
+				html: html.replace(
+					"</head>",
+					`${pageMetaHtml(site, { path: "/", title: site.name, description: site.description })}\n  </head>`,
+				),
+				tags: headTags(site),
+			}),
 		},
 	],
 	resolve: {

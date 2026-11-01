@@ -22,7 +22,7 @@ export default function EventCard({ event, details }: EventCardProps) {
 	return (
 		<article className="flex flex-col gap-6 border border-line bg-white p-8 md:flex-row md:gap-12 md:p-12">
 			<div className="flex shrink-0 flex-row items-baseline gap-3 md:w-44 md:flex-col md:items-center md:gap-0 md:text-center">
-				<p className="font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue">
+				<p className="font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue-text">
 					{weekdayShort(event.date)}
 				</p>
 				<p className="font-display text-[56px] font-extrabold leading-none tracking-[-0.025em] text-ink md:mt-1">
