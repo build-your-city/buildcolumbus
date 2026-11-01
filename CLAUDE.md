@@ -43,9 +43,10 @@ clarity beats cleverness.
   footer props; page content never goes in the root route.
 - **`sites/columbus/routeTree.gen.ts` is generated.** Never edit it by hand;
   the Vite plugin regenerates it when routes change.
-- **City config:** everything city-specific (name, links, venue, sponsors,
-  organizers) lives in `sites/columbus/config/city.ts`. Hack recap content is
-  in `sites/columbus/data/hack2026.ts`.
+- **City config:** everything city-specific (name, links, meetup details,
+  sponsors, organizers) lives in `sites/columbus/config/city.ts`. Cropped
+  photos and their focal points are in `sites/columbus/config/photos.ts`.
+  Hack recap content is in `sites/columbus/data/hack2026.ts`.
 - **Head tags:** `sites/columbus/config/site.ts` (and `site.ts` in the
   parent site) holds the site name, URL, description, and preview image.
   Each site's `vite.config.ts` stamps the Open Graph, Twitter, icon, and
