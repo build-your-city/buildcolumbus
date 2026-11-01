@@ -75,7 +75,6 @@ export default function Header({ wordmark, nav, cta }: HeaderProps) {
 			</Container>
 
 			{/* Mobile navigation */}
-			{/* biome-ignore lint/correctness/useUniqueElementIds: single header per page; id is the aria-controls target */}
 			<nav
 				id="mobile-nav"
 				aria-label="Mobile"
