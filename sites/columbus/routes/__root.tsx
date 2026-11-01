@@ -71,7 +71,7 @@ function RootLayout() {
 			</main>
 			<Footer
 				wordmark={wordmark}
-				tagline="Part of Build Your City. Use your skills. Serve your city."
+				tagline="Part of Build Your City."
 				columns={footerColumns}
 			/>
 			{import.meta.env.DEV && (

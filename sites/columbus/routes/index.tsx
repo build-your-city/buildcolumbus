@@ -34,7 +34,7 @@ const programs = [
 		title: city.programs.meetup,
 		photo: meetupPhoto,
 		alt: "Builders talking in a circle of chairs at a Build Columbus meetup.",
-		body: "Once a month at Improving, our venue partner in Columbus. Talks, workshops, and time to meet builders from around Columbus.",
+		body: "Once a month at Improving, our venue partner in Columbus. Talks, workshops, and time to meet other builders.",
 		cta: "About the meetup",
 		to: "/meetup",
 	},

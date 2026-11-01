@@ -61,10 +61,9 @@ function MeetupPage() {
 					<SectionHeading as="h1">Meetup</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Once a month on a Saturday afternoon, builders from around
-							Columbus get together at Improving downtown. Sometimes there's a
-							talk or a workshop. Other times we work on our own projects and
-							share what we're making.
+							Once a month on a Saturday afternoon, we get together at Improving
+							downtown. Sometimes there's a talk or a workshop. Other times we
+							work on our own projects and share what we're making.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							Either way, you'll meet good people and leave with new ideas.
@@ -79,7 +78,7 @@ function MeetupPage() {
 
 			{/* Upcoming, from the synced Meetup data */}
 			<Section tone="white">
-				<SectionHeading eyebrow="Upcoming">Next meetup</SectionHeading>
+				<SectionHeading>Next meetup</SectionHeading>
 				{upcoming.length === 0 ? (
 					<div className="mt-6 border border-line bg-white p-8 sm:mt-10 md:p-12">
 						<p className={`${bodyText} text-ink`}>
@@ -103,9 +102,7 @@ function MeetupPage() {
 
 			{/* What to expect */}
 			<Section>
-				<SectionHeading eyebrow="What to expect">
-					What a Saturday looks like
-				</SectionHeading>
+				<SectionHeading>What to expect</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>
@@ -128,9 +125,7 @@ function MeetupPage() {
 
 			{/* Sponsors */}
 			<Section>
-				<SectionHeading eyebrow="Thank you">
-					Sponsors and partners
-				</SectionHeading>
+				<SectionHeading>Sponsors and partners</SectionHeading>
 				<div className="mt-6 sm:mt-12">
 					<SponsorGrid sponsors={sponsorsFor("meetup")} />
 				</div>

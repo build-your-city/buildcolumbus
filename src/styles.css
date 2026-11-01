@@ -2,14 +2,14 @@
 
 /*
  * Build Columbus brand tokens. Build Blue is the only accent: buttons,
- * eyebrows, links, the wordmark's second line, step numbers, date tags.
+ * labels, links, the wordmark's second line, step numbers, date tags.
  */
 @theme {
   --color-ink: #141a2a;
   --color-paper: #f4f1ea;
   --color-blue: #3d8bff;
   /* Build Blue darkened for text and button fills so it passes 4.5:1 on
-     white and Paper. The wordmark, eyebrows, and decorative uses keep the
+     white and Paper. The wordmark, labels, and decorative uses keep the
      original. */
   --color-blue-deep: #0063f7;
   /* Primary button hover. */
