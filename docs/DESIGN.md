@@ -12,8 +12,9 @@ drifting from it.
 |---|---|---|
 | `ink` | `#141A2A` | Text, dark bands, footer, header button |
 | `paper` | `#F4F1EA` | Page background |
-| `blue` | `#3D8BFF` | Build Blue, the only accent: wordmark second line, small uppercase labels, link underlines, step numbers, date tags, focus rings |
-| `blue-deep` | `#0063F7` | Build Blue darkened for contrast: primary button fills and hover text |
+| `blue` | `#3D8BFF` | Build Blue, the only accent: wordmark second line, link underlines, step numbers, focus rings, and small text on navy |
+| `blue-text` | `#0056D6` | Build Blue for small text (under 18px) on White and Paper: uppercase labels, the event weekday, link hover text |
+| `blue-deep` | `#0063F7` | Build Blue darkened for button fills |
 | `blue-hover` | `#0052CC` | Primary button hover fill |
 | `ink-deep` | `#0B0F1A` | Header and footer background, each with a 1px `rgba(255,255,255,0.08)` border on the page side |
 | `slate` | `#8E95A6` | Secondary text on ink |
@@ -21,10 +22,19 @@ drifting from it.
 | `white` | `#FFFFFF` | Cards |
 
 Build Blue is the single point of energy. At `#3D8BFF` it reads 3.3:1 on
-white and 2.9:1 on Paper, so it stays on the wordmark, labels at 14px and
-up, and decorative elements. Wherever blue is a button background or running
-text, use `blue-deep`, which passes WCAG AA (5.1:1 under white text, 4.5:1 as
-text on Paper). Tokens live in `src/styles.css`.
+White and 2.9:1 on Paper, which is too low for small text, so on light
+backgrounds it stays on the wordmark, large text (18px and up, like the 56px
+step numbers), and decorative elements such as link underlines and focus
+rings. Choose the blue by text size and background:
+
+| Text | On White or Paper | On navy (Ink, `ink-deep`) |
+|---|---|---|
+| Small (under 18px) | `blue-text`: 6.4:1 on White, 5.6:1 on Paper | `blue`: 5.2:1 on Ink, 5.8:1 on `ink-deep` |
+| Large (18px and up) | `blue` | `blue` |
+
+`blue-text` would fail on navy (2.7:1), which is why small text there keeps
+Build Blue. Buttons use `blue-deep` under white text (5.1:1). All three are
+the same hue. Tokens live in `src/styles.css`.
 
 ## Typography
 
@@ -39,7 +49,7 @@ Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 | Card / step heading | 28px | Inter Tight 700 |
 | Name / small heading | 22px | Inter Tight 700 |
 | Wordmark | 34px in the header (28px on mobile), 40px in the footer | Inter Tight 800, uppercase, two lines; the second line is scaled so its width matches "BUILD" |
-| Label | 14px | Inter 600, uppercase, 0.12em tracking, Build Blue |
+| Label | 14px | Inter 600, uppercase, 0.12em tracking, `blue-text` on White and Paper |
 | Lead paragraph (hero, dark bands) | 22px; 19px on dark bands at mobile widths | Inter 500 |
 | Body | 17px | Inter 500, line-height 1.55 |
 | Nav / button | 16px | Inter 600 |

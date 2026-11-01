@@ -12,6 +12,11 @@
      white and Paper. The wordmark, labels, and decorative uses keep the
      original. */
   --color-blue-deep: #0063f7;
+  /* Build Blue for small text (under 18px) on White and Paper: 6.4:1 on
+     White and 5.6:1 on Paper, so it passes WCAG AA. On navy (Ink), small
+     text keeps Build Blue, which is already 5.2:1 there; any darker blue
+     would fail on navy. Large text and accents keep Build Blue. */
+  --color-blue-text: #0056d6;
   /* Primary button hover. */
   --color-blue-hover: #0052cc;
   /* Footer background, a step deeper than Ink so it reads as its own element
