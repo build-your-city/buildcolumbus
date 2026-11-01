@@ -102,8 +102,7 @@ clarity beats cleverness.
   no "ongoing projects". Serve opportunities are shared on Discord and at the
   meetup, not on Meetup.com.
 - "Build Your City" is always written as a proper name.
-- Gray "PHOTO PLACEHOLDER" boxes are deliberate; swap in a real photo when
-  one is supplied. Photos may be reused across pages.
+- Real community photos only. Photos may be reused across pages.
 
 ## Brand notes
 

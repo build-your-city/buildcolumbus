@@ -1,7 +1,7 @@
 # Design direction
 
-The Build Your City brand, as built for Build Columbus from the mockups in
-October 2026. Every site under `sites/` shares it through the components and
+The Build Your City brand, as built for Build Columbus in October 2026.
+This file is the design reference. Every site under `sites/` shares it through the components and
 tokens in `src/`; a new city is a copy of `sites/columbus/` with its own
 config and photos, not a new design. Amend this deliberately rather than
 drifting from it.
@@ -169,10 +169,7 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
 ## Photography
 
 Real community photos only; a photo may appear on more than one page.
-Where no photo exists yet, a
-gray box labeled "PHOTO PLACEHOLDER" with a caption stands in
-(`PhotoPlaceholder`), rendered with `aria-hidden`. Photos belong to the
-site that uses them, under `sites/<city>/images/`.
+Photos belong to the site that uses them, under `sites/<city>/images/`.
 
 ## Quality floor
 
