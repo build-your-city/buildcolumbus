@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Fragment } from "react";
 import CtaLink from "@/components/CtaLink";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
@@ -57,6 +58,7 @@ function HackPage() {
 			{/* 2026 recap */}
 			<Section>
 				<SplitBlock
+					stackedPhoto="full"
 					photoSide="left"
 					photo={{
 						src: winnersPhoto,
@@ -119,56 +121,70 @@ function HackPage() {
 				>
 					Who we learned from
 				</SectionHeading>
-				{/* Cards at least 21rem wide, so the longest org link fits. */}
-				<ul className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,21rem),1fr))] gap-4 sm:mt-10 md:gap-8">
-					{speakers.map((s) => (
-						<li
-							key={s.people.map((p) => p.name).join(" & ")}
-							className="flex flex-col items-center border border-line bg-white p-8 text-center sm:items-start sm:text-left"
-						>
-							<div className="flex gap-4">
-								{s.people.map((p) => (
-									<img
-										key={p.name}
-										src={p.photo}
-										alt={`${p.name} headshot`}
-										className="h-24 w-24 rounded-full object-cover"
-										loading="lazy"
-									/>
-								))}
-							</div>
-							<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue-text">
-								{s.area}
-							</p>
-							{s.people.map((p, i) => (
-								<div key={p.name} className={i === 0 ? "mt-2" : "mt-4"}>
-									<h3 className={`${smallHeading} text-ink`}>{p.name}</h3>
-									<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
-										{p.title}
-									</p>
+				{/*
+				  Cards at least 17rem wide: one column on portrait phones, two
+				  from about 560px (landscape phones, tablets), three on desktop.
+				  Card content is centered until the cards are three across (a
+				  55rem container: 3 x 17rem + 2 x 32px gap), then left-aligned.
+				*/}
+				<div className="@container mt-6 sm:mt-10">
+					<ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,17rem),1fr))] gap-4 md:gap-8">
+						{speakers.map((s) => (
+							<li
+								key={s.people.map((p) => p.name).join(" & ")}
+								className="flex flex-col items-center border border-line bg-white p-8 text-center @min-[55rem]:items-start @min-[55rem]:text-left"
+							>
+								<div className="flex gap-4">
+									{s.people.map((p) => (
+										<img
+											key={p.name}
+											src={p.photo}
+											alt={`${p.name} headshot`}
+											className="h-24 w-24 rounded-full object-cover"
+											loading="lazy"
+										/>
+									))}
 								</div>
-							))}
-							{s.org && (
-								<p className="mt-2 font-sans text-[15px] font-medium text-ink">
-									{s.org}
+								<p className="mt-6 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-blue-text">
+									{s.area}
 								</p>
-							)}
-							<div className="mt-auto flex flex-col items-center gap-3 pt-6 sm:items-start">
-								{s.links.map((l) => (
-									<a
-										key={l.href}
-										href={l.href}
-										target="_blank"
-										rel="noopener noreferrer"
-										className={`${underlineLink} text-ink`}
-									>
-										{l.label}
-									</a>
+								{s.people.map((p, i) => (
+									<div key={p.name} className={i === 0 ? "mt-2" : "mt-4"}>
+										<h3 className={`${smallHeading} text-ink`}>{p.name}</h3>
+										<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
+											{p.title}
+										</p>
+									</div>
 								))}
-							</div>
-						</li>
-					))}
-				</ul>
+								{s.org && (
+									<p className="mt-2 font-sans text-[15px] font-medium text-ink">
+										{s.org}
+									</p>
+								)}
+								<div className="mt-auto flex flex-col items-center gap-3 pt-6 @min-[55rem]:items-start">
+									{s.links.map((l) => (
+										<a
+											key={l.href}
+											href={l.href}
+											target="_blank"
+											rel="noopener noreferrer"
+											className={`${underlineLink} text-ink`}
+										>
+											{l.labelParts
+												? l.labelParts.map((part, i) => (
+														<Fragment key={part}>
+															{i > 0 && <wbr />}
+															{part}
+														</Fragment>
+													))
+												: l.label}
+										</a>
+									))}
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
 			</Section>
 
 			{/* Sponsors */}

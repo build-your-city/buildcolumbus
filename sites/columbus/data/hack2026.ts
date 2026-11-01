@@ -31,7 +31,16 @@ export type SpeakerPerson = {
 	photo: string;
 };
 
-export type SpeakerLink = { label: string; href: string };
+export type SpeakerLink = {
+	label: string;
+	href: string;
+	/**
+	 * The label split where it may wrap, for a long one-word label like a
+	 * domain. The parts are joined with <wbr> so a narrow card breaks it
+	 * between words ("riverviewinternational / center.org"), never mid-word.
+	 */
+	labelParts?: string[];
+};
 
 /** One speaker card. Two people share a card when they presented together. */
 export type Speaker = {
@@ -82,6 +91,7 @@ export const speakers: Speaker[] = [
 		links: [
 			{
 				label: "riverviewinternationalcenter.org",
+				labelParts: ["riverview", "international", "center.org"],
 				href: "https://riverviewinternationalcenter.org/",
 			},
 			linkedin("emily-lady"),
