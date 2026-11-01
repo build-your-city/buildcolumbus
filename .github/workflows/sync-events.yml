@@ -6,18 +6,22 @@ on:
     - cron: "0 9 * * *"
   workflow_dispatch: {}
 
+# The token stays read-only. The commit is pushed over SSH with the
+# SYNC_DEPLOY_KEY deploy key (checkout's ssh-key option sets an SSH remote),
+# which is what lets it past branch protection on main.
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
 
@@ -30,7 +34,7 @@ jobs:
             echo "No changes."
             exit 0
           fi
-          git config user.name "cit-bot"
+          git config user.name "build-columbus-bot"
           git config user.email "actions@github.com"
           git add src/data/events.json
           git commit -m "chore: sync events from Meetup"

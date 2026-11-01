@@ -11,6 +11,7 @@ import {
 	underlineLink,
 } from "@/components/text";
 import { city, sponsorsFor } from "../config/city";
+import { canonical } from "../config/site";
 import { challengeAreas, speakers } from "../data/hack2026";
 import winnersPhoto from "../images/photos/h-winners.jpg";
 import heroPhoto from "../images/photos/p-hack.jpg";
@@ -18,6 +19,7 @@ import heroPhoto from "../images/photos/p-hack.jpg";
 export const Route = createFileRoute("/hack")({
 	component: HackPage,
 	head: () => ({
+		links: [canonical("/hack")],
 		meta: [
 			{ title: `Hack | ${city.siteName}` },
 			{

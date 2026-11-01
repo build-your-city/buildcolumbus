@@ -28,9 +28,9 @@ sites/
   columbus/              # buildcolumbus.org
     routes/              # one file per page (TanStack Router); __root.tsx is the layout
     config/city.ts       # everything city-specific: links, venue, sponsors, organizers
-    data/hack2026.ts     # #HACK Columbus recap content
+    data/hack2026.ts     # Hack Columbus 2026 recap content
     images/              # photos, sponsor logos, speaker headshots
-    public/              # favicon, manifest, _redirects
+    public/              # favicon, manifest, robots.txt, sitemap.xml, _redirects
     vite.config.ts
   build-your-city/       # build-your-city.org, a single page
     App.tsx, config.ts, vite.config.ts, netlify.toml
@@ -93,6 +93,12 @@ directory** to `sites/build-your-city`. Netlify then reads
 runs `npm run build:byc`, publishing `dist/build-your-city`. Leave the build
 command and publish directory fields in the UI empty so the file wins.
 
+Both `netlify.toml` files also set the security headers
+(Content-Security-Policy, HSTS, and friends) and long-lived caching for
+`/assets/*`. The policy only allows the site itself and Google Fonts; add an
+origin there before adding any third-party script, embed, or form. See
+[docs/AUDIT-2026-11.md](docs/AUDIT-2026-11.md).
+
 ## How event data works
 
 Meetup no longer offers open iCal/RSS feeds, so a scheduled GitHub Action
@@ -101,8 +107,8 @@ nightly and commits the results to `src/data/events.json`. The sites are
 fully static. If Meetup is unreachable or changes its markup, the sites keep
 serving the last known-good data and the workflow fails loudly instead of
 writing garbage. The Columbus home page and `/meetup` read from that file,
-as does the city card on Build Your City, and the meetup number ("Build
-Columbus Meetup #48") comes from the event title.
+and the meetup number ("Build Columbus Meetup #48") comes from the event
+title.
 
 ## Contributing
 

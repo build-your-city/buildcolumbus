@@ -12,6 +12,7 @@ import {
 } from "@/components/text";
 import { nextEvent } from "@/lib/events";
 import { city } from "../config/city";
+import { canonical } from "../config/site";
 import meetupPhoto from "../images/photos/hero-cbus.jpg";
 import hackPhoto from "../images/photos/p-hack.jpg";
 import heroPhoto from "../images/photos/p-meetup.jpg";
@@ -20,6 +21,7 @@ import servePhoto from "../images/photos/serve-cody-full.jpg";
 export const Route = createFileRoute("/")({
 	component: HomePage,
 	head: () => ({
+		links: [canonical("/")],
 		meta: [
 			{ title: city.siteName },
 			{

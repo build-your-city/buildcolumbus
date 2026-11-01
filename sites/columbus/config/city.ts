@@ -42,11 +42,7 @@ const social = {
 
 export const city = {
 	name: "Columbus",
-	state: "Ohio",
-	/** Short place label, e.g. "Columbus, Ohio". */
-	place: "Columbus, Ohio",
 	siteName: site.name,
-	domain: "buildcolumbus.org",
 	email: "hello@buildcolumbus.org",
 	social,
 
@@ -61,12 +57,6 @@ export const city = {
 		instagram: `https://www.instagram.com/${social.instagram}/`,
 		linkedin: `https://www.linkedin.com/showcase/${social.linkedin}/`,
 		facebook: `https://www.facebook.com/${social.facebook}/`,
-	},
-
-	venue: {
-		name: "Improving",
-		address: "330 Rush Alley, Suite 150",
-		cityState: "Columbus, OH 43215",
 	},
 
 	/** When, where, and what to expect. Shown on every upcoming event card. */
