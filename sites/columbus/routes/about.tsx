@@ -6,7 +6,8 @@ import SplitBlock from "@/components/SplitBlock";
 import SponsorGrid from "@/components/SponsorGrid";
 import { cardHeading, leadText, underlineLink } from "@/components/text";
 import { city, sponsorsFor } from "../config/city";
-import heroPhoto from "../images/photos/about-first-meetup.jpg";
+import originPhoto from "../images/photos/about-first-meetup.jpg";
+import heroPhoto from "../images/photos/about-hero-2026.jpg";
 
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
@@ -30,7 +31,9 @@ function AboutPage() {
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
-						alt: "One of the first meetups in 2024",
+						alt: "Builders listening to a speaker at a Columbus community event.",
+						// Anchor left so the man standing at the far left stays in frame.
+						focal: "0% 50%",
 						priority: true,
 					}}
 				>
@@ -51,7 +54,13 @@ function AboutPage() {
 
 			{/* Origin story */}
 			<Section tone="white">
-				<SplitBlock photo={{ placeholder: "Christians in Tech, 2024" }}>
+				<SplitBlock
+					photo={{
+						src: originPhoto,
+						alt: "One of the first community meetups in 2024.",
+					}}
+					photoSide="left"
+				>
 					<SectionHeading eyebrow="Our story">
 						Where we came from
 					</SectionHeading>
