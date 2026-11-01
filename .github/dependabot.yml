@@ -13,6 +13,12 @@ updates:
       npm-minor-and-patch:
         patterns: ["*"]
         update-types: [minor, patch]
+    # @types/node follows the Node major that Netlify and CI run (22, set in
+    # both netlify.toml files and .github/workflows). Raise this when they
+    # move to a newer Node.
+    ignore:
+      - dependency-name: "@types/node"
+        versions: [">=23"]
     commit-message:
       prefix: chore
 
