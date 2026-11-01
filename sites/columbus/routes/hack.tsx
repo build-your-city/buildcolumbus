@@ -37,15 +37,14 @@ function HackPage() {
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
-						alt: "Teams working together around tables at #HACK Columbus.",
+						alt: "Teams working together around tables at Hack Columbus.",
 						priority: true,
 					}}
 				>
 					<SectionHeading as="h1">Hack</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Once a year, builders from across Columbus spend a day working on
-							real problems in our city.
+							Once a year, we spend a day working on real problems in our city.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							We start by hearing from people who work on those problems every
@@ -68,12 +67,10 @@ function HackPage() {
 					photoSide="left"
 					photo={{
 						src: winnersPhoto,
-						alt: "The three crowd favorite winners smiling in front of the results screen at #HACK Columbus 2026.",
+						alt: "The three crowd favorite winners smiling in front of the results screen at Hack Columbus 2026.",
 					}}
 				>
-					<SectionHeading eyebrow="2026 recap">
-						{city.hackEventName}
-					</SectionHeading>
+					<SectionHeading>{city.hackEventName}</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8">
 						<p className={`${bodyText} text-ink`}>
 							{city.hackEventName} was Saturday, October 24 at Leading EDJE, a
@@ -92,9 +89,7 @@ function HackPage() {
 			{/* Challenge areas: one box with five cells on desktop, cards on mobile */}
 			<Section>
 				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading eyebrow="2026 challenge areas">
-						What we built around
-					</SectionHeading>
+					<SectionHeading>What we built around</SectionHeading>
 					<p className={`mt-6 ${bodyText} text-ink`}>
 						Five real needs in Columbus. Every project in the room answered one
 						of them.
@@ -122,9 +117,7 @@ function HackPage() {
 
 			{/* Guest speakers */}
 			<Section tone="white">
-				<SectionHeading eyebrow="2026 guest speakers">
-					Who we learned from
-				</SectionHeading>
+				<SectionHeading>Who we learned from</SectionHeading>
 				<p className={`mt-6 ${bodyText} text-ink`}>
 					If their work speaks to you, reach out. They know where help is
 					needed.
@@ -182,9 +175,7 @@ function HackPage() {
 
 			{/* Sponsors */}
 			<Section>
-				<SectionHeading eyebrow="Thank you">
-					Sponsors and partners
-				</SectionHeading>
+				<SectionHeading>Sponsors and partners</SectionHeading>
 				<div className="mt-6 sm:mt-12">
 					<SponsorGrid sponsors={sponsorsFor("hack")} />
 				</div>

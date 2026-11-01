@@ -3,11 +3,9 @@ import CtaLink from "@/components/CtaLink";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
-import SponsorGrid from "@/components/SponsorGrid";
 import { cardHeading, leadText, underlineLink } from "@/components/text";
-import { city, sponsorsFor } from "../config/city";
-import originPhoto from "../images/photos/about-first-meetup.jpg";
-import heroPhoto from "../images/photos/about-hero-2026.jpg";
+import { city } from "../config/city";
+import heroPhoto from "../images/photos/about-first-meetup.jpg";
 
 export const Route = createFileRoute("/about")({
 	component: AboutPage,
@@ -31,39 +29,11 @@ function AboutPage() {
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
-						alt: "Builders listening to a speaker at a Columbus community event.",
-						// Anchor left so the man standing at the far left stays in frame.
-						focal: "0% 50%",
+						alt: "One of the first community meetups in 2024.",
 						priority: true,
 					}}
 				>
 					<SectionHeading as="h1">About</SectionHeading>
-					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
-						<p className={`${leadText} text-ink`}>
-							Build Columbus is a community of builders who use their skills to
-							help local nonprofits. Developers, designers, content creators,
-							and anyone who can see a need and build something that helps.
-						</p>
-						<p className={`${leadText} text-ink`}>
-							We meet once a month, volunteer with local nonprofits, and hold a
-							hackathon once a year.
-						</p>
-					</div>
-				</SplitBlock>
-			</Section>
-
-			{/* Origin story */}
-			<Section tone="white">
-				<SplitBlock
-					photo={{
-						src: originPhoto,
-						alt: "One of the first community meetups in 2024.",
-					}}
-					photoSide="left"
-				>
-					<SectionHeading eyebrow="Our story">
-						Where we came from
-					</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
 							We started in 2024 as Christians in Tech - Columbus, a meetup for
@@ -81,7 +51,7 @@ function AboutPage() {
 
 			{/* Organizers */}
 			<Section>
-				<SectionHeading eyebrow="Organizers">Who runs it</SectionHeading>
+				<SectionHeading>Meet the organizers</SectionHeading>
 				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-2 md:gap-8">
 					{city.organizers.map((person) => (
 						<li
@@ -113,28 +83,14 @@ function AboutPage() {
 				</ul>
 			</Section>
 
-			{/* Sponsors: always on Paper */}
-			<Section>
-				<SectionHeading eyebrow="Thank you">
-					Sponsors and partners
-				</SectionHeading>
-				<div className="mt-6 sm:mt-12">
-					<SponsorGrid sponsors={sponsorsFor("about")} />
-				</div>
-			</Section>
-
 			{/* Parent network */}
 			<Section tone="dark">
 				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
 					<SectionHeading tone="paper">Build your city.</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-paper`}>
-							Build Columbus is the first of many. Build Your City is a network
-							of communities that each run a monthly meetup, volunteer with
-							local nonprofits, and hold a hackathon once a year.
-						</p>
-						<p className={`${leadText} text-paper`}>
-							Want to start one where you live? Learn more at
+							Build Columbus is the first city in Build Your City, a growing
+							network of city communities. Want to build yours? Learn more at
 							build-your-city.org.
 						</p>
 					</div>

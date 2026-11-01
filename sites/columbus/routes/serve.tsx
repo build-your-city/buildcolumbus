@@ -16,7 +16,7 @@ export const Route = createFileRoute("/serve")({
 			{
 				name: "description",
 				content:
-					"Columbus nonprofits do important work, often with very little help. Serve is how we pitch in.",
+					"Local nonprofits do important work, often with very little help. Serve is how we pitch in.",
 			},
 		],
 	}),
@@ -26,7 +26,7 @@ const steps = [
 	{
 		marker: "1",
 		title: "Pick an opportunity",
-		body: "We post volunteer days with local nonprofits in our Discord and share them at the monthly meetup.",
+		body: "We post volunteer opportunities in our Discord and share them at the meetup.",
 	},
 	{
 		marker: "2",
@@ -55,8 +55,8 @@ function ServePage() {
 					<SectionHeading as="h1">Serve</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Columbus nonprofits do important work, often with very little
-							help. Serve is how we pitch in.
+							Local nonprofits do important work, often with very little help.
+							Serve is how we pitch in.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							It starts with showing up. A nonprofit needs people to serve a
@@ -76,7 +76,7 @@ function ServePage() {
 
 			{/* Three steps */}
 			<Section>
-				<SectionHeading eyebrow="Three steps">How it works</SectionHeading>
+				<SectionHeading>How it works</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>
@@ -85,14 +85,10 @@ function ServePage() {
 			{/* For nonprofits */}
 			<Section tone="dark">
 				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading eyebrow="Nonprofits" tone="paper">
-						Need builders?
-					</SectionHeading>
+					<SectionHeading tone="paper">Need builders?</SectionHeading>
 					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
-						Build Columbus is a community of developers, designers, content
-						creators, and more who use their skills to help local nonprofits. If
-						your organization has a problem a skill could solve, tell us about
-						it.
+						Builders in our community want to help where they can. If your
+						nonprofit has a problem a skill could solve, tell us about it.
 					</p>
 					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
 						Get in touch

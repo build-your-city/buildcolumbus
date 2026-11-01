@@ -12,7 +12,7 @@ import photoCody from "../images/photos/about-cody.jpg";
 import photoNathan from "../images/photos/about-nathan.jpg";
 import { site } from "./site";
 
-export type SponsorPage = "meetup" | "hack" | "about";
+export type SponsorPage = "meetup" | "hack";
 
 export type SponsorId =
 	| "improving"
@@ -43,7 +43,7 @@ const social = {
 export const city = {
 	name: "Columbus",
 	state: "Ohio",
-	/** Short place label used in eyebrows, e.g. "Columbus, Ohio". */
+	/** Short place label, e.g. "Columbus, Ohio". */
 	place: "Columbus, Ohio",
 	siteName: site.name,
 	domain: "buildcolumbus.org",
@@ -81,7 +81,7 @@ export const city = {
 	},
 
 	/** Formal name of this year's Hack event. */
-	hackEventName: "#HACK Columbus 2026",
+	hackEventName: "Hack Columbus 2026",
 
 	/** Sponsors and partners, keyed by a short id. */
 	sponsors: {
@@ -116,7 +116,6 @@ export const city = {
 	sponsorPages: {
 		meetup: ["improving", "fruitsAndRoots", "bethel"],
 		hack: ["indigitous", "leadingEdje", "bethel", "fruitsAndRoots"],
-		about: ["improving", "fruitsAndRoots", "bethel"],
 	} satisfies Record<SponsorPage, SponsorId[]>,
 
 	organizers: [
