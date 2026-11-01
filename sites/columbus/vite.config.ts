@@ -4,8 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { headTags, pageMetaHtml, withPageMeta } from "../../src/lib/headTags";
-import { pages, site } from "./config/site";
+import {
+	headTags,
+	pageMetaHtml,
+	withPageMeta,
+} from "../../src/lib/headTags.ts";
+import { pages, site } from "./config/site.ts";
 
 /**
  * Build config for buildcolumbus.org. The site lives in this folder and
