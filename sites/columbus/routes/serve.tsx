@@ -44,7 +44,7 @@ function ServePage() {
 	return (
 		<>
 			{/* Page hero */}
-			<Section noBorder>
+			<Section hero>
 				<SplitBlock
 					photo={{
 						src: servePhoto,
@@ -76,24 +76,22 @@ function ServePage() {
 
 			{/* Three steps */}
 			<Section>
-				<SectionHeading>How it works</SectionHeading>
+				<SectionHeading align="center">How it works</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>
 			</Section>
 
 			{/* For nonprofits */}
-			<Section tone="dark">
-				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading tone="paper">Need builders?</SectionHeading>
-					<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
-						Builders in our community want to help where they can. If your
-						nonprofit has a problem a skill could solve, tell us about it.
-					</p>
-					<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
-						Get in touch
-					</CtaLink>
-				</div>
+			<Section tone="dark" align="center">
+				<SectionHeading tone="paper">Need builders?</SectionHeading>
+				<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
+					Builders in our community want to help where they can. If your
+					nonprofit has a problem a skill could solve, tell us about it.
+				</p>
+				<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
+					Get in touch
+				</CtaLink>
 			</Section>
 		</>
 	);

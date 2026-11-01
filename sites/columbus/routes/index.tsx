@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import EventCard from "@/components/EventCard";
 import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
 import {
 	bodyText,
@@ -62,7 +63,7 @@ function HomePage() {
 	return (
 		<>
 			{/* Hero: text left, photo right filling the column */}
-			<Section noBorder>
+			<Section hero>
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
@@ -85,7 +86,7 @@ function HomePage() {
 
 			{/* Next meetup, from the synced Meetup data */}
 			{next && (
-				<Section tone="white">
+				<Section>
 					<h2 className="sr-only">Next meetup</h2>
 					<EventCard event={next} details={city.meetupDetails} />
 				</Section>
@@ -93,9 +94,7 @@ function HomePage() {
 
 			{/* What we do */}
 			<Section>
-				<h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.025em] text-ink sm:text-[56px]">
-					What we do
-				</h2>
+				<SectionHeading align="center">What we do</SectionHeading>
 				<div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3 md:gap-8">
 					{programs.map((p) => (
 						<article

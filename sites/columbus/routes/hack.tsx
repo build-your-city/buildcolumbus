@@ -33,7 +33,7 @@ function HackPage() {
 	return (
 		<>
 			{/* Page hero */}
-			<Section noBorder>
+			<Section hero>
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
@@ -62,7 +62,7 @@ function HackPage() {
 			</Section>
 
 			{/* 2026 recap */}
-			<Section tone="white">
+			<Section>
 				<SplitBlock
 					photoSide="left"
 					photo={{
@@ -88,13 +88,12 @@ function HackPage() {
 
 			{/* Challenge areas: one box with five cells on desktop, cards on mobile */}
 			<Section>
-				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading>What we built around</SectionHeading>
-					<p className={`mt-6 ${bodyText} text-ink`}>
-						Five real needs in Columbus. Every project in the room answered one
-						of them.
-					</p>
-				</div>
+				<SectionHeading
+					align="center"
+					intro="Five real needs in Columbus. Every project in the room answered one of them."
+				>
+					What we built around
+				</SectionHeading>
 				<ul className="mt-6 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-5 md:gap-0 md:border md:border-line">
 					{challengeAreas.map((area, i) => (
 						<li
@@ -116,12 +115,13 @@ function HackPage() {
 			</Section>
 
 			{/* Guest speakers */}
-			<Section tone="white">
-				<SectionHeading>Who we learned from</SectionHeading>
-				<p className={`mt-6 ${bodyText} text-ink`}>
-					If their work speaks to you, reach out. They know where help is
-					needed.
-				</p>
+			<Section>
+				<SectionHeading
+					align="center"
+					intro="If their work speaks to you, reach out. They know where help is needed."
+				>
+					Who we learned from
+				</SectionHeading>
 				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3 md:gap-8">
 					{speakers.map((s) => (
 						<li
@@ -175,7 +175,7 @@ function HackPage() {
 
 			{/* Sponsors */}
 			<Section>
-				<SectionHeading>Sponsors and partners</SectionHeading>
+				<SectionHeading align="center">Sponsors and partners</SectionHeading>
 				<div className="mt-6 sm:mt-12">
 					<SponsorGrid sponsors={sponsorsFor("hack")} />
 				</div>

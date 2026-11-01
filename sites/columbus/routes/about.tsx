@@ -25,7 +25,7 @@ function AboutPage() {
 	return (
 		<>
 			{/* Page hero */}
-			<Section noBorder>
+			<Section hero>
 				<SplitBlock
 					photo={{
 						src: heroPhoto,
@@ -51,7 +51,7 @@ function AboutPage() {
 
 			{/* Organizers */}
 			<Section>
-				<SectionHeading>Meet the organizers</SectionHeading>
+				<SectionHeading align="center">Meet the organizers</SectionHeading>
 				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-2 md:gap-8">
 					{city.organizers.map((person) => (
 						<li
@@ -84,20 +84,18 @@ function AboutPage() {
 			</Section>
 
 			{/* Parent network */}
-			<Section tone="dark">
-				<div className="sm:mx-auto sm:max-w-[760px] sm:text-center">
-					<SectionHeading tone="paper">Build your city.</SectionHeading>
-					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
-						<p className={`${leadText} text-paper`}>
-							Build Columbus is the first city in Build Your City, a growing
-							network of city communities. Want to build yours? Learn more at
-							build-your-city.org.
-						</p>
-					</div>
-					<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">
-						{city.links.parent.replace(/^https?:\/\//, "")}
-					</CtaLink>
+			<Section tone="dark" align="center">
+				<SectionHeading tone="paper">Build your city.</SectionHeading>
+				<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
+					<p className={`${leadText} text-paper`}>
+						Build Columbus is the first city in Build Your City, a growing
+						network of city communities. Want to build yours? Learn more at
+						build-your-city.org.
+					</p>
 				</div>
+				<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">
+					{city.links.parent.replace(/^https?:\/\//, "")}
+				</CtaLink>
 			</Section>
 		</>
 	);

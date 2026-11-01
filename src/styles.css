@@ -33,6 +33,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+ * Section bands alternate White and Paper down the page, starting with a
+ * White hero. Section.tsx marks every band with data-band. The dark Ink
+ * band has no data-band, so it is left out of the count and the bands
+ * around it still alternate. Adding or removing a section never puts two
+ * same-colored bands next to each other.
+ */
+section[data-band] {
+  background-color: var(--color-paper);
+}
+
+section[data-band]:nth-child(odd of section[data-band]) {
+  background-color: var(--color-white);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-blue);
   outline-offset: 2px;
