@@ -93,31 +93,40 @@ function HomePage() {
 			{/* What we do */}
 			<Section>
 				<SectionHeading align="center">What we do</SectionHeading>
-				{/* As many 17rem-plus columns as fit: one on phones, three on desktop. */}
-				<div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(min(100%,17rem),1fr))] gap-4 sm:mt-10 md:gap-8">
-					{programs.map((p) => (
-						<article
-							key={p.title}
-							className="flex flex-col border border-line bg-white"
-						>
-							<img
-								src={p.photo}
-								alt={p.alt}
-								className="aspect-[3/2] w-full object-cover"
-								loading="lazy"
-							/>
-							<div className="flex flex-1 flex-col p-8">
-								<h3 className={`${cardHeading} text-ink`}>{p.title}</h3>
-								<p className={`mt-3 flex-1 ${bodyText} text-ink`}>{p.body}</p>
-								<Link
-									to={p.to}
-									className={`mt-6 self-start ${underlineLink} text-ink`}
-								>
-									{p.cta}
-								</Link>
-							</div>
-						</article>
-					))}
+				{/*
+				  Exactly three cards, so never two columns (that would leave one
+				  alone on a row): three columns once each card can be at least
+				  200px wide (a 39.5rem container), otherwise one. In one column
+				  on a container wider than 35rem (560px: landscape phones), each
+				  card turns sideways, photo left at 40% and text right, instead
+				  of stretching full width. Rules in docs/DESIGN.md.
+				*/}
+				<div className="@container mt-6 sm:mt-10">
+					<div className="grid grid-cols-1 gap-4 md:gap-8 @min-[39.5rem]:grid-cols-3">
+						{programs.map((p) => (
+							<article
+								key={p.title}
+								className="flex flex-col border border-line bg-white @min-[35rem]:@max-[39.5rem]:flex-row"
+							>
+								<img
+									src={p.photo}
+									alt={p.alt}
+									className="aspect-[3/2] w-full object-cover @min-[35rem]:@max-[39.5rem]:aspect-auto @min-[35rem]:@max-[39.5rem]:w-2/5 @min-[35rem]:@max-[39.5rem]:shrink-0"
+									loading="lazy"
+								/>
+								<div className="flex flex-1 flex-col p-8">
+									<h3 className={`${cardHeading} text-ink`}>{p.title}</h3>
+									<p className={`mt-3 flex-1 ${bodyText} text-ink`}>{p.body}</p>
+									<Link
+										to={p.to}
+										className={`mt-6 self-start ${underlineLink} text-ink`}
+									>
+										{p.cta}
+									</Link>
+								</div>
+							</article>
+						))}
+					</div>
 				</div>
 			</Section>
 		</>
