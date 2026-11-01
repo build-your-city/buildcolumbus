@@ -70,7 +70,12 @@ clarity beats cleverness.
   so a new third-party script, embed, or form needs its origin added in
   both.
 - **Styling:** Tailwind v4 utilities. No inline `style` objects, no CSS
-  modules. Shared CTA styling lives in `src/components/CtaLink.tsx`; use it
+  modules. Layouts size by the space available, not the screen: card grids
+  use `repeat(auto-fit, minmax(...))`, side-by-side blocks switch with
+  container queries (`@container`, `@4xl:`), no fixed heights on cards, and
+  the `short:` variant (screens under 500px tall) keeps landscape phones
+  from being swamped. See "Responsive rule" in docs/DESIGN.md before adding
+  a grid. Shared CTA styling lives in `src/components/CtaLink.tsx`; use it
   instead of styling raw anchors. Build Blue is the only accent color.
   Small blue text (under 18px) on White or Paper uses `blue-text`; on navy
   it keeps `blue`. Button fills use `blue-deep`. See docs/DESIGN.md.

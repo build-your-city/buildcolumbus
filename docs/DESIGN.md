@@ -76,14 +76,38 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   (`SectionHeading align="center"`). Call-to-action bands center the whole
   block in one narrow column (`Section align="center"`). Heroes and photo
   blocks stay left-aligned.
-- Hero and other two-column blocks: 45% text and 55% photo, 56px gap. The
-  photo is 4:3, full width of its column, `object-fit: cover`, and vertically
-  centered against the text. Each photo may set a focal point
-  (`object-position`, default `50% 50%`) so a crop keeps the right part in
-  view. Blocks alternate sides down the page (`SplitBlock`).
+- **Responsive rule: size by the space available, not the screen.** Phones
+  held sideways (667 to 932px wide, 360 to 430px tall) and tablets fall
+  between the phone and desktop layouts, so:
+  - Grids of separate cards use
+    `grid-cols-[repeat(auto-fit,minmax(min(100%,<min>),1fr))]`, with `<min>`
+    the narrowest a card can be before its content breaks: program cards
+    17rem, speaker cards 21rem (the longest org link), organizer cards 26rem
+    (photo beside the name). Phones get one column and desktop the same
+    count as before; in between, as many as fit.
+  - Joined boxes and side-by-side layouts switch on their own width with a
+    container query (`@container` on a wrapper, then `@3xl:`, `@4xl:`,
+    `@5xl:`), never on a screen breakpoint like `md:`.
+  - No fixed heights on cards or text boxes; use `min-h-*` so content can
+    grow.
+  - Short screens (under 500px tall) have a `short:` variant in
+    `src/styles.css`. Use it to keep things from filling the screen: stacked
+    photos cap at 70% of the screen height, the header and mobile menu
+    tighten, and the Build Your City headline shrinks. Full-height layouts
+    use `min-h-dvh`, not `min-h-screen`.
+  - Check every change at 390x844 and 1280 wide, plus 667x375, 740x360,
+    844x390, 932x430, 768x1024, and 820x1180.
+- Hero and other two-column blocks: 45% text and 55% photo, 56px gap, once
+  the block is at least 56rem wide (desktop). The photo is 4:3, full width of
+  its column, `object-fit: cover`, and vertically centered against the
+  text. Narrower, the photo goes under the text at 16:10. Each photo may set
+  a focal point (`object-position`, default `50% 50%`) so a crop keeps the
+  right part in view. Blocks alternate sides down the page (`SplitBlock`).
 - Three-step and challenge-area sections are one white box with 1px Line
-  border and 1px dividers between cells, no gaps (`ThreeUp`). Program cards
-  on the home page and speaker cards are separate boxes with gaps.
+  border and 1px dividers between cells, no gaps, once there is room (48rem
+  for three steps, 64rem for five areas); narrower, they are separate cards
+  (`ThreeUp`). Program cards on the home page and speaker cards are separate
+  boxes with gaps.
 - Cards are white with a 1px Line border, no shadow, no radius.
 - Buttons: primary is `blue-deep` with white text and `blue-hover` on
   hover, never transparent. Secondary is transparent with a 2px Ink border
@@ -91,16 +115,18 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
   border and fills Paper with Ink text. 18px/28px padding, no radius
   (`CtaLink`).
 - Sponsors and partners are a grid of equal white cards, 1px Line border,
-  32px padding, 120px tall, logo centered at up to 56px high. Four columns on
-  desktop, three under 1024px, two under 640px, 16px gap; fewer logos than
-  columns, or a partial last row, sit centered. The whole card is the link (`SponsorGrid`).
+  32px side padding, at least 120px tall, logo centered at up to 56px high.
+  Four columns when the row is 56rem wide or more, three from 36rem, two
+  below that, 16px gap; fewer logos than columns, or a partial last row, sit
+  centered. The whole card is the link (`SponsorGrid`).
 - Header: `ink-deep` background with a faint bottom border. Wordmark first
   line Paper, second line Build Blue. Nav links are Paper, hover Build Blue,
   and the active page is underlined in Build Blue. The header button is a
   primary button. The mobile menu panel shares the dark background.
 - Footer: `ink-deep` background with a faint top border so it reads as its
   own element under a dark band; four columns (wordmark and tagline,
-  Community, Connect, Contact).
+  Community, Connect, Contact) when it is 64rem wide or more, two by two
+  from 36rem, stacked below that.
 - Mobile (under 640px): everything left-aligned, including the dark bands and
   anything centered on desktop. Buttons are full width and stack with a 12px
   gap, with text links under them. Three-column boxes, program cards,
