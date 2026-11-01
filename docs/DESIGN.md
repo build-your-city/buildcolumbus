@@ -79,12 +79,34 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
 - **Responsive rule: size by the space available, not the screen.** Phones
   held sideways (667 to 932px wide, 360 to 430px tall) and tablets fall
   between the phone and desktop layouts, so:
-  - Grids of separate cards use
-    `grid-cols-[repeat(auto-fit,minmax(min(100%,<min>),1fr))]`, with `<min>`
-    the narrowest a card can be before its content breaks: program cards
-    17rem, speaker cards 21rem (the longest org link), organizer cards 26rem
-    (photo beside the name). Phones get one column and desktop the same
-    count as before; in between, as many as fit.
+  - Pick the grid by what is in it, so a row is never left lopsided:
+    1. **Fixed sets: balanced rows, never an orphan.** Home's three program
+       cards are three columns whenever each can be at least 200px wide (a
+       39.5rem container), otherwise one column, never two. About's two
+       organizer cards are two columns when each can be at least 200px wide
+       (a 26rem container), otherwise one, always as a centered pair.
+    2. **Short labels: centered wrapping lines.** Hack's five challenge
+       areas (icon and label) are one box with five cells at desktop (a 64rem
+       container). Narrower, the items keep equal widths and wrap onto
+       centered lines (two per line from 31rem, three from 47rem, one on
+       phones), so a short last line sits in the middle, never to the left.
+    3. **Growing collections: a left-aligned grid.** Speaker cards use
+       `grid-cols-[repeat(auto-fit,minmax(min(100%,21rem),1fr))]` (21rem fits
+       the longest org link) and simply add rows.
+    4. **One column on a wide container: cards turn sideways.** When a card
+       grid is down to one column but its container is wider than 35rem
+       (560px: landscape phones, small tablets), each card lays out
+       horizontally, image or photo on the left at about 40% and text on the
+       right, instead of one card stretched full width. This covers program,
+       speaker, and organizer cards (organizers never hit it, since they are
+       two columns above 26rem). On portrait phones the container is
+       narrower than 35rem, so cards stay vertical. In code it is a range
+       variant on the grid's container, e.g.
+       `@min-[35rem]:@max-[44rem]:flex-row` for speakers.
+    5. **Sponsors:** centered rows of equal logo cards (see below).
+
+    No section with a centered heading may have content sitting to one side
+    at any size.
   - Joined boxes and side-by-side layouts switch on their own width with a
     container query (`@container` on a wrapper, then `@3xl:`, `@4xl:`,
     `@5xl:`), never on a screen breakpoint like `md:`.
