@@ -27,6 +27,19 @@ export type SponsorEntry = {
 	logo: string;
 };
 
+/**
+ * Social handles, one per network. Handles use the abbreviated city name
+ * (buildcbus); domains use the full one. Only Instagram has been renamed so
+ * far. Facebook is still buildcolumbus and LinkedIn is still the Christians
+ * in Tech handle (citcbus) until they are renamed. Renaming one is a
+ * one-line change here; every link follows.
+ */
+const social = {
+	instagram: "buildcbus",
+	linkedin: "citcbus",
+	facebook: "buildcolumbus",
+} as const;
+
 export const city = {
 	name: "Columbus",
 	state: "Ohio",
@@ -35,6 +48,7 @@ export const city = {
 	siteName: site.name,
 	domain: "buildcolumbus.org",
 	email: "hello@buildcolumbus.org",
+	social,
 
 	links: {
 		// Meetup group will be renamed; the slug stays the same.
@@ -44,9 +58,9 @@ export const city = {
 		sessionize: "https://sessionize.com/citcbus",
 		parent: "https://build-your-city.org",
 		donate: "https://onrealm.org/bwpc/-/form/give/cit",
-		instagram: "https://www.instagram.com/build_columbus",
-		linkedin: "https://www.linkedin.com/showcase/citcbus/",
-		facebook: "https://www.facebook.com/build_columbus",
+		instagram: `https://www.instagram.com/${social.instagram}/`,
+		linkedin: `https://www.linkedin.com/showcase/${social.linkedin}/`,
+		facebook: `https://www.facebook.com/${social.facebook}/`,
 	},
 
 	venue: {

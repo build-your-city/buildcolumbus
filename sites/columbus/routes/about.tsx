@@ -45,19 +45,33 @@ function AboutPage() {
 							We meet once a month, volunteer with local nonprofits, and hold a
 							hackathon once a year.
 						</p>
+					</div>
+				</SplitBlock>
+			</Section>
+
+			{/* Origin story */}
+			<Section tone="white">
+				<SplitBlock photo={{ placeholder: "Christians in Tech, 2024" }}>
+					<SectionHeading eyebrow="Our story">
+						Where we came from
+					</SectionHeading>
+					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							We started in 2024 as Christians in Tech Columbus, a meetup for
+							We started in 2024 as Christians in Tech - Columbus, a meetup for
 							people of faith who work in tech. As we began serving nonprofits
 							around the city, we met people from every background who wanted to
-							help, and the work called for more than tech skills. The mission
-							had outgrown the name, so in 2026 we became Build Columbus.
+							help, and the work called for more than tech skills.
+						</p>
+						<p className={`${leadText} text-ink`}>
+							The mission had outgrown the name, and in 2026 we became Build
+							Columbus.
 						</p>
 					</div>
 				</SplitBlock>
 			</Section>
 
 			{/* Organizers */}
-			<Section tone="white">
+			<Section>
 				<SectionHeading eyebrow="Organizers">Who runs it</SectionHeading>
 				<ul className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-2 md:gap-8">
 					{city.organizers.map((person) => (
