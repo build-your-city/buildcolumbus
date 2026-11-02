@@ -27,7 +27,7 @@ const programs = [
 		title: city.programs.meetup,
 		photo: photos.meetupCircle,
 		alt: "Builders talking in a circle of chairs at a Build Columbus meetup.",
-		body: "Once a month at Improving, our venue partner in Columbus. Talks, workshops, and time to meet other builders.",
+		body: "Once a month at Improving, our host in Columbus. Talks, workshops, and time to connect with other builders.",
 		cta: "About the meetup",
 		to: "/meetup",
 	},
@@ -35,7 +35,7 @@ const programs = [
 		title: city.programs.serve,
 		photo: photos.serve,
 		alt: "A volunteer serving food at a local nonprofit.",
-		body: "Volunteer with local nonprofits and see where your skill is needed.",
+		body: "Volunteer with local nonprofits and see where your skills are needed.",
 		cta: "About Serve",
 		to: "/serve",
 	},
@@ -43,7 +43,7 @@ const programs = [
 		title: city.programs.hack,
 		photo: photos.hack,
 		alt: "Teams working together around tables at Hack Columbus.",
-		body: "One day a year. Learn what local nonprofits are up against, pick a challenge, present an idea.",
+		body: "One day a year to work on real problems facing local nonprofits. Hear from the people doing the work, pick a challenge, and present your idea.",
 		cta: "About Hack",
 		to: "/hack",
 	},
@@ -68,9 +68,8 @@ function HomePage() {
 						<span className="block">Serve your city.</span>
 					</h1>
 					<p className={`mt-6 sm:mt-8 sm:max-w-[34rem] ${leadText} text-ink`}>
-						A community of builders in Columbus using their skills to help local
-						nonprofits. Developers, designers, content creators, and more. All
-						are welcome.
+						Builders in Columbus using their skills to help local nonprofits.
+						Developers, designers, content creators, and more. All are welcome.
 					</p>
 					{/* Phone only: the header button takes over from md up. */}
 					<div className="mt-8 sm:mt-10 md:hidden">

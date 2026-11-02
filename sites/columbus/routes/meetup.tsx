@@ -21,18 +21,18 @@ export const Route = createFileRoute("/meetup")({
 const steps = [
 	{
 		marker: "1",
-		title: "Say hello",
-		body: "We go around the room and everyone shares their name, what they're working on, and something they can help with.",
+		title: "Intro circle",
+		body: "We go around the room and everyone shares their name, what they're working on, and how their skills could help someone else.",
 	},
 	{
 		marker: "2",
 		title: "Main session",
-		body: "A talk, a workshop, or time to work alongside other builders. It changes month to month and gets posted on Meetup.com ahead of time.",
+		body: "A talk, a workshop, or time to work on projects.",
 	},
 	{
 		marker: "3",
 		title: "Hang out",
-		body: "Food, coffee, and time to keep the conversations going.",
+		body: "Food, coffee, and time to connect with other builders.",
 	},
 ];
 

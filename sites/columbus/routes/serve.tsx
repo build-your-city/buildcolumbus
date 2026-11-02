@@ -48,17 +48,19 @@ function ServePage() {
 					<SectionHeading as="h1">Serve</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							Local nonprofits do important work, often with very little help.
+							Local nonprofits do important work, often with limited resources.
 							Serve is how we pitch in.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							It starts with showing up. A nonprofit needs people to serve a
-							meal, sort donations, or set up for an event, and we go do it.
+							It starts with showing up. When a nonprofit needs people to serve
+							a meal, sort donations, or set up for an event, we're there to
+							help.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							While you're there, you'll notice what they're missing. A website
-							that's hard to use. No photos. No one to design a flyer. That's
-							where your skills come in.
+							Along the way, you'll spot where your skills could make a
+							difference. A website that's hard to use. A flyer that needs
+							designing. An event with no one to take photos. That's where you
+							come in.
 						</p>
 					</div>
 					<div className="mt-8 sm:mt-10">
@@ -79,8 +81,8 @@ function ServePage() {
 			<Section tone="dark" align="center">
 				<SectionHeading tone="paper">Need builders?</SectionHeading>
 				<p className={`mt-6 sm:mt-8 ${leadText} text-paper`}>
-					Builders in our community want to help where they can. If your
-					nonprofit has a problem a skill could solve, tell us about it.
+					Builders in our community want to help. If your nonprofit has a
+					problem their skills could solve, tell us about it.
 				</p>
 				<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
 					Get in touch

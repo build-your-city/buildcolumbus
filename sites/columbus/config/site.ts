@@ -9,7 +9,7 @@ export const site: SiteMeta = {
 	name: "Build Columbus",
 	url: "https://buildcolumbus.org",
 	description:
-		"A community of builders in Columbus using their skills to help local nonprofits. Developers, designers, content creators, and more. All are welcome.",
+		"Builders in Columbus using their skills to help local nonprofits. Developers, designers, content creators, and more. All are welcome.",
 	ogImage: "/og-columbus.png",
 	themeColor: "#141A2A",
 };
@@ -27,13 +27,13 @@ export const pages = {
 		path: "/meetup",
 		title: `Meetup | ${site.name}`,
 		description:
-			"Once a month on a Saturday afternoon, we get together at Improving downtown. Sometimes there's a talk or a workshop. Other times we work on our own projects and share what we're making.",
+			"Once a month on a Saturday afternoon, we get together at Improving in Columbus to learn from each other, work on projects, and share what we're building.",
 	},
 	serve: {
 		path: "/serve",
 		title: `Serve | ${site.name}`,
 		description:
-			"Local nonprofits do important work, often with very little help. Serve is how we pitch in.",
+			"Local nonprofits do important work, often with limited resources. Serve is how we pitch in.",
 	},
 	hack: {
 		path: "/hack",
