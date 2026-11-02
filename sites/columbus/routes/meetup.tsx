@@ -54,16 +54,25 @@ function MeetupPage() {
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
 							Once a month on a Saturday afternoon, we get together at Improving
-							downtown. Sometimes there's a talk or a workshop. Other times we
-							work on our own projects and share what we're making.
+							in Columbus to learn from each other, work on projects, and share
+							what we're building.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							Either way, you'll meet good people and leave with new ideas.
-							First time? You'll fit right in.
+							You'll leave with new ideas and new connections. First time?
+							You'll fit right in.
 						</p>
 					</div>
-					<div className="mt-8 sm:mt-10">
-						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
+					{/* RSVP first; the Discord button carries a one-line note under it. */}
+					<div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-start">
+						<CtaLink href={city.links.meetupEvents}>RSVP on Meetup.com</CtaLink>
+						<div className="sm:max-w-[16rem]">
+							<CtaLink href={city.links.discord} variant="secondary">
+								Join the Discord
+							</CtaLink>
+							<p className={`mt-3 ${bodyText} text-ink`}>
+								Chat with builders and learn about volunteer opportunities.
+							</p>
+						</div>
 					</div>
 				</SplitBlock>
 			</Section>
