@@ -30,6 +30,6 @@ export const photos = {
 	hack: { src: pHack, focal: "50% 40%" },
 	/** Hack recap. Keeps the whole results screen above the winners. */
 	hackWinners: { src: hWinners, focal: "50% 25%" },
-	/** About Our story. Keeps the people, not the ceiling and wall above them. */
+	/** About page, floated beside the story. Keeps the people, not the ceiling and wall above them. */
 	aboutFirstMeetup: { src: aboutFirstMeetup, focal: "50% 75%" },
 } satisfies Record<string, FocalPhoto>;

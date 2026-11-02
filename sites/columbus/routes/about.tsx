@@ -3,7 +3,12 @@ import CtaLink from "@/components/CtaLink";
 import { focalClass } from "@/components/focal";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
-import { cardHeading, leadText, underlineLink } from "@/components/text";
+import {
+	bodyText,
+	cardHeading,
+	leadText,
+	underlineLink,
+} from "@/components/text";
 import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
 import { photos } from "../config/photos";
@@ -17,59 +22,58 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
 	return (
 		<>
-			{/* Page hero */}
-			<Section hero>
-				<SectionHeading as="h1">About</SectionHeading>
-				<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
-					Builders using their skills to serve Columbus nonprofits since 2024.
-				</p>
-			</Section>
-
 			{/*
-			  Our story: text left, photo right, vertically centered, once the
-			  section is 42rem wide (tablets and up); narrower, the photo goes
-			  under the text. The text column is the wider one for the long copy.
+			  One opening section. From a 50rem container (about 900px screens)
+			  the photo floats right at 55%, level with the title, and the story
+			  wraps under it. Narrower, the float is off and the column is a flex
+			  stack ordered title, intro, photo, story. The photo comes first in
+			  the source so it can float from the top.
 			*/}
-			<Section>
+			<Section hero>
 				<div className="@container">
-					<div className="grid grid-cols-1 gap-8 @2xl:grid-cols-[3fr_2fr] @2xl:items-center @2xl:gap-10 @4xl:gap-14">
-						<div>
-							<SectionHeading>Our story</SectionHeading>
-							<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
-								<p className={`${leadText} text-ink`}>
-									We started as Christians in Tech, a meetup for people of faith
-									who work in tech.
-								</p>
-								<p className={`${leadText} text-ink`}>
-									We had a simple goal: put our skills to work for local
-									nonprofits. They do important work with limited resources, and
-									many don't have the time or budget for things like a website,
-									design, photos, or video.
-								</p>
-								<p className={`${leadText} text-ink`}>
-									So we started showing up. We served alongside nonprofits
-									around Columbus, and in 2025 we held our first hackathon, a
-									full day spent on real problems they face.
-								</p>
-								<p className={`${leadText} text-ink`}>
-									As we grew, people from every background joined in, bringing
-									skills well beyond tech. Our name no longer reflected everyone
-									in the room or the work we were doing together. So in 2026, we
-									became Build Columbus.
-								</p>
-								{/* Closing line: semibold, not a heading. */}
-								<p className={`${leadText} text-ink`}>
-									<strong className="font-semibold">
-										Same mission. More builders.
-									</strong>
-								</p>
-							</div>
-						</div>
+					<div className="flex flex-col @min-[50rem]:flow-root">
 						<img
 							src={photos.aboutFirstMeetup.src}
 							alt="One of the first community meetups in 2024."
-							className={`aspect-[4/3] w-full object-cover ${focalClass[photos.aboutFirstMeetup.focal]}`}
+							className={`order-3 mt-8 aspect-[4/3] w-full object-cover ${focalClass[photos.aboutFirstMeetup.focal]} @min-[50rem]:float-right @min-[50rem]:mt-0 @min-[50rem]:mb-8 @min-[50rem]:ml-14 @min-[50rem]:w-[55%]`}
+							fetchPriority="high"
 						/>
+						<SectionHeading as="h1" className="order-1">
+							About
+						</SectionHeading>
+						<p className={`order-2 mt-6 sm:mt-8 ${leadText} text-ink`}>
+							Builders using their skills to serve Columbus nonprofits since
+							2024.
+						</p>
+						<div className="order-4 mt-4 sm:mt-5">
+							<p className={`mt-4 sm:mt-5 ${bodyText} text-ink`}>
+								We started as Christians in Tech, a meetup for people of faith
+								who work in tech.
+							</p>
+							<p className={`mt-4 sm:mt-5 ${bodyText} text-ink`}>
+								We had a simple goal: put our skills to work for local
+								nonprofits. They do important work with limited resources, and
+								many don't have the time or budget for things like a website,
+								design, photos, or video.
+							</p>
+							<p className={`mt-4 sm:mt-5 ${bodyText} text-ink`}>
+								So we started showing up. We served alongside nonprofits around
+								Columbus, and in 2025 we held our first hackathon, a full day
+								spent on real problems they face.
+							</p>
+							<p className={`mt-4 sm:mt-5 ${bodyText} text-ink`}>
+								As we grew, people from every background joined in, bringing
+								skills well beyond tech. Our name no longer reflected everyone
+								in the room or the work we were doing together. So in 2026, we
+								became Build Columbus.
+							</p>
+							{/* Closing line: semibold, below the photo if it reaches this far. */}
+							<p className={`clear-both mt-4 sm:mt-5 ${bodyText} text-ink`}>
+								<strong className="font-semibold">
+									Same mission. More builders.
+								</strong>
+							</p>
+						</div>
 					</div>
 				</div>
 			</Section>
