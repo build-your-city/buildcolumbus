@@ -106,7 +106,7 @@ origin there before adding any third-party script, embed, or form. See
 ## How event data works
 
 Meetup no longer offers open iCal/RSS feeds, so a scheduled GitHub Action
-(`sync-events.yml`) parses our public [Meetup page](https://www.meetup.com/citcbus/events/)
+(`sync-events.yml`) parses our public [Meetup page](https://www.meetup.com/buildcbus/events/)
 nightly and commits the results to `src/data/events.json`. The sites are
 fully static. If Meetup is unreachable or changes its markup, the sites keep
 serving the last known-good data and the workflow fails loudly instead of
