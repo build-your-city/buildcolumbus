@@ -47,9 +47,9 @@ export const city = {
 	social,
 
 	links: {
-		// Meetup group will be renamed; the slug stays the same.
-		meetup: "https://www.meetup.com/citcbus/",
-		meetupEvents: "https://www.meetup.com/citcbus/events/",
+		// Meetup group renamed from citcbus to buildcbus in November 2026.
+		meetup: "https://www.meetup.com/buildcbus/",
+		meetupEvents: "https://www.meetup.com/buildcbus/events/",
 		discord: "https://discord.com/invite/s9bQZBVduF",
 		sessionize: "https://sessionize.com/citcbus",
 		parent: "https://build-your-city.org",

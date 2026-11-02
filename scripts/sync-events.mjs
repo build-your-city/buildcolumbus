@@ -16,7 +16,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const EVENTS_URL = "https://www.meetup.com/citcbus/events/";
+const EVENTS_URL = "https://www.meetup.com/buildcbus/events/";
 const OUT_PATH = resolve(import.meta.dirname, "../src/data/events.json");
 
 function extractJsonLd(html) {

@@ -10,7 +10,7 @@ is a sibling folder under `sites/`:
 
 - `sites/columbus/`: buildcolumbus.org, a Columbus, Ohio community of
   builders serving local nonprofits. Programs are Meetup, Serve, and Hack.
-  Formerly Christians in Tech; the Meetup group slug is still `citcbus`.
+  Formerly Christians in Tech; the Meetup group slug is now `buildcbus`.
 - `sites/build-your-city/`: build-your-city.org, the parent site. A single
   page listing the cities.
 - `src/`: the shared package both sites import from, with components, brand
