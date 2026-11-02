@@ -3,8 +3,12 @@ import { bodyText } from "./text";
 
 type SectionHeadingProps = {
 	children: ReactNode;
-	/** Render as the page's h1 (72px) instead of a section h2 (56px). */
-	as?: "h1" | "h2";
+	/**
+	 * Render as the page's h1 (72px) instead of a section h2 (56px). "h3" is
+	 * for a section that belongs to the one before it (the Hack recap parts):
+	 * the h2 look, one level down in the outline.
+	 */
+	as?: "h1" | "h2" | "h3";
 	/** Inherit the surrounding text color (used on the dark band). */
 	tone?: "ink" | "paper";
 	/**
