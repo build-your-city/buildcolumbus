@@ -55,35 +55,37 @@ function HackPage() {
 				</SplitBlock>
 			</Section>
 
-			{/* 2026 recap: heading and intro, then the Crowd Favorite winners */}
+			{/*
+			  2026 recap. The h2 here heads the whole recap; the challenge,
+			  speaker, and sponsor sections below are its h3 parts, styled like
+			  section headings.
+			*/}
 			<Section>
-				<SectionHeading
-					align="center"
-					intro="Hack was held on Saturday, October 24, at Leading EDJE, a software consulting firm in Dublin, Ohio. Seven guest speakers, five challenge categories, and a room full of builders working from 8 AM to 8 PM."
+				<SplitBlock
+					stackedPhoto="full"
+					photoSide="left"
+					photo={{
+						...photos.hackWinners,
+						alt: "The three crowd favorite winners smiling in front of the results screen at Hack Columbus 2026.",
+					}}
 				>
-					Hack 2026 Recap
-				</SectionHeading>
-				<div className="mt-10 text-center sm:mt-14">
-					<h3 className={`${cardHeading} text-ink`}>Crowd Favorite</h3>
-					<p
-						className={`mx-auto mt-4 max-w-[36rem] text-balance ${bodyText} text-ink`}
-					>
+					<SectionHeading intro="Hack was held on Saturday, October 24, at Leading EDJE, a software consulting firm in Dublin, Ohio. Seven guest speakers, five challenge categories, and a room full of builders working from 8 AM to 8 PM.">
+						Hack 2026 Recap
+					</SectionHeading>
+					<h3 className={`mt-8 sm:mt-10 ${cardHeading} text-ink`}>
+						Crowd Favorite
+					</h3>
+					<p className={`mt-4 ${bodyText} text-ink`}>
 						Jasmine Harris, Victoria Robertson, and Bryan Fernandez, for their
 						project on homelessness with The Bridge Ministry.
 					</p>
-				</div>
-				{/* The whole 4:3 photo, about two challenge cards wide on desktop */}
-				<img
-					src={photos.hackWinners.src}
-					alt="The three crowd favorite winners smiling in front of the results screen at Hack Columbus 2026."
-					className="mx-auto mt-6 aspect-[4/3] w-full max-w-lg object-cover sm:mt-10"
-					loading="lazy"
-				/>
+				</SplitBlock>
 			</Section>
 
 			{/* Challenge categories: one box with five cells on desktop, cards on mobile */}
 			<Section>
 				<SectionHeading
+					as="h3"
 					align="center"
 					intro="Every project took on a real challenge from one of these five."
 				>
@@ -104,9 +106,9 @@ function HackPage() {
 									className="h-12 w-12 shrink-0 @5xl:h-16 @5xl:w-16"
 									loading="lazy"
 								/>
-								<h3 className={`${smallHeading} text-ink @5xl:mt-6`}>
+								<h4 className={`${smallHeading} text-ink @5xl:mt-6`}>
 									{area.title}
-								</h3>
+								</h4>
 							</li>
 						))}
 					</ul>
@@ -116,6 +118,7 @@ function HackPage() {
 			{/* Guest speakers */}
 			<Section>
 				<SectionHeading
+					as="h3"
 					align="center"
 					intro="Each speaker shared challenges from their own work. If one caught your attention, reach out to them. They know where volunteers are needed most."
 				>
@@ -150,7 +153,7 @@ function HackPage() {
 								</p>
 								{s.people.map((p, i) => (
 									<div key={p.name} className={i === 0 ? "mt-2" : "mt-4"}>
-										<h3 className={`${smallHeading} text-ink`}>{p.name}</h3>
+										<h4 className={`${smallHeading} text-ink`}>{p.name}</h4>
 										<p className="mt-1 font-sans text-[15px] font-semibold text-ink">
 											{p.title}
 										</p>
@@ -190,6 +193,7 @@ function HackPage() {
 			{/* Sponsors */}
 			<Section>
 				<SectionHeading
+					as="h3"
 					align="center"
 					intro="Thank you for making the day possible."
 				>
