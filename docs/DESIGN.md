@@ -113,8 +113,9 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
 - Hero and other two-column blocks: 45% text and 55% photo, 56px gap, once
   the block is at least 56rem wide (desktop). The photo is 4:3, full width of
   its column, `object-fit: cover`. Text and photo both start at the top,
-  so every Columbus hero puts its heading and photo at the same height and
-  is as tall as its photo; hero copy is written to fit beside the photo. Narrower, the photo goes under the text, shaped by `stackedPhoto`:
+  so every Columbus hero puts its heading and photo at the same height. The
+  photo is at least 4:3 and grows to the text's height when the text is
+  taller, so a block never ends with text hanging below the photo. Narrower, the photo goes under the text, shaped by `stackedPhoto`:
   `"strip"` (heroes, the default) is a 16:10 crop, capped at 70% of the
   screen height on short screens; `"full"` (content
   photos that must not be cropped, like the Hack recap) is the whole 4:3

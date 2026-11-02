@@ -56,12 +56,6 @@ function ServePage() {
 							a meal, sort donations, or set up for an event, we're there to
 							help.
 						</p>
-						<p className={`${leadText} text-ink`}>
-							Along the way, you'll spot where your skills could make a
-							difference. A website that's hard to use. A flyer that needs
-							designing. An event with no one to take photos. That's where you
-							come in.
-						</p>
 					</div>
 					<div className="mt-8 sm:mt-10">
 						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
@@ -71,7 +65,12 @@ function ServePage() {
 
 			{/* Three steps */}
 			<Section>
-				<SectionHeading align="center">How it works</SectionHeading>
+				<SectionHeading
+					align="center"
+					intro="You'll spot where your skills could make a difference. A website that's hard to use. A flyer that needs designing. An event with no one to take photos. That's where you come in."
+				>
+					How it works
+				</SectionHeading>
 				<div className="mt-6 sm:mt-10">
 					<ThreeUp items={steps} />
 				</div>

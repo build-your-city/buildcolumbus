@@ -27,13 +27,15 @@ type SplitBlockProps = {
 
 /**
  * Text on one side and a photo on the other: 45% text and 55% photo with a
- * 56px gap, the photo at 4:3, cropped to fit. Both columns start at the top,
- * so a hero's heading and photo sit at the same height on every page and the
- * photo sets the block's height (hero text is written to fit within it). That needs the block to be at least 56rem (896px) wide, or the
- * text column gets too narrow for a big heading, so the switch follows the
- * block's own width (a container query), not the screen's. Narrower than
- * that (phones, landscape phones, tablets), the photo goes under the text,
- * shaped by `stackedPhoto`.
+ * 56px gap. Both columns start at the top, so a hero's heading and photo sit
+ * at the same height on every page. The photo is at least 4:3 and sets the
+ * block's height; when the text is taller, the photo grows to match it
+ * (cropped at its focal point), so text never hangs below the photo. That
+ * needs the block to be at least 56rem (896px) wide, or the text column gets
+ * too narrow for a big heading, so the switch follows the block's own width
+ * (a container query), not the screen's. Narrower than that (phones,
+ * landscape phones, tablets), the photo goes under the text, shaped by
+ * `stackedPhoto`.
  */
 export default function SplitBlock({
 	photo,
@@ -50,20 +52,23 @@ export default function SplitBlock({
 	const shape =
 		stackedPhoto === "full"
 			? `aspect-[4/3] ${focalClass[focalPoint]}`
-			: `aspect-[16/10] @max-4xl:short:max-h-[70dvh] @4xl:aspect-[4/3] ${focalClass[focalPoint]}`;
+			: `aspect-[16/10] @max-4xl:short:max-h-[70dvh] ${focalClass[focalPoint]}`;
 	return (
 		<div className="@container">
-			<div
-				className={`grid grid-cols-1 gap-8 @4xl:items-start @4xl:gap-14 ${columns}`}
-			>
+			<div className={`grid grid-cols-1 gap-8 @4xl:gap-14 ${columns}`}>
 				<div>{children}</div>
-				<img
-					src={photo.src}
-					alt={photo.alt}
-					className={`w-full object-cover ${shape} ${order}`}
-					fetchPriority={photo.priority ? "high" : undefined}
-					loading={photo.priority ? undefined : "lazy"}
-				/>
+				{/* Side by side, the photo is at least 4:3 (the spacer) and grows
+				    to the text's height when the text is taller. */}
+				<div className={`relative ${order}`}>
+					<div className="hidden aspect-[4/3] @4xl:block" />
+					<img
+						src={photo.src}
+						alt={photo.alt}
+						className={`w-full object-cover ${shape} @4xl:absolute @4xl:inset-0 @4xl:h-full @4xl:aspect-auto`}
+						fetchPriority={photo.priority ? "high" : undefined}
+						loading={photo.priority ? undefined : "lazy"}
+					/>
+				</div>
 			</div>
 		</div>
 	);
