@@ -27,12 +27,12 @@ const steps = [
 	{
 		marker: "2",
 		title: "Main session",
-		body: "A talk, a workshop, or time to work on projects.",
+		body: "Attend a talk, join a workshop, or work on a project.",
 	},
 	{
 		marker: "3",
 		title: "Hang out",
-		body: "Food, coffee, and time to connect with other builders.",
+		body: "Food, coffee, and conversation with other builders.",
 	},
 ];
 
