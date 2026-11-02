@@ -3,7 +3,12 @@ import CtaLink from "@/components/CtaLink";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import SplitBlock from "@/components/SplitBlock";
-import { cardHeading, leadText, underlineLink } from "@/components/text";
+import {
+	bodyText,
+	cardHeading,
+	leadText,
+	underlineLink,
+} from "@/components/text";
 import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
 import { photos } from "../config/photos";
@@ -27,19 +32,44 @@ function AboutPage() {
 					}}
 				>
 					<SectionHeading as="h1">About</SectionHeading>
-					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
-						<p className={`${leadText} text-ink`}>
-							We started in 2024 as Christians in Tech, a meetup for people of
-							faith who work in tech. As we began serving nonprofits around the
-							city, we met people from every background who wanted to help, and
-							the work called for more than tech skills.
-						</p>
-						<p className={`${leadText} text-ink`}>
-							The mission had outgrown the name, and in 2026 we became Build
-							Columbus.
-						</p>
-					</div>
+					<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
+						Builders using their skills to serve Columbus nonprofits since 2024.
+					</p>
 				</SplitBlock>
+			</Section>
+
+			{/* Our story: centered heading over one narrow, left-aligned column */}
+			<Section>
+				<SectionHeading align="center">Our story</SectionHeading>
+				<div className="mx-auto mt-6 flex max-w-[40rem] flex-col gap-4 sm:mt-10 sm:gap-5">
+					<p className={`${bodyText} text-ink`}>
+						We started as Christians in Tech, a meetup for people of faith who
+						work in tech.
+					</p>
+					<p className={`${bodyText} text-ink`}>
+						We had a simple goal: put our skills to work for local nonprofits.
+						They do important work with limited resources, and many don't have
+						the time or budget for things like a website, design, photos, or
+						video.
+					</p>
+					<p className={`${bodyText} text-ink`}>
+						So we started showing up. We served alongside nonprofits around
+						Columbus, and in 2025 we held our first hackathon, a full day spent
+						on real problems they face.
+					</p>
+					<p className={`${bodyText} text-ink`}>
+						As we grew, people from every background joined in, bringing skills
+						well beyond tech. Our name no longer reflected everyone in the room
+						or the work we were doing together. So in 2026, we became Build
+						Columbus.
+					</p>
+					{/* Closing line: semibold, not a heading. */}
+					<p className={`${bodyText} text-ink`}>
+						<strong className="font-semibold">
+							Same mission. More builders.
+						</strong>
+					</p>
+				</div>
 			</Section>
 
 			{/* Organizers */}
@@ -90,11 +120,11 @@ function AboutPage() {
 				<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 					<p className={`${leadText} text-paper`}>
 						Build Columbus is the first chapter of Build Your City. Want to
-						start one where you live? Learn more at build-your-city.org.
+						start one where you live?
 					</p>
 				</div>
 				<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">
-					{city.links.parent.replace(/^https?:\/\//, "")}
+					Learn more at build-your-city.org
 				</CtaLink>
 			</Section>
 		</>
