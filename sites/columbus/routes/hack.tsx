@@ -184,7 +184,7 @@ function HackPage() {
 				{/* Sponsors */}
 				<RecapSubsection
 					title="Sponsors and partners"
-					intro="Thank you to the sponsors who made the day possible."
+					intro="Thank you for making the day possible."
 				>
 					<SponsorGrid sponsors={sponsorsFor("hack")} />
 				</RecapSubsection>
