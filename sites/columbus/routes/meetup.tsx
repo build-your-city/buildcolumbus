@@ -62,17 +62,12 @@ function MeetupPage() {
 							You'll fit right in.
 						</p>
 					</div>
-					{/* RSVP first; the Discord button carries a one-line note under it. */}
-					<div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-start">
+					{/* Stacked full width on phones, one row from sm up. */}
+					<div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap">
 						<CtaLink href={city.links.meetupEvents}>RSVP on Meetup.com</CtaLink>
-						<div className="sm:max-w-[16rem]">
-							<CtaLink href={city.links.discord} variant="secondary">
-								Join the Discord
-							</CtaLink>
-							<p className={`mt-3 ${bodyText} text-ink`}>
-								Chat with builders and learn about volunteer opportunities.
-							</p>
-						</div>
+						<CtaLink href={city.links.discord} variant="secondary">
+							Join the Discord
+						</CtaLink>
 					</div>
 				</SplitBlock>
 			</Section>
