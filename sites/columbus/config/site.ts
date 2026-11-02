@@ -45,6 +45,6 @@ export const pages = {
 		path: "/about",
 		title: `About | ${site.name}`,
 		description:
-			"Build Columbus is a community of builders who use their skills to help local nonprofits. We meet once a month, volunteer with local nonprofits, and hold a hackathon once a year.",
+			"Builders using their skills to serve Columbus nonprofits since 2024.",
 	},
 } satisfies Record<string, PageMeta>;
