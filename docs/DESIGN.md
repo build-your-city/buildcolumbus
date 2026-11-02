@@ -43,8 +43,8 @@ Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 
 | Role | Size | Font |
 |---|---|---|
-| Hero headline | 84px on Home, 112px on the parent site | Inter Tight 800 |
-| Page title | 72px | Inter Tight 800 |
+| Hero headline | 112px on the parent site | Inter Tight 800 |
+| Page title (every Columbus hero, Home included) | 72px | Inter Tight 800 |
 | Section heading | 56px | Inter Tight 800 |
 | Card / step heading | 28px | Inter Tight 700 |
 | Name / small heading | 22px | Inter Tight 700 |
@@ -54,8 +54,7 @@ Headings are mixed case with `letter-spacing: -0.025em` and `line-height: 1`.
 | Body | 17px | Inter 500, line-height 1.55 |
 | Nav / button | 16px | Inter 600 |
 
-Mobile (under 640px) uses a smaller scale: hero 52px with line-height 0.95,
-page titles 44px, section headings 36px, card headings 24px, lead
+Mobile (under 640px) uses a smaller scale: page titles 44px, section headings 36px, card headings 24px, lead
 paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
 `src/components/text.ts`.
 
@@ -113,8 +112,10 @@ paragraphs 18px, body 17px with line-height 1.5. The shared strings live in
     844x390, 932x430, 768x1024, and 820x1180.
 - Hero and other two-column blocks: 45% text and 55% photo, 56px gap, once
   the block is at least 56rem wide (desktop). The photo is 4:3, full width of
-  its column, `object-fit: cover`, and vertically centered against the
-  text. Narrower, the photo goes under the text, shaped by `stackedPhoto`:
+  its column, `object-fit: cover`. Text and photo both start at the top,
+  so every Columbus hero puts its heading and photo at the same height. The
+  photo is at least 4:3 and grows to the text's height when the text is
+  taller, so a block never ends with text hanging below the photo. Narrower, the photo goes under the text, shaped by `stackedPhoto`:
   `"strip"` (heroes, the default) is a 16:10 crop, capped at 70% of the
   screen height on short screens; `"full"` (content
   photos that must not be cropped, like the Hack recap) is the whole 4:3
