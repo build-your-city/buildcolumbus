@@ -10,6 +10,7 @@ import {
 	underlineLink,
 } from "@/components/text";
 import { pageHead } from "@/lib/headTags";
+import { parent } from "../../build-your-city/config";
 import { city } from "../config/city";
 import { photos } from "../config/photos";
 import { pages, site } from "../config/site";
@@ -125,12 +126,16 @@ function AboutPage() {
 				<SectionHeading tone="paper">Build your city.</SectionHeading>
 				<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 					<p className={`${leadText} text-paper`}>
-						Build Columbus is the first chapter of Build Your City. Want to
-						start one where you live?
+						Columbus is the first of many. Build Your City is a growing network
+						of builders serving local nonprofits. Want this where you live?
 					</p>
 				</div>
-				<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">
-					Visit Build Your City
+				{/* Same mailto as the build-your-city.org "Want this where you live?" link. */}
+				<CtaLink
+					href={`mailto:${parent.email}?subject=${encodeURIComponent(parent.emailSubject)}`}
+					className="mt-8 sm:mt-10"
+				>
+					Email us
 				</CtaLink>
 			</Section>
 		</>
