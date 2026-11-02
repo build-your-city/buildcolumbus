@@ -130,7 +130,7 @@ function AboutPage() {
 					</p>
 				</div>
 				<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">
-					Learn more at build-your-city.org
+					Visit Build Your City
 				</CtaLink>
 			</Section>
 		</>
