@@ -24,19 +24,20 @@ function AboutPage() {
 	return (
 		<>
 			{/*
-			  One opening section. From a 50rem container (about 900px screens)
-			  the photo floats right at 55%, level with the title, and the story
-			  wraps under it. Narrower, the float is off and the column is a flex
+			  One opening section. From a 56rem container, the same point and
+			  the same photo column as SplitBlock on the other pages (55% of the
+			  width after its 56px gap), the photo floats right, level with the
+			  title, and the story wraps under it. Narrower, the float is off and the column is a flex
 			  stack ordered title, intro, photo, story. The photo comes first in
 			  the source so it can float from the top.
 			*/}
 			<Section hero>
 				<div className="@container">
-					<div className="flex flex-col @min-[50rem]:flow-root">
+					<div className="flex flex-col @4xl:flow-root">
 						<img
 							src={photos.aboutFirstMeetup.src}
 							alt="One of the first community meetups in 2024."
-							className={`order-3 mt-8 aspect-[4/3] w-full object-cover ${focalClass[photos.aboutFirstMeetup.focal]} @min-[50rem]:float-right @min-[50rem]:mt-0 @min-[50rem]:mb-8 @min-[50rem]:ml-14 @min-[50rem]:w-[55%]`}
+							className={`order-3 mt-8 aspect-[4/3] w-full object-cover ${focalClass[photos.aboutFirstMeetup.focal]} @4xl:float-right @4xl:mt-0 @4xl:mb-8 @4xl:ml-14 @4xl:w-[calc((100%-3.5rem)*0.55)]`}
 							fetchPriority="high"
 						/>
 						<SectionHeading as="h1" className="order-1">

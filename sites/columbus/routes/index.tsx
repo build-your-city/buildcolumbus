@@ -63,10 +63,10 @@ function HomePage() {
 						priority: true,
 					}}
 				>
-					<h1 className="font-display text-[52px] font-extrabold leading-[0.95] tracking-[-0.025em] text-ink sm:text-[84px] sm:leading-none">
+					<SectionHeading as="h1">
 						<span className="block">Use your skills.</span>
 						<span className="block">Serve your city.</span>
-					</h1>
+					</SectionHeading>
 					<p className={`mt-6 sm:mt-8 sm:max-w-[34rem] ${leadText} text-ink`}>
 						Builders in Columbus using their skills to help local nonprofits.
 						Developers, designers, content creators, and more. All are welcome.

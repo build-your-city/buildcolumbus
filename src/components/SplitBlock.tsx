@@ -27,8 +27,9 @@ type SplitBlockProps = {
 
 /**
  * Text on one side and a photo on the other: 45% text and 55% photo with a
- * 56px gap, the photo at 4:3, cropped to fit and vertically centered against
- * the text. That needs the block to be at least 56rem (896px) wide, or the
+ * 56px gap, the photo at 4:3, cropped to fit. Both columns start at the top,
+ * so a hero's heading and photo sit at the same height on every page and the
+ * photo sets the block's height (hero text is written to fit within it). That needs the block to be at least 56rem (896px) wide, or the
  * text column gets too narrow for a big heading, so the switch follows the
  * block's own width (a container query), not the screen's. Narrower than
  * that (phones, landscape phones, tablets), the photo goes under the text,
@@ -53,7 +54,7 @@ export default function SplitBlock({
 	return (
 		<div className="@container">
 			<div
-				className={`grid grid-cols-1 gap-8 @4xl:items-center @4xl:gap-14 ${columns}`}
+				className={`grid grid-cols-1 gap-8 @4xl:items-start @4xl:gap-14 ${columns}`}
 			>
 				<div>{children}</div>
 				<img
