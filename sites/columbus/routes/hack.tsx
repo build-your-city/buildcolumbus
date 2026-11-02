@@ -61,29 +61,25 @@ function HackPage() {
 			  band; each part below is an h3 set off by a divider.
 			*/}
 			<Section>
-				<SplitBlock
-					stackedPhoto="full"
-					photoSide="left"
-					photo={{
-						...photos.hackWinners,
-						alt: "The three crowd favorite winners smiling in front of the results screen at Hack Columbus 2026.",
-					}}
+				<SectionHeading
+					align="center"
+					intro="Hack was held on Saturday, October 24, at Leading EDJE, a software consulting firm in Dublin, Ohio. Seven guest speakers, five challenge categories, and a room full of builders working from 8 AM to 8 PM."
 				>
-					<SectionHeading>Hack 2026 Recap</SectionHeading>
-					<p className={`mt-6 sm:mt-8 ${bodyText} text-ink`}>
-						Hack was held on Saturday, October 24, at Leading EDJE, a software
-						consulting firm in Dublin, Ohio. Seven guest speakers, five
-						challenge categories, and a room full of builders working from 8 AM
-						to 8 PM.
-					</p>
-					<h3 className={`mt-8 sm:mt-10 ${cardHeading} text-ink`}>
-						Crowd Favorite
-					</h3>
-					<p className={`mt-4 ${bodyText} text-ink`}>
-						Jasmine Harris, Victoria Robertson, and Bryan Fernandez, for their
-						project on homelessness with The Bridge Ministry.
-					</p>
-				</SplitBlock>
+					Hack 2026 Recap
+				</SectionHeading>
+
+				{/* Crowd Favorite: the whole 4:3 photo, about two challenge cards wide on desktop */}
+				<RecapSubsection
+					title="Crowd Favorite"
+					intro="Jasmine Harris, Victoria Robertson, and Bryan Fernandez, for their project on homelessness with The Bridge Ministry."
+				>
+					<img
+						src={photos.hackWinners.src}
+						alt="The three crowd favorite winners smiling in front of the results screen at Hack Columbus 2026."
+						className="mx-auto aspect-[4/3] w-full max-w-lg object-cover"
+						loading="lazy"
+					/>
+				</RecapSubsection>
 
 				{/* Challenge categories: one box with five cells on desktop, cards on mobile */}
 				<RecapSubsection
@@ -213,7 +209,7 @@ function RecapSubsection({
 	children: ReactNode;
 }) {
 	return (
-		<div className="mt-16 border-t border-line pt-16 sm:mt-24 sm:pt-24">
+		<div className="mt-6 border-t border-line pt-6 sm:mt-9 sm:pt-9">
 			<div className="text-center">
 				<h3 className={`${cardHeading} text-ink`}>{title}</h3>
 				<p
