@@ -21,18 +21,18 @@ export const Route = createFileRoute("/meetup")({
 const steps = [
 	{
 		marker: "1",
-		title: "Say hello",
-		body: "We go around the room and everyone shares their name, what they're working on, and something they can help with.",
+		title: "Intro circle",
+		body: "We go around the room and everyone shares their name, what they're working on, and how their skills could help someone else.",
 	},
 	{
 		marker: "2",
 		title: "Main session",
-		body: "A talk, a workshop, or time to work alongside other builders. It changes month to month and gets posted on Meetup.com ahead of time.",
+		body: "A talk, a workshop, or time to work on projects.",
 	},
 	{
 		marker: "3",
 		title: "Hang out",
-		body: "Food, coffee, and time to keep the conversations going.",
+		body: "Food, coffee, and time to connect with other builders.",
 	},
 ];
 
@@ -54,16 +54,20 @@ function MeetupPage() {
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
 							Once a month on a Saturday afternoon, we get together at Improving
-							downtown. Sometimes there's a talk or a workshop. Other times we
-							work on our own projects and share what we're making.
+							in Columbus to learn from each other, work on projects, and share
+							what we're building.
 						</p>
 						<p className={`${leadText} text-ink`}>
-							Either way, you'll meet good people and leave with new ideas.
-							First time? You'll fit right in.
+							You'll leave with new ideas and new connections. First time?
+							You'll fit right in.
 						</p>
 					</div>
-					<div className="mt-8 sm:mt-10">
-						<CtaLink href={city.links.discord}>Join the Discord</CtaLink>
+					{/* Stacked full width on phones, one row from sm up. */}
+					<div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:flex-wrap">
+						<CtaLink href={city.links.meetupEvents}>RSVP on Meetup.com</CtaLink>
+						<CtaLink href={city.links.discord} variant="secondary">
+							Join the Discord
+						</CtaLink>
 					</div>
 				</SplitBlock>
 			</Section>

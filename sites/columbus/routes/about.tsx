@@ -29,10 +29,10 @@ function AboutPage() {
 					<SectionHeading as="h1">About</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 						<p className={`${leadText} text-ink`}>
-							We started in 2024 as Christians in Tech - Columbus, a meetup for
-							people of faith who work in tech. As we began serving nonprofits
-							around the city, we met people from every background who wanted to
-							help, and the work called for more than tech skills.
+							We started in 2024 as Christians in Tech, a meetup for people of
+							faith who work in tech. As we began serving nonprofits around the
+							city, we met people from every background who wanted to help, and
+							the work called for more than tech skills.
 						</p>
 						<p className={`${leadText} text-ink`}>
 							The mission had outgrown the name, and in 2026 we became Build
@@ -89,9 +89,8 @@ function AboutPage() {
 				<SectionHeading tone="paper">Build your city.</SectionHeading>
 				<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
 					<p className={`${leadText} text-paper`}>
-						Build Columbus is the first city in Build Your City, a growing
-						network of city communities. Want to build yours? Learn more at
-						build-your-city.org.
+						Build Columbus is the first chapter of Build Your City. Want to
+						start one where you live? Learn more at build-your-city.org.
 					</p>
 				</div>
 				<CtaLink href={city.links.parent} className="mt-8 sm:mt-10">

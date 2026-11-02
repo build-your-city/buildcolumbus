@@ -64,17 +64,17 @@ function HackPage() {
 						alt: "The three crowd favorite winners smiling in front of the results screen at Hack Columbus 2026.",
 					}}
 				>
-					<SectionHeading>{city.hackEventName}</SectionHeading>
+					<SectionHeading>Hack 2026 Recap</SectionHeading>
 					<div className="mt-6 flex flex-col gap-4 sm:mt-8">
 						<p className={`${bodyText} text-ink`}>
-							{city.hackEventName} was Saturday, October 24 at Leading EDJE, a
-							software consulting firm in Dublin, Ohio. Seven guest speakers,
-							five challenge areas, and a room full of builders working from 8
-							AM to 8 PM.
+							Hack was held on Saturday, October 24, at Leading EDJE, a software
+							consulting firm in Dublin, Ohio. Seven guest speakers, five
+							challenge areas, and a room full of builders working from 8 AM to
+							8 PM.
 						</p>
 						<p className={`${bodyText} text-ink`}>
-							Crowd favorite for the day went to Jasmine Harris, Victoria
-							Robertson, and Bryan Fernandez.
+							Jasmine Harris, Victoria Robertson, and Bryan Fernandez won Crowd
+							Favorite for their project.
 						</p>
 					</div>
 				</SplitBlock>
@@ -84,7 +84,7 @@ function HackPage() {
 			<Section>
 				<SectionHeading
 					align="center"
-					intro="Five real needs in Columbus. Every project in the room answered one of them."
+					intro="Five areas where nonprofits need help. Every project in the room answered one of them."
 				>
 					What we built around
 				</SectionHeading>
@@ -116,7 +116,7 @@ function HackPage() {
 			<Section>
 				<SectionHeading
 					align="center"
-					intro="If their work speaks to you, reach out. They know where help is needed."
+					intro="These speakers work on these needs every day. If you want to help with one of them, reach out. They know where volunteers are needed most."
 				>
 					Who we learned from
 				</SectionHeading>
