@@ -1,14 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import CtaLink from "@/components/CtaLink";
+import { focalClass } from "@/components/focal";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
-import SplitBlock from "@/components/SplitBlock";
-import {
-	bodyText,
-	cardHeading,
-	leadText,
-	underlineLink,
-} from "@/components/text";
+import { cardHeading, leadText, underlineLink } from "@/components/text";
 import { pageHead } from "@/lib/headTags";
 import { city } from "../config/city";
 import { photos } from "../config/photos";
@@ -24,51 +19,58 @@ function AboutPage() {
 		<>
 			{/* Page hero */}
 			<Section hero>
-				<SplitBlock
-					photo={{
-						...photos.aboutFirstMeetup,
-						alt: "One of the first community meetups in 2024.",
-						priority: true,
-					}}
-				>
-					<SectionHeading as="h1">About</SectionHeading>
-					<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
-						Builders using their skills to serve Columbus nonprofits since 2024.
-					</p>
-				</SplitBlock>
+				<SectionHeading as="h1">About</SectionHeading>
+				<p className={`mt-6 sm:mt-8 ${leadText} text-ink`}>
+					Builders using their skills to serve Columbus nonprofits since 2024.
+				</p>
 			</Section>
 
-			{/* Our story: centered heading over one narrow, left-aligned column */}
+			{/*
+			  Our story: text left, photo right, vertically centered, once the
+			  section is 42rem wide (tablets and up); narrower, the photo goes
+			  under the text. The text column is the wider one for the long copy.
+			*/}
 			<Section>
-				<SectionHeading align="center">Our story</SectionHeading>
-				<div className="mx-auto mt-6 flex max-w-[40rem] flex-col gap-4 sm:mt-10 sm:gap-5">
-					<p className={`${bodyText} text-ink`}>
-						We started as Christians in Tech, a meetup for people of faith who
-						work in tech.
-					</p>
-					<p className={`${bodyText} text-ink`}>
-						We had a simple goal: put our skills to work for local nonprofits.
-						They do important work with limited resources, and many don't have
-						the time or budget for things like a website, design, photos, or
-						video.
-					</p>
-					<p className={`${bodyText} text-ink`}>
-						So we started showing up. We served alongside nonprofits around
-						Columbus, and in 2025 we held our first hackathon, a full day spent
-						on real problems they face.
-					</p>
-					<p className={`${bodyText} text-ink`}>
-						As we grew, people from every background joined in, bringing skills
-						well beyond tech. Our name no longer reflected everyone in the room
-						or the work we were doing together. So in 2026, we became Build
-						Columbus.
-					</p>
-					{/* Closing line: semibold, not a heading. */}
-					<p className={`${bodyText} text-ink`}>
-						<strong className="font-semibold">
-							Same mission. More builders.
-						</strong>
-					</p>
+				<div className="@container">
+					<div className="grid grid-cols-1 gap-8 @2xl:grid-cols-[3fr_2fr] @2xl:items-center @2xl:gap-10 @4xl:gap-14">
+						<div>
+							<SectionHeading>Our story</SectionHeading>
+							<div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
+								<p className={`${leadText} text-ink`}>
+									We started as Christians in Tech, a meetup for people of faith
+									who work in tech.
+								</p>
+								<p className={`${leadText} text-ink`}>
+									We had a simple goal: put our skills to work for local
+									nonprofits. They do important work with limited resources, and
+									many don't have the time or budget for things like a website,
+									design, photos, or video.
+								</p>
+								<p className={`${leadText} text-ink`}>
+									So we started showing up. We served alongside nonprofits
+									around Columbus, and in 2025 we held our first hackathon, a
+									full day spent on real problems they face.
+								</p>
+								<p className={`${leadText} text-ink`}>
+									As we grew, people from every background joined in, bringing
+									skills well beyond tech. Our name no longer reflected everyone
+									in the room or the work we were doing together. So in 2026, we
+									became Build Columbus.
+								</p>
+								{/* Closing line: semibold, not a heading. */}
+								<p className={`${leadText} text-ink`}>
+									<strong className="font-semibold">
+										Same mission. More builders.
+									</strong>
+								</p>
+							</div>
+						</div>
+						<img
+							src={photos.aboutFirstMeetup.src}
+							alt="One of the first community meetups in 2024."
+							className={`aspect-[4/3] w-full object-cover ${focalClass[photos.aboutFirstMeetup.focal]}`}
+						/>
+					</div>
 				</div>
 			</Section>
 
