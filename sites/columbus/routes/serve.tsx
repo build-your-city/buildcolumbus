@@ -85,7 +85,7 @@ function ServePage() {
 					problem their skills could solve, tell us about it.
 				</p>
 				<CtaLink href={`mailto:${city.email}`} className="mt-8 sm:mt-10">
-					Get in touch
+					Email us
 				</CtaLink>
 			</Section>
 		</>
