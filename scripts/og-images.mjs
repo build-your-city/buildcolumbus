@@ -1,9 +1,10 @@
 /**
  * Renders the 1200x630 social preview images for every site from the brand
  * tokens: Paper background, the two-line wordmark in Ink and Build Blue, and
- * the tagline, set in Inter Tight and Inter from Google Fonts. The lockup is
- * about two-thirds of the width and stays inside the central 80% so square
- * and 1.91:1 crops both keep it whole.
+ * the tagline, set in Inter Tight and Inter from Google Fonts. Facebook's
+ * mobile composer shows a square crop from the center (630x630), so the
+ * lockup is sized to sit inside the central square with a 10% margin. That
+ * keeps it whole in both the square and the full 1.91:1 preview.
  *
  * Usage: node scripts/og-images.mjs
  *
@@ -22,8 +23,12 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 const WIDTH = 1200;
 const HEIGHT = 630;
-/** Width of the lockup as a fraction of the image width. */
-const LOCKUP_WIDTH = 2 / 3;
+/** Width of the lockup as a fraction of the image width. 0.4 of 1200 is
+ * 480px, which fits the central 630px square with room for its 63px margin. */
+const LOCKUP_WIDTH = 0.4;
+/** The square crop social apps take from the center of the image. */
+const SQUARE_LEFT = (WIDTH - HEIGHT) / 2;
+const SQUARE_RIGHT = SQUARE_LEFT + HEIGHT;
 const TAGLINE = "Use your skills. Serve your city.";
 
 const images = [
@@ -215,8 +220,8 @@ async function main() {
 			});
 			const box = result.value;
 			const inside =
-				box.left >= WIDTH * 0.1 &&
-				box.right <= WIDTH * 0.9 &&
+				box.left >= SQUARE_LEFT + HEIGHT * 0.1 &&
+				box.right <= SQUARE_RIGHT - HEIGHT * 0.1 &&
 				box.top >= HEIGHT * 0.1 &&
 				box.bottom <= HEIGHT * 0.9;
 			if (!inside) {
