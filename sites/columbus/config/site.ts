@@ -10,7 +10,7 @@ export const site: SiteMeta = {
 	url: "https://buildcolumbus.org",
 	description:
 		"Builders in Columbus using their skills to help local nonprofits. Developers, designers, content creators, and more. All are welcome.",
-	ogImage: "/og-columbus.png",
+	ogImage: "/og-columbus.png?v=2",
 	themeColor: "#141A2A",
 };
 
