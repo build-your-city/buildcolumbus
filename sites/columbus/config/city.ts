@@ -53,7 +53,6 @@ export const city = {
 		discord: "https://discord.com/invite/s9bQZBVduF",
 		sessionize: "https://sessionize.com/citcbus",
 		parent: "https://build-your-city.org",
-		donate: "https://onrealm.org/bwpc/-/form/give/cit",
 		instagram: `https://www.instagram.com/${social.instagram}/`,
 		linkedin: `https://www.linkedin.com/showcase/${social.linkedin}/`,
 		facebook: `https://www.facebook.com/${social.facebook}/`,
