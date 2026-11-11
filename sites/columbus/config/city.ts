@@ -104,7 +104,7 @@ export const city = {
 
 	/** Which sponsors appear in each page's grid, in display order. */
 	sponsorPages: {
-		meetup: ["improving", "fruitsAndRoots", "bethel"],
+		meetup: ["improving", "fruitsAndRoots"],
 		hack: ["indigitous", "leadingEdje", "bethel", "fruitsAndRoots"],
 	} satisfies Record<SponsorPage, SponsorId[]>,
 
