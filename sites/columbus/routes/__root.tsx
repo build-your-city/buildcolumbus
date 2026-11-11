@@ -36,7 +36,6 @@ const footerColumns: FooterColumn[] = [
 			{ label: city.programs.meetup, to: "/meetup" },
 			{ label: city.programs.serve, to: "/serve" },
 			{ label: city.programs.hack, to: "/hack" },
-			{ label: "Donate", href: city.links.donate },
 		],
 	},
 	{
