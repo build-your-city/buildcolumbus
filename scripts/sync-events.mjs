@@ -17,6 +17,13 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const EVENTS_URL = "https://www.meetup.com/buildcbus/events/";
+
+// Events deleted on Meetup that its public events page still lists.
+// Add the event id here to keep it off the site; remove it once the
+// event's date has passed.
+const SKIPPED_EVENT_IDS = new Set([
+	"317439108", // Meetup #48 posted for the wrong date (Nov 16, 2026); deleted Nov 15
+]);
 const OUT_PATH = resolve(import.meta.dirname, "../src/data/events.json");
 
 function extractJsonLd(html) {
@@ -112,6 +119,7 @@ async function main() {
 	// Deduplicate by id, keep only future-or-today events, sort ascending.
 	const seen = new Set();
 	const cleaned = events
+		.filter((e) => !SKIPPED_EVENT_IDS.has(e.id))
 		.filter((e) => {
 			if (seen.has(e.id)) return false;
 			seen.add(e.id);
