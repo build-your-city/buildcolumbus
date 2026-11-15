@@ -1,5 +1,5 @@
 {
-	"updatedAt": "2026-11-02T13:48:46.220Z",
+	"updatedAt": "2026-11-15T16:07:53.138Z",
 	"source": "https://www.meetup.com/buildcbus/events/",
 	"events": [
 		{
@@ -7,6 +7,20 @@
 			"name": "Build Columbus Meetup #48 @ Improving",
 			"url": "https://www.meetup.com/buildcbus/events/317252923/",
 			"dateTime": "2026-11-14T13:00:00-05:00",
+			"venue": ""
+		},
+		{
+			"id": "317439108",
+			"name": "Build Columbus Meetup #48 @ Improving",
+			"url": "https://www.meetup.com/buildcbus/events/317439108/",
+			"dateTime": "2026-11-16T19:00:00-05:00",
+			"venue": ""
+		},
+		{
+			"id": "317439115",
+			"name": "Build Columbus Meetup #49 @ Improving",
+			"url": "https://www.meetup.com/buildcbus/events/317439115/",
+			"dateTime": "2027-01-02T13:00:00-05:00",
 			"venue": ""
 		}
 	]
